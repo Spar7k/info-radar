@@ -27,7 +27,19 @@ export async function sendRadarEmail(opts: SendOptions = {}): Promise<SendResult
   const text = renderEmailText(latest);
   const dateStr = latest.date || new Date().toISOString().slice(0, 10);
   const subject = `agent雷达｜今日信息日报｜${dateStr}`;
-  const to = opts.toOverride || config.email!.to.join(", ");
+
+  // Prefer explicit override (API), fall back to env var default (CLI / cron)
+  const to = opts.toOverride
+    ? opts.toOverride
+    : config.email?.to?.length
+      ? config.email.to.join(", ")
+      : null;
+
+  if (!to) {
+    throw new Error(
+      "No recipient configured. Set INFO_RADAR_EMAIL_TO (for CLI/cron) or provide a 'to' field (for API).",
+    );
+  }
 
   const transporter = nodemailer.createTransport({
     host: smtp.host,

@@ -69,14 +69,15 @@ export function loadEmailConfig(): DryRunConfig {
   const user = envStr("INFO_RADAR_SMTP_USER");
   const pass = envStr("INFO_RADAR_SMTP_PASS");
   const from = envStr("INFO_RADAR_EMAIL_FROM");
-  const toRaw = envStr("INFO_RADAR_EMAIL_TO");
+  const toRaw = envStr("INFO_RADAR_EMAIL_TO"); // optional — API calls provide toOverride
 
   if (!host) missing.push("INFO_RADAR_SMTP_HOST");
   if (!portRaw) missing.push("INFO_RADAR_SMTP_PORT");
   if (!user) missing.push("INFO_RADAR_SMTP_USER");
   if (!pass) missing.push("INFO_RADAR_SMTP_PASS");
   if (!from) missing.push("INFO_RADAR_EMAIL_FROM");
-  if (!toRaw) missing.push("INFO_RADAR_EMAIL_TO");
+  // INFO_RADAR_EMAIL_TO is not in missingFields — it's optional when
+  // the API caller provides a toOverride or the CLI provides it explicitly.
 
   let smtp: SmtpConfig | null = null;
   if (host && portRaw && user && pass) {
@@ -90,13 +91,13 @@ export function loadEmailConfig(): DryRunConfig {
     };
   }
 
-  let email: EmailConfig | null = null;
-  if (from && toRaw) {
-    email = {
-      from,
-      to: toRaw.split(",").map((s) => s.trim()).filter(Boolean),
-    };
-  }
+  // email object always requires `from`; `to` is optional
+  const email: EmailConfig | null = from
+    ? {
+        from,
+        to: toRaw ? toRaw.split(",").map((s) => s.trim()).filter(Boolean) : [],
+      }
+    : null;
 
   return { provider, smtp, email, sendEnabled, missingFields: missing };
 }
@@ -114,7 +115,7 @@ export function validateCanSend(cfg: DryRunConfig): void {
         "Run 'npm run radar:email:dry-run' to see what's missing.",
     );
   }
-  if (!cfg.email) {
-    throw new Error("Email recipients not configured. Set INFO_RADAR_EMAIL_FROM and INFO_RADAR_EMAIL_TO.");
+  if (!cfg.email?.from) {
+    throw new Error("Sender not configured. Set INFO_RADAR_EMAIL_FROM.");
   }
 }
