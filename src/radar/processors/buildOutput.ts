@@ -58,9 +58,9 @@ export interface RecommendationItem {
   score: number;
   scoreBreakdown: ScoreBreakdown;
   ruleReasonHints: string[];
-  llmSummary: null;
-  llmRecommendationReason: null;
-  llmRiskNote: null;
+  llmSummary: string | null;
+  llmRecommendationReason: string | null;
+  llmRiskNote: string | null;
 }
 
 export interface CandidateItem {
