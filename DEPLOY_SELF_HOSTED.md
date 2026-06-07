@@ -85,6 +85,7 @@ sudo certbot --nginx -d your-domain.com
 |------|------|------|
 | 07:30 | 刷新数据 | `npm run radar:daily:refresh` |
 | 08:00 | 发送邮件 | `npm run radar:email:scheduled` |
+| 08:30 | 清理旧文件 | `INFO_RADAR_CLEANUP_APPLY=true npm run radar:cleanup` |
 
 **07:30 刷新数据**执行：fetch → generate → llm preview → llm apply → status → site:build
 

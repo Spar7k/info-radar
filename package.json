@@ -14,6 +14,7 @@
     "radar:email:send": "tsx src/radar/email/sendEmail.ts",
     "radar:email:scheduled": "tsx src/radar/email/sendScheduledEmail.ts",
     "radar:daily:refresh": "tsx src/radar/jobs/dailyRefresh.ts",
+    "radar:cleanup": "tsx src/radar/jobs/cleanupData.ts",
     "site:build": "tsx src/radar/site/buildStaticSite.ts",
     "site:check": "tsx src/radar/site/checkDist.ts",
     "radar:status": "tsx src/radar/status/generateStatus.ts",

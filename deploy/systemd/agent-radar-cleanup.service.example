@@ -1,0 +1,14 @@
+# agent雷达 — daily data cleanup service
+# Replace /path/to/agent-radar with your actual project path.
+
+[Unit]
+Description=agent-radar daily data cleanup (08:30 Asia/Shanghai)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/path/to/agent-radar
+ExecStart=/usr/bin/npm run radar:cleanup
+Environment=INFO_RADAR_CLEANUP_APPLY=true
+EnvironmentFile=/etc/agent-radar/agent-radar.env
+StandardOutput=journal
+StandardError=journal

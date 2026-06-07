@@ -225,8 +225,23 @@ npm run radar:email:scheduled
 |------|------|------|
 | 07:30 | `npm run radar:daily:refresh` | 抓取 → 生成 → LLM → 构建 dist |
 | 08:00 | `npm run radar:email:scheduled` | 发送日报邮件 |
+| 08:30 | `INFO_RADAR_CLEANUP_APPLY=true npm run radar:cleanup` | 清理旧 raw/generated 文件 |
 
 > 服务器系统时区必须设置为 Asia/Shanghai。无 LLM Key 时跳过 LLM 步骤，仍生成规则推荐版本。
+
+### 数据保留与清理
+
+| 数据 | 保留策略 |
+|------|---------|
+| `data/latest.json` / `data/status.json` | 覆盖更新，永久保留 |
+| `data/server/email_settings.json` | 用户设置，永不清理 |
+| `data/raw/*.json` | 保留最近 30 天（latest_raw.json 永久保留） |
+| `data/generated/*` | 保留最近 14 天 |
+
+```bash
+npm run radar:cleanup                                    # dry-run（预览）
+INFO_RADAR_CLEANUP_APPLY=true npm run radar:cleanup      # 真实清理
+```
 
 部署示例：[deploy/cron/](deploy/cron/) | [deploy/systemd/](deploy/systemd/) | [DEPLOY_SELF_HOSTED.md](DEPLOY_SELF_HOSTED.md)
 

@@ -1,0 +1,21 @@
+# agent雷达 — daily data cleanup timer
+# Fires at 08:30 every day (requires server timezone = Asia/Shanghai).
+#
+# Chain: 07:30 refresh → 08:00 email → 08:30 cleanup
+#
+# Install:
+#   sudo timedatectl set-timezone Asia/Shanghai
+#   sudo cp deploy/systemd/agent-radar-cleanup.service.example /etc/systemd/system/agent-radar-cleanup.service
+#   sudo cp deploy/systemd/agent-radar-cleanup.timer.example /etc/systemd/system/agent-radar-cleanup.timer
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now agent-radar-cleanup.timer
+
+[Unit]
+Description=agent-radar daily data cleanup timer (08:30 Asia/Shanghai)
+
+[Timer]
+OnCalendar=*-*-* 08:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
