@@ -28,5 +28,16 @@ export interface LlmMeta {
   model: string;
   baseUrlConfigured: boolean;
   itemCount: number;
+  retryCount?: number;
   errorMessage?: string;
+  /** Diagnostic: total length of LLM raw response */
+  rawLength?: number;
+  /** Diagnostic: first 200 chars of LLM response */
+  rawPreviewStart?: string;
+  /** Diagnostic: last 200 chars of LLM response */
+  rawPreviewEnd?: string;
+  /** API-reported finish reason (e.g. "stop", "length") */
+  finishReason?: string;
+  /** Token usage from API response */
+  usage?: { promptTokens?: number; completionTokens?: number; totalTokens?: number };
 }

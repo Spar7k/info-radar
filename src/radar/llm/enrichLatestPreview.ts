@@ -1,32 +1,25 @@
 /**
  * Task 4A: LLM enrichment preview.
  *
- * Reads data/latest.json, sends the Top 10 items to an OpenAI-compatible LLM,
- * and writes enriched output to data/generated/latest_llm_preview.json.
+ * Reads data/latest.json, sends Top 10 to an OpenAI-compatible LLM,
+ * writes enriched output to data/generated/latest_llm_preview.json.
  *
- * When INFO_RADAR_LLM_API_KEY is not set, the script completes successfully
- * with llm.status = "skipped_no_api_key" and all LLM fields left null.
- *
- * Does NOT overwrite data/latest.json.
- * Does NOT modify dashboard.html.
+ * When INFO_RADAR_LLM_API_KEY is not set → skipped_no_api_key.
+ * On JSON parse failure → auto-retry once with a shorter prompt.
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import type { LatestOutput, RecommendationItem } from "../processors/buildOutput.ts";
-import { loadLlmConfig, LlmClient } from "./client.ts";
-import { buildEnrichmentPrompt, type LlmPromptItem } from "./prompt.ts";
+import { loadLlmConfig, LlmClient, type LlmChatResult } from "./client.ts";
+import { buildEnrichmentPrompt, buildRetryPrompt, type LlmPromptItem } from "./prompt.ts";
 import type { LlmItemEnrichment, LlmMeta, LlmReportEnrichment, LlmResponse } from "./types.ts";
-
-// ---------------------------------------------------------------------------
-// Paths
-// ---------------------------------------------------------------------------
 
 const LATEST_PATH = path.resolve("data", "latest.json");
 const OUT_PATH = path.resolve("data", "generated", "latest_llm_preview.json");
 
 // ---------------------------------------------------------------------------
-// JSON sanitize — strip ```json fences
+// JSON helpers
 // ---------------------------------------------------------------------------
 
 function extractJson(text: string): string {
@@ -38,43 +31,97 @@ function extractJson(text: string): string {
   return result.trim();
 }
 
-// ---------------------------------------------------------------------------
-// Validation & trimming
-// ---------------------------------------------------------------------------
-
 function trimField(val: unknown, maxChars: number): string {
   if (typeof val !== "string") return "";
   return val.trim().slice(0, maxChars);
 }
 
-function validateAndMerge(
-  items: RecommendationItem[],
-  parsed: LlmResponse,
-): RecommendationItem[] {
-  const llmItems = parsed.items ?? [];
+// ---------------------------------------------------------------------------
+// Merge LLM output into items
+// ---------------------------------------------------------------------------
+
+function mergeItems(items: RecommendationItem[], parsed: LlmResponse): RecommendationItem[] {
   const map = new Map<string, LlmItemEnrichment>();
-  for (const li of llmItems) {
-    if (li && typeof li.id === "string") {
-      map.set(li.id, li);
+  for (const li of parsed.items ?? []) {
+    if (li && typeof li.id === "string") map.set(li.id, li);
+  }
+  return items.map((item) => {
+    const e = map.get(item.id);
+    if (!e) return item;
+    return {
+      ...item,
+      llmSummary: trimField(e.llmSummary, 80) || null,
+      llmRecommendationReason: trimField(e.llmRecommendationReason, 120) || null,
+      llmRiskNote: trimField(e.llmRiskNote, 120) || null,
+    };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Diagnostics from LLM result
+// ---------------------------------------------------------------------------
+
+function diagFromResult(raw: string, result: LlmChatResult): Partial<LlmMeta> {
+  return {
+    rawLength: raw.length,
+    rawPreviewStart: raw.slice(0, 200),
+    rawPreviewEnd: raw.slice(-200),
+    finishReason: result.finishReason,
+    usage: result.usage,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Single LLM call + parse
+// ---------------------------------------------------------------------------
+
+interface CallResult {
+  enrichedItems: RecommendationItem[];
+  reportSummary: string | null;
+  reportMarkdown: string | null;
+  enrichedCount: number;
+  diag: Partial<LlmMeta>;
+}
+
+async function callAndParse(
+  client: LlmClient,
+  systemPrompt: string,
+  userPrompt: string,
+  items: RecommendationItem[],
+): Promise<CallResult> {
+  const raw = await client.chat([
+    { role: "system", content: systemPrompt },
+    { role: "user", content: userPrompt },
+  ]);
+
+  console.log(`[radar:llm] LLM responded: ${raw.content.length} chars, finish: ${raw.finishReason ?? "?"}`);
+
+  const jsonText = extractJson(raw.content);
+  const parsed = JSON.parse(jsonText) as LlmResponse;
+
+  if (!parsed.items || !Array.isArray(parsed.items)) {
+    throw new Error("LLM response missing 'items' array");
+  }
+
+  const enrichedItems = mergeItems(items, parsed);
+
+  let reportSummary: string | null = null;
+  let reportMarkdown: string | null = null;
+  if (parsed.report) {
+    const r = parsed.report as LlmReportEnrichment;
+    if (typeof r.summary === "string" && r.summary.trim()) {
+      reportSummary = r.summary.trim().slice(0, 300);
+    }
+    if (typeof r.markdown === "string" && r.markdown.trim()) {
+      reportMarkdown = r.markdown.trim().slice(0, 6000);
     }
   }
 
-  return items.map((item) => {
-    const enrichment = map.get(item.id);
-    if (!enrichment) return item;
+  const enrichedCount = enrichedItems.filter(
+    (it) => it.llmSummary || it.llmRecommendationReason || it.llmRiskNote,
+  ).length;
 
-    const llmSummary = trimField(enrichment.llmSummary, 120);
-    const llmRecommendationReason = trimField(enrichment.llmRecommendationReason, 180);
-    const llmRiskNote = trimField(enrichment.llmRiskNote, 180);
-
-    // Only set fields if the LLM actually returned something meaningful
-    return {
-      ...item,
-      llmSummary: llmSummary || null,
-      llmRecommendationReason: llmRecommendationReason || null,
-      llmRiskNote: llmRiskNote || null,
-    };
-  });
+  return { enrichedItems, reportSummary, reportMarkdown, enrichedCount, diag: diagFromResult(raw.content, raw) };
 }
 
 // ---------------------------------------------------------------------------
@@ -84,7 +131,6 @@ function validateAndMerge(
 async function main(): Promise<void> {
   console.log("[radar:llm] Task 4A — LLM enrichment preview...");
 
-  // 1. Load latest.json
   if (!fs.existsSync(LATEST_PATH)) {
     console.error(`[radar:llm] ERROR: ${LATEST_PATH} not found. Run 'npm run radar:generate:latest' first.`);
     process.exit(1);
@@ -97,129 +143,103 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  console.log(`[radar:llm] Loaded ${top10.length} recommendations from data/latest.json`);
+  console.log(`[radar:llm] Loaded ${top10.length} recommendations.`);
 
-  // 2. Check API key
+  // ── No API key ──
   const config = loadLlmConfig();
-
   if (!config) {
     console.log("[radar:llm] INFO: INFO_RADAR_LLM_API_KEY not set — skipping LLM call.");
-
-    const llmMeta: LlmMeta = {
+    writeOutput(latest, latest.llmReport.summary, latest.llmReport.markdown, {
       status: "skipped_no_api_key",
       model: process.env["INFO_RADAR_LLM_MODEL"] ?? "gpt-4o-mini",
       baseUrlConfigured: !!process.env["INFO_RADAR_LLM_BASE_URL"],
       itemCount: 0,
-    };
-
-    writeOutput(latest, latest.llmReport.summary, latest.llmReport.markdown, llmMeta);
+    });
     return;
   }
 
   console.log(
-    `[radar:llm] Using model: ${config.model}` +
-      (config.baseUrl !== "https://api.openai.com/v1" ? ` @ ${config.baseUrl}` : ""),
+    `[radar:llm] Model: ${config.model} | max_tokens: ${config.maxTokens} | json_mode: ${config.jsonMode}` +
+      (config.baseUrl !== "https://api.openai.com/v1" ? ` | base: ${config.baseUrl}` : ""),
   );
 
-  // 3. Build compact prompt
+  // ── Build prompt items (compact) ──
   const promptItems: LlmPromptItem[] = top10.map((item) => ({
     id: item.id,
     title: item.title,
     source: item.source,
     url: item.url,
-    summary: (item.summary ?? "").slice(0, 600),
-    tags: item.tags,
+    summary: (item.summary ?? "").slice(0, 300),
+    tags: (item.tags ?? []).slice(0, 6),
     score: item.score,
     scoreBreakdown: item.scoreBreakdown as unknown as Record<string, number>,
     metrics: item.metrics as Record<string, unknown>,
     publishedAt: item.publishedAt,
   }));
 
-  const sourceSummary = `来源: ${latest.sources.join(", ")} | 共 ${latest.candidates.length} 条候选`;
-  const prompt = buildEnrichmentPrompt(promptItems, latest.date, sourceSummary);
+  const sourceSummary = `${latest.sources.join("、")} | ${latest.candidates.length}条候选`;
+  const sysPrompt = "你是专业的信息分析助手。只返回严格 JSON，不要代码块，不要解释。";
 
-  // 4. Call LLM
   const client = new LlmClient(config);
 
   let llmMeta: LlmMeta;
-  let enrichedItems: RecommendationItem[] = top10;
+  let enrichedItems = top10;
   let reportSummary: string | null = latest.llmReport.summary;
   let reportMarkdown: string | null = latest.llmReport.markdown;
 
+  // ── Attempt 1: full prompt ──
   try {
-    console.log(`[radar:llm] Calling LLM...`);
-    const raw = await client.chat(
-      [
-        { role: "system", content: "你是一个专业的信息分析助手。只返回严格 JSON，不要 Markdown 包裹，不要额外解释。" },
-        { role: "user", content: prompt },
-      ],
-      { temperature: 0.3, maxTokens: 4096 },
+    console.log("[radar:llm] Attempt 1 — full enrichment...");
+    const result = await callAndParse(
+      client,
+      sysPrompt,
+      buildEnrichmentPrompt(promptItems, latest.date, sourceSummary),
+      top10,
     );
-
-    console.log(`[radar:llm] LLM responded with ${raw.length} chars.`);
-
-    // 5. Parse
-    const jsonText = extractJson(raw);
-    let parsed: LlmResponse;
-    try {
-      parsed = JSON.parse(jsonText) as LlmResponse;
-    } catch (parseErr) {
-      throw new Error(`JSON parse failed: ${String(parseErr)}. Raw (first 200): ${jsonText.slice(0, 200)}`);
-    }
-
-    // 6. Validate & merge
-    if (!parsed.items || !Array.isArray(parsed.items)) {
-      throw new Error("LLM response missing 'items' array");
-    }
-
-    enrichedItems = validateAndMerge(top10, parsed);
-
-    // Merge report
-    if (parsed.report) {
-      const rep = parsed.report as LlmReportEnrichment;
-      if (rep.summary && typeof rep.summary === "string" && rep.summary.trim().length > 0) {
-        reportSummary = rep.summary.trim().slice(0, 400);
-      }
-      if (rep.markdown && typeof rep.markdown === "string" && rep.markdown.trim().length > 0) {
-        reportMarkdown = rep.markdown.trim().slice(0, 8000);
-      }
-    }
-
-    const enrichedCount = enrichedItems.filter(
-      (item) => item.llmSummary || item.llmRecommendationReason || item.llmRiskNote,
-    ).length;
-
+    enrichedItems = result.enrichedItems;
+    reportSummary = result.reportSummary;
+    reportMarkdown = result.reportMarkdown;
     llmMeta = {
-      status: "ok",
-      model: config.model,
-      baseUrlConfigured: true,
-      itemCount: enrichedCount,
+      status: "ok", model: config.model, baseUrlConfigured: true,
+      itemCount: result.enrichedCount, retryCount: 0, ...result.diag,
     };
-
-    console.log(`[radar:llm] Enriched ${enrichedCount}/${top10.length} items.`);
+    console.log(`[radar:llm] Enriched ${result.enrichedCount}/${top10.length} items.`);
   } catch (err: unknown) {
-    console.error(`[radar:llm] LLM call failed: ${String(err)}`);
+    console.error(`[radar:llm] Attempt 1 failed: ${String(err).slice(0, 200)}`);
 
-    llmMeta = {
-      status: "failed",
-      model: config.model,
-      baseUrlConfigured: true,
-      itemCount: 0,
-      errorMessage: String(err).slice(0, 500),
-    };
+    // ── Attempt 2: retry with shorter prompt ──
+    try {
+      console.log("[radar:llm] Attempt 2 — retry with shorter prompt...");
+      const result = await callAndParse(
+        client,
+        sysPrompt,
+        buildRetryPrompt(promptItems, latest.date),
+        top10,
+      );
+      enrichedItems = result.enrichedItems;
+      reportSummary = result.reportSummary;  // retry only gives summary, no markdown
+      reportMarkdown = null;                 // markdown not requested in retry
+      llmMeta = {
+        status: "ok", model: config.model, baseUrlConfigured: true,
+        itemCount: result.enrichedCount, retryCount: 1, ...result.diag,
+      };
+      console.log(`[radar:llm] Retry succeeded — enriched ${result.enrichedCount}/${top10.length} items.`);
+    } catch (retryErr: unknown) {
+      console.error(`[radar:llm] Attempt 2 also failed: ${String(retryErr).slice(0, 200)}`);
+
+      llmMeta = {
+        status: "failed", model: config.model, baseUrlConfigured: true,
+        itemCount: 0, retryCount: 1,
+        errorMessage: `Attempt1: ${String(err).slice(0, 250)} | Attempt2: ${String(retryErr).slice(0, 250)}`,
+      };
+    }
   }
 
-  // 7. Write output
-  writeOutput(
-    { ...latest, topRecommendations: enrichedItems },
-    reportSummary,
-    reportMarkdown,
-    llmMeta,
-  );
+  writeOutput({ ...latest, topRecommendations: enrichedItems }, reportSummary, reportMarkdown, llmMeta);
 }
 
 // ---------------------------------------------------------------------------
-// Write helper
+// Write
 // ---------------------------------------------------------------------------
 
 function writeOutput(
