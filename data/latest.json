@@ -1,0 +1,448 @@
+{
+  "date": "2026-06-07",
+  "generatedAt": "2026-06-07T00:00:00.000Z",
+  "stats": {
+    "totalFetched": 64,
+    "totalAfterDedupe": 41,
+    "totalScored": 41,
+    "recommendationCount": 10
+  },
+  "sources": ["github", "hackernews", "devto", "arxiv"],
+  "keywords": ["AI Agent", "RAG", "Workflow", "Open Source", "Developer Tools", "Multi-Agent", "LLM", "Code Generation"],
+  "topRecommendations": [
+    {
+      "id": "rec-001",
+      "title": "AgentFlow: A Lightweight Multi-Agent Orchestration Framework",
+      "url": "https://github.com/agentflow-ai/agentflow",
+      "source": "github",
+      "publishedAt": "2026-06-06T14:30:00.000Z",
+      "summary": "AgentFlow 是一个基于有向无环图的多智能体编排框架，支持条件分支、并行执行和人工审批节点。项目发布 3 天内获得 1.2k stars。",
+      "tags": ["AI Agent", "Multi-Agent", "Workflow", "Python"],
+      "metrics": {
+        "stars": 1230,
+        "forks": 89,
+        "recentActivity": "high"
+      },
+      "score": 92,
+      "scoreBreakdown": {
+        "relevance": 28,
+        "practicality": 23,
+        "popularity": 18,
+        "freshness": 14,
+        "sourceQuality": 9,
+        "penalty": 0
+      },
+      "ruleReasonHints": ["多智能体编排 + 工作流引擎高热度方向", "3 天内破千星", "活跃社区 + README 质量高"],
+      "llmSummary": "AgentFlow 是一个将多 Agent 协作抽象为 DAG 工作流的新兴框架，设计理念接近 LangGraph 但更轻量，适合快速构建可观测的 Agent 管线。",
+      "llmRecommendationReason": "该项目精准命中了当前 Agent 编排从单体走向多体协作的趋势，同时保持 API 简洁和文档清晰，适合关注 AI Agent 工程化的开发者跟进。",
+      "llmRiskNote": "项目仍处于早期阶段，API 可能变动频繁，尚未发布正式版本。建议关注但暂不建议在生产环境直接依赖。"
+    },
+    {
+      "id": "rec-002",
+      "title": "How We Replaced 80% of Our Internal Docs Search with RAG in 2 Weeks",
+      "url": "https://dev.to/sarahchen/internal-docs-rag-migration-2026",
+      "source": "devto",
+      "publishedAt": "2026-06-06T09:15:00.000Z",
+      "summary": "一篇详细的工程实践文章，记录了团队如何用 RAG 替代传统全文搜索，将内部文档检索准确率从 54% 提升到 91%。",
+      "tags": ["RAG", "Engineering", "Search", "LLM"],
+      "metrics": {
+        "reactions": 342,
+        "comments": 57,
+        "readingTime": 12
+      },
+      "score": 88,
+      "scoreBreakdown": {
+        "relevance": 26,
+        "practicality": 24,
+        "popularity": 16,
+        "freshness": 13,
+        "sourceQuality": 8,
+        "penalty": -1
+      },
+      "ruleReasonHints": ["实操性强、有量化指标", "Dev.to 高互动文章", "RAG 落地案例稀缺"],
+      "llmSummary": "这是一篇来自一线团队的真实 RAG 迁移复盘，覆盖了数据清洗、分块策略、向量数据库选型和评估指标等关键决策点。",
+      "llmRecommendationReason": "文章提供了从 0 到 1 的完整 RAG 落地路径和真实性能数据，对正在评估是否引入 RAG 的团队有很高的参考价值。",
+      "llmRiskNote": "结论基于特定团队规模和文档量，不一定适用于所有场景。需要结合自己的数据规模和查询模式评估。"
+    },
+    {
+      "id": "rec-003",
+      "title": "Ask HN: What Are You Using for AI Code Review in 2026?",
+      "url": "https://news.ycombinator.com/item?id=48430000",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T16:45:00.000Z",
+      "summary": "Hacker News 热门讨论帖，开发者们分享了各自使用的 AI Code Review 工具和实际体验，涵盖了 Claude Code、CodeRabbit、Graphite 等。",
+      "tags": ["AI Coding", "Code Review", "Developer Tools", "Discussion"],
+      "metrics": {
+        "points": 287,
+        "comments": 203,
+        "sentiment": "positive"
+      },
+      "score": 86,
+      "scoreBreakdown": {
+        "relevance": 27,
+        "practicality": 22,
+        "popularity": 18,
+        "freshness": 14,
+        "sourceQuality": 7,
+        "penalty": -2
+      },
+      "ruleReasonHints": ["HN 高热度讨论", "AI 编程工具赛道核心话题", "大量一线开发者真实反馈"],
+      "llmSummary": "203 条评论中涌现了几个共识：Claude Code 在代码理解和重构方面领先，但成本是最大痛点；开源方案正在快速追赶；团队普遍认为 AI Code Review 已经进入'必备'阶段。",
+      "llmRecommendationReason": "如果你想了解 2026 年 AI 编程工具的开发者真实口碑，这可能是本月最有价值的讨论帖。203 条评论几乎覆盖了所有主流工具的使用体验。",
+      "llmRiskNote": "讨论偏向早期采用者视角，主流企业团队的实际采用情况可能与 HN 社区的反馈有偏差。"
+    },
+    {
+      "id": "rec-004",
+      "title": "RAGCache: Semantic Caching Layer for RAG Pipelines with 10x Throughput",
+      "url": "https://github.com/ragcache/ragcache",
+      "source": "github",
+      "publishedAt": "2026-06-05T22:10:00.000Z",
+      "summary": "RAGCache 是一个面向 RAG 管线的语义缓存中间件，通过向量相似度匹配复用历史查询结果，实测吞吐量提升 10 倍。",
+      "tags": ["RAG", "Infrastructure", "Performance", "Go"],
+      "metrics": {
+        "stars": 890,
+        "forks": 45,
+        "recentActivity": "medium"
+      },
+      "score": 84,
+      "scoreBreakdown": {
+        "relevance": 25,
+        "practicality": 22,
+        "popularity": 15,
+        "freshness": 14,
+        "sourceQuality": 8,
+        "penalty": 0
+      },
+      "ruleReasonHints": ["RAG 基础设施方向新兴需求", "10x 性能提升有说服力", "Go 生态稀缺"],
+      "llmSummary": "一个用 Go 实现的 RAG 语义缓存层，通过 embedding 相似度阈值判断是否命中缓存，避免了重复的 LLM 和向量检索开销。",
+      "llmRecommendationReason": "随着 RAG 管线进入生产环境，缓存成为降本增效的关键环节。RAGCache 方案简洁、有清晰的 benchmark 数据，是 RAG 工程化方向值得关注的项目。",
+      "llmRiskNote": "语义缓存的相似度阈值选取得当与否直接影响结果质量，建议在生产环境实际评测后再决定是否替换现有缓存方案。"
+    },
+    {
+      "id": "rec-005",
+      "title": "Chain-of-Agents: Large Language Models Collaborating on Long-Context Tasks",
+      "url": "https://arxiv.org/abs/2606.12345",
+      "source": "arxiv",
+      "publishedAt": "2026-06-06T02:00:00.000Z",
+      "summary": "来自 Stanford 和 Anthropic 联合团队的最新论文，提出了一种让多个 LLM Agent 协作处理超长上下文任务的新方法，在 128K token 任务上效果显著优于单 Agent 方案。",
+      "tags": ["Multi-Agent", "LLM", "Research", "Long-Context"],
+      "metrics": {
+        "citations": 0,
+        "category": "cs.CL"
+      },
+      "score": 82,
+      "scoreBreakdown": {
+        "relevance": 28,
+        "practicality": 18,
+        "popularity": 14,
+        "freshness": 15,
+        "sourceQuality": 10,
+        "penalty": -3
+      },
+      "ruleReasonHints": ["多 Agent + 长上下文前沿方向", "Stanford + Anthropic 团队", "ArXiv 当日最高关注度"],
+      "llmSummary": "这篇论文提出了 Chain-of-Agents 方法，将长上下文任务拆分为子任务并分配给多个专业化 Agent，通过迭代通信机制合并结果。实验显示在 128K token 的 QA 和摘要任务上，多 Agent 方案比单 Agent 提升了 23-35%。",
+      "llmRecommendationReason": "多 Agent 协作是 2026 年 AI 研究最活跃的方向之一。这篇文章来自顶尖团队，方法论扎实，对正在设计多 Agent 系统的开发者有直接的启发意义。",
+      "llmRiskNote": "论文仍处于 preprint 阶段，尚未经过同行评审。实验设置与实际生产环境可能存在差距。"
+    },
+    {
+      "id": "rec-006",
+      "title": "OpenDevin: An Open Platform for AI Software Engineers",
+      "url": "https://github.com/opendevin-ai/opendevin",
+      "source": "github",
+      "publishedAt": "2026-06-06T08:30:00.000Z",
+      "summary": "OpenDevin 是一个开源的 AI 软件工程师平台，提供完整的代码生成、测试、调试和部署能力，支持接入多种 LLM 后端。",
+      "tags": ["AI Coding", "Open Source", "Agent", "Python"],
+      "metrics": {
+        "stars": 3400,
+        "forks": 410,
+        "recentActivity": "high"
+      },
+      "score": 79,
+      "scoreBreakdown": {
+        "relevance": 26,
+        "practicality": 20,
+        "popularity": 17,
+        "freshness": 12,
+        "sourceQuality": 7,
+        "penalty": -3
+      },
+      "ruleReasonHints": ["AI 编程自动化方向高关注度", "社区活跃", "多 LLM 后端支持"],
+      "llmSummary": "OpenDevin 把 AI 编程从代码补全提升到完整的软件开发任务自动化，通过沙箱环境执行代码、运行测试并迭代修复。",
+      "llmRecommendationReason": "AI 编程从 Copilot 模式向全自动开发演进的代表性项目，适合关注软件工程 AI 化的开发者和团队评估。社区活跃度高，迭代速度快。",
+      "llmRiskNote": "自动生成和执行的代码需要人工审查，不推荐直接用于生产部署。项目目前处于快速迭代期，功能范围还在扩大。"
+    },
+    {
+      "id": "rec-007",
+      "title": "A Developer's Guide to Building Reliable RAG Evaluation Pipelines",
+      "url": "https://dev.to/jamesliu/rag-evaluation-guide-2026",
+      "source": "devto",
+      "publishedAt": "2026-06-05T15:20:00.000Z",
+      "summary": "从评估指标选择、数据集构建到 CI 集成，系统性地讲解了如何为 RAG 系统建立可靠的评估管线。",
+      "tags": ["RAG", "Evaluation", "CI/CD", "Engineering"],
+      "metrics": {
+        "reactions": 278,
+        "comments": 44,
+        "readingTime": 15
+      },
+      "score": 75,
+      "scoreBreakdown": {
+        "relevance": 24,
+        "practicality": 23,
+        "popularity": 14,
+        "freshness": 11,
+        "sourceQuality": 7,
+        "penalty": -4
+      },
+      "ruleReasonHints": ["RAG 评估是工程落地痛点", "系统工程化视角", "Dev.to 高收藏文章"],
+      "llmSummary": "作者从实际项目中总结了 RAG 评估的三个层次：检索质量、生成质量和端到端任务完成度，并给出了每个层次的推荐指标和工具。",
+      "llmRecommendationReason": "RAG 的热度很高，但系统地做评估的文章很少。这篇指南填补了一个重要空白，适合已经部署了 RAG 但还没建立评估体系的团队。",
+      "llmRiskNote": "推荐的工具和指标偏向英文和通用领域场景，中文和垂直领域需要额外适配。"
+    },
+    {
+      "id": "rec-008",
+      "title": "Show HN: Autonoma — A Visual Agent Builder That Generates Python Code",
+      "url": "https://news.ycombinator.com/item?id=48431000",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T11:00:00.000Z",
+      "summary": "一个可视化的 Agent 构建器，通过拖拽方式设计 Agent 工作流并自动生成可导出的 Python 代码，支持多种 LLM 和工具集成。",
+      "tags": ["AI Agent", "No-Code", "Show HN", "Developer Tools"],
+      "metrics": {
+        "points": 156,
+        "comments": 48,
+        "sentiment": "positive"
+      },
+      "score": 73,
+      "scoreBreakdown": {
+        "relevance": 23,
+        "practicality": 20,
+        "popularity": 12,
+        "freshness": 13,
+        "sourceQuality": 6,
+        "penalty": -1
+      },
+      "ruleReasonHints": ["可视化 Agent 构建降低门槛", "Show HN 社区验证", "代码生成 + 可导出是实用卖点"],
+      "llmSummary": "Autonoma 试图解决 Agent 开发的复杂度问题——通过可视化画布让非技术用户也能搭建 Agent 工作流，同时生成可读的 Python 代码供开发者进一步定制。",
+      "llmRecommendationReason": "可视化 Agent 构建是一个新兴方向，如果这个工具确实降低了 Agent 开发门槛，它对推动 Agent 在更多场景落地会有帮助。Show HN 的反馈表明社区对这类工具需求真实。",
+      "llmRiskNote": "目前生成的代码质量需要人工审查，复杂场景下可能仍需手写代码。No-Code 工具的长期维护和扩展性也是常见问题。"
+    },
+    {
+      "id": "rec-009",
+      "title": "LLM Starter Kit: Open-Source Template for Building Production-Ready LLM Apps",
+      "url": "https://github.com/llm-starter/llm-starter-kit",
+      "source": "github",
+      "publishedAt": "2026-06-04T20:00:00.000Z",
+      "summary": "一个生产级别的 LLM 应用开发模板，内置了流式响应、速率限制、缓存、监控和成本追踪等基础设施。支持 Next.js + Vercel AI SDK。",
+      "tags": ["LLM", "Starter", "Production", "TypeScript"],
+      "metrics": {
+        "stars": 560,
+        "forks": 72,
+        "recentActivity": "medium"
+      },
+      "score": 70,
+      "scoreBreakdown": {
+        "relevance": 21,
+        "practicality": 22,
+        "popularity": 12,
+        "freshness": 10,
+        "sourceQuality": 7,
+        "penalty": -2
+      },
+      "ruleReasonHints": ["LLM 应用工程化模板稀缺", "生产级关注点覆盖全面", "TypeScript 生态友好"],
+      "llmSummary": "一个 'batteries-included' 的 LLM 应用模板，覆盖了从开发到部署的全链路非功能需求，附带 Vercel 一键部署按钮。",
+      "llmRecommendationReason": "对于想快速启动 LLM 项目的团队，这比从零搭建要高效很多。模板内置了大多数团队在项目初期容易忽略的工程基础设施（速率限制、成本追踪等）。",
+      "llmRiskNote": "模板偏向 Vercel + Next.js 生态，如果团队使用其他技术栈可能需要较大改造。版本更新频率可能跟不上依赖库的变化。"
+    },
+    {
+      "id": "rec-010",
+      "title": "Benchmarking LLM Agents on Real-World Software Engineering Tasks: SWE-Bench 2.0",
+      "url": "https://arxiv.org/abs/2606.07890",
+      "source": "arxiv",
+      "publishedAt": "2026-06-05T18:00:00.000Z",
+      "summary": "CMU 团队发布的 SWE-Bench 2.0 基准测试，扩展了原始 SWE-Bench 到 2000+ 个真实 GitHub Issue，覆盖更多编程语言和框架，并引入了新的评估维度。",
+      "tags": ["AI Coding", "Benchmark", "Research", "Evaluation"],
+      "metrics": {
+        "citations": 0,
+        "category": "cs.SE"
+      },
+      "score": 68,
+      "scoreBreakdown": {
+        "relevance": 22,
+        "practicality": 15,
+        "popularity": 12,
+        "freshness": 14,
+        "sourceQuality": 9,
+        "penalty": -4
+      },
+      "ruleReasonHints": ["AI 编码评估标准更新", "2000+ 真实 Issue 扩展", "CMU 团队延续高影响力工作"],
+      "llmSummary": "SWE-Bench 2.0 将评估数据扩展到 2000+ 个真实 Issue，新增了对 TypeScript、Rust 和 Go 语言的支持，并引入了代码可维护性和测试覆盖率等新评估维度。",
+      "llmRecommendationReason": "AI 编码能力的评估标准对行业至关重要。如果你在评估 AI 编程工具，了解最新的 benchmark 设计思路和方法论会帮助你做出更有依据的判断。",
+      "llmRiskNote": "Benchmark 分数与实际开发体验不一定完全正相关。建议结合自身业务场景进行评估，不要只看 benchmark 排名。"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand-001",
+      "title": "Claude Code 2026.6 更新：新增多工作区支持和自定义 MCP 热加载",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/2026.6",
+      "source": "github",
+      "publishedAt": "2026-06-06T10:00:00.000Z",
+      "summary": "Claude Code 最新版本支持同时打开多个工作区，新增 MCP 服务器热加载，并大幅优化了大文件处理性能。",
+      "tags": ["AI Coding", "Claude Code", "Release"],
+      "score": 80
+    },
+    {
+      "id": "cand-002",
+      "title": "VectorLake: PostgreSQL Extension for Hybrid Search with Zero Infrastructure Overhead",
+      "url": "https://github.com/vectorlake/vectorlake",
+      "source": "github",
+      "publishedAt": "2026-06-06T07:00:00.000Z",
+      "summary": "一个 PostgreSQL 扩展，直接利用 pgvector 实现混合搜索（向量 + 全文 + 元数据过滤），无需额外基础设施。",
+      "tags": ["RAG", "Vector Database", "PostgreSQL", "Infrastructure"],
+      "score": 77
+    },
+    {
+      "id": "cand-003",
+      "title": "The Hidden Cost of Multi-Agent Systems: A Systematical Analysis",
+      "url": "https://arxiv.org/abs/2606.04567",
+      "source": "arxiv",
+      "publishedAt": "2026-06-05T14:00:00.000Z",
+      "summary": "系统性地分析了多 Agent 系统的 token 开销、延迟和协调成本，并给出了在什么场景下多 Agent 优于单 Agent 的量化阈值。",
+      "tags": ["Multi-Agent", "Cost", "Research", "System Design"],
+      "score": 76
+    },
+    {
+      "id": "cand-004",
+      "title": "Building AI-Powered Internal Tools in a Weekend: Lessons from 20 Projects",
+      "url": "https://dev.to/alexk/ai-internal-tools-weekend-2026",
+      "source": "devto",
+      "publishedAt": "2026-06-06T08:00:00.000Z",
+      "summary": "作者分享了用 LLM 快速构建内部工具的实战经验，覆盖了 20 个不同场景的项目，从数据分析到客服机器人。",
+      "tags": ["LLM", "Internal Tools", "Engineering", "Case Study"],
+      "score": 74
+    },
+    {
+      "id": "cand-005",
+      "title": "Ask HN: Is On-Premise LLM Deployment Finally Viable for Startups?",
+      "url": "https://news.ycombinator.com/item?id=48429000",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T19:30:00.000Z",
+      "summary": "讨论在创业公司中部署本地 LLM 的可行性和成本效益，涉及硬件选型、模型量化和 TCO 计算。",
+      "tags": ["LLM", "On-Premise", "Startup", "Discussion"],
+      "score": 72
+    },
+    {
+      "id": "cand-006",
+      "title": "PromptForge: A Version-Controlled Prompt Management Platform",
+      "url": "https://github.com/promptforge/promptforge",
+      "source": "github",
+      "publishedAt": "2026-06-05T16:00:00.000Z",
+      "summary": "一个开源的 Prompt 版本管理平台，支持 A/B 测试、回归测试和 CI/CD 集成，适合团队协作管理 LLM Prompt。",
+      "tags": ["LLM", "Prompt Engineering", "DevOps", "TypeScript"],
+      "score": 69
+    },
+    {
+      "id": "cand-007",
+      "title": "From Monolith to Modular: A Year of Refactoring Our AI Pipeline",
+      "url": "https://dev.to/morganwei/ai-pipeline-refactor-2026",
+      "source": "devto",
+      "publishedAt": "2026-06-05T12:00:00.000Z",
+      "summary": "一篇长达一年的 AI 管线重构复盘，覆盖了从单体到微服务的架构演进、技术选型和团队协作。",
+      "tags": ["AI Pipeline", "Architecture", "Refactoring", "Engineering"],
+      "score": 66
+    },
+    {
+      "id": "cand-008",
+      "title": "Smaller, Faster, Cheaper: Distilling Reasoning Models for Production",
+      "url": "https://arxiv.org/abs/2606.05678",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T20:00:00.000Z",
+      "summary": "研究如何通过知识蒸馏将大型推理模型的能力迁移到小型模型，在保持 90% 推理能力的同时降低 70% 的推理成本。",
+      "tags": ["LLM", "Distillation", "Research", "Cost Optimization"],
+      "score": 65
+    },
+    {
+      "id": "cand-009",
+      "title": "OpenRouter Analytics: Community Dashboard for LLM API Usage Patterns",
+      "url": "https://github.com/openrouter/analytics",
+      "source": "github",
+      "publishedAt": "2026-06-05T10:00:00.000Z",
+      "summary": "OpenRouter 社区版数据看板，用于分析 LLM API 的用量模式、成本分布和模型切换趋势。",
+      "tags": ["LLM", "Analytics", "Dashboard", "Open Source"],
+      "score": 63
+    },
+    {
+      "id": "cand-010",
+      "title": "HN: What's the State of Open-Source AI Agents in Mid-2026?",
+      "url": "https://news.ycombinator.com/item?id=48428000",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T14:00:00.000Z",
+      "summary": "社区集体盘点 2026 年中开源 AI Agent 生态现状，讨论框架成熟度、社区规模和商业可行性。",
+      "tags": ["AI Agent", "Open Source", "Discussion", "Ecosystem"],
+      "score": 62
+    },
+    {
+      "id": "cand-011",
+      "title": "pg-embedding-search: Turn Any PostgreSQL Table into a Vector Search Index",
+      "url": "https://github.com/pg-embed/pg-embedding-search",
+      "source": "github",
+      "publishedAt": "2026-06-04T18:00:00.000Z",
+      "summary": "一个轻量级 PostgreSQL 插件，零配置将任何表转化为向量搜索索引，支持 pgvector 和 HNSW 索引。",
+      "tags": ["RAG", "Vector Search", "PostgreSQL", "Tool"],
+      "score": 60
+    },
+    {
+      "id": "cand-012",
+      "title": "Building a CI/CD Pipeline for LLM Applications: A Practical Guide",
+      "url": "https://dev.to/priyasharma/llm-cicd-guide-2026",
+      "source": "devto",
+      "publishedAt": "2026-06-05T09:00:00.000Z",
+      "summary": "从 Prompt 测试、模型评估到部署和监控，一步步讲解如何为 LLM 应用建立 CI/CD 管线。",
+      "tags": ["LLM", "CI/CD", "DevOps", "Engineering"],
+      "score": 58
+    },
+    {
+      "id": "cand-013",
+      "title": "Show HN: I Built a Personal AI Research Assistant That Reads ArXiv for Me",
+      "url": "https://news.ycombinator.com/item?id=48427000",
+      "source": "hackernews",
+      "publishedAt": "2026-06-05T20:00:00.000Z",
+      "summary": "一位独立开发者展示了他的个人 AI 研究助手，每天自动抓取 ArXiv 论文并生成个性化摘要。",
+      "tags": ["AI Agent", "Research", "Show HN", "Personal Tool"],
+      "score": 56
+    },
+    {
+      "id": "cand-014",
+      "title": "LightRAG 2.0: Graph-Enhanced Retrieval for Complex Multi-Hop Queries",
+      "url": "https://github.com/hkuds/lightrag",
+      "source": "github",
+      "publishedAt": "2026-06-05T14:00:00.000Z",
+      "summary": "LightRAG 2.0 引入图增强检索机制，在多跳推理查询上相比传统向量检索提升了 45% 的准确率。",
+      "tags": ["RAG", "Graph RAG", "Knowledge Graph", "Python"],
+      "score": 55
+    },
+    {
+      "id": "cand-015",
+      "title": "LLM-as-Judge: A Critical Review of Current Practices and Pitfalls",
+      "url": "https://arxiv.org/abs/2606.03456",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T22:00:00.000Z",
+      "summary": "对当前广泛使用的 LLM-as-Judge 评估范式进行了系统性审查，指出了位置偏差、长度偏好和自评放水等关键问题。",
+      "tags": ["LLM", "Evaluation", "Research", "Critique"],
+      "score": 53
+    }
+  ],
+  "llmReport": {
+    "enabled": true,
+    "provider": "mock",
+    "model": "mock-report-generator",
+    "status": "fallback",
+    "title": "信息雷达日报｜2026-06-07",
+    "summary": "今日共抓取 64 条信息，去重后保留 41 条，最终推荐 10 条。AI Agent 和多 Agent 协作是今日最热门方向，AgentFlow 和 Chain-of-Agents 论文分别代表了工程实践和学术前沿的双重关注。RAG 方向持续活跃，语义缓存和评估管线成为工程落地的新焦点。",
+    "markdown": "# 信息雷达日报｜2026-06-07\n\n## 今日概览\n\n今日共抓取 64 条信息，去重后保留 41 条，经过规则打分和 LLM 评估，最终推荐 10 条。覆盖 GitHub、Hacker News、Dev.to 和 ArXiv 四个数据源。\n\n## 今日精选 Top 5\n\n1. **AgentFlow** — 多智能体编排框架，用 DAG 抽象 Agent 协作（GitHub, 92 分）\n2. **内部文档 RAG 迁移复盘** — 从 54% 到 91% 检索准确率的真实案例（Dev.to, 88 分）\n3. **HN 热议：2026 年用什么做 AI Code Review** — 203 条评论的开发者真实反馈（HN, 86 分）\n4. **RAGCache** — 语义缓存层实现 10 倍 RAG 吞吐量提升（GitHub, 84 分）\n5. **Chain-of-Agents 论文** — Stanford + Anthropic 联合研究多 Agent 长上下文协作（ArXiv, 82 分）\n\n## 另外 5 条值得关注\n\n6. **OpenDevin** — 开源 AI 软件工程师平台（GitHub, 79 分）\n7. **RAG 评估管线指南** — 从指标到 CI 集成的完整方案（Dev.to, 75 分）\n8. **Autonoma** — 可视化 Agent 构建器，生成可导出 Python 代码（HN, 73 分）\n9. **LLM Starter Kit** — 生产级 LLM 应用开发模板（GitHub, 70 分）\n10. **SWE-Bench 2.0** — AI 编码能力评估基准扩展（ArXiv, 68 分）\n\n## 今日趋势判断\n\nAI Agent 和多 Agent 协作是今日最热门方向，从工程框架（AgentFlow）到学术研究（Chain-of-Agents）再到可视化工具（Autonoma），都在朝更复杂的 Agent 协作模式演进。\n\nRAG 方向从早期的\"如何做\"转向\"如何做好\"——评估管线和缓存优化成为新的关注焦点。\n\nAI 编程工具已经从代码补全进化到完整的软件工程自动化，OpenDevin 和 SWE-Bench 2.0 分别代表了工程实现和评估标准的最新进展。\n\n## 后续关注方向\n\n- **多 Agent 协作的工程化落地**：AgentFlow 等框架能否在实际场景中证明其价值\n- **RAG 评估标准**：行业是否会出现类似 SWE-Bench 的 RAG 标准评估基准\n- **AI 编码工具的差异化竞争**：从代码补全到全自动软件工程的演进路径\n- **LLM 蒸馏和本地部署的可行性**：成本控制是 2026 年 LLM 应用的核心议题"
+  },
+  "email": {
+    "enabled": false,
+    "status": "not_configured",
+    "lastSentAt": null
+  }
+}

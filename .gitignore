@@ -1,0 +1,25 @@
+# Reference project, do not commit
+agents-radar/
+
+# Dependencies
+node_modules/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist/
+build/
+.vercel/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*

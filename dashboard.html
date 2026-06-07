@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信息雷达 — Info Radar</title>
+<style>
+/* ── Design Tokens ── */
+:root {
+  --bg-page: #f7f7f8;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f3f4f6;
+  --bg-muted: #eef0f3;
+
+  --text-primary: #171717;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --text-faint: #a1a1aa;
+
+  --border-subtle: #e5e7eb;
+  --border-strong: #d4d4d8;
+
+  --accent: #5e6ad2;
+  --accent-hover: #4f46c7;
+  --accent-soft: #eef0ff;
+
+  --success: #16a34a;
+  --success-soft: #ecfdf3;
+
+  --warning: #d97706;
+  --warning-soft: #fff7ed;
+
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+
+  --info: #2563eb;
+  --info-soft: #eff6ff;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  --font-xs: 12px;
+  --font-sm: 13px;
+  --font-base: 14px;
+  --font-md: 15px;
+  --font-lg: 18px;
+  --font-xl: 22px;
+  --font-2xl: 28px;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-full: 999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: var(--font-base);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+body { min-height: 100vh; }
+
+/* ── Page Container ── */
+.page { min-height: 100vh; background: var(--bg-page); }
+
+.page-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6) 56px;
+}
+
+/* ── Header ── */
+.header { margin-bottom: var(--space-8); }
+
+.header-title {
+  font-size: var(--font-2xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.header-subtitle {
+  margin-top: var(--space-2);
+  font-size: var(--font-md);
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.header-time {
+  margin-top: var(--space-3);
+  font-size: var(--font-xs);
+  color: var(--text-faint);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.card-clickable {
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.card-clickable:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* ── Overview Grid ── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.metric-card {
+  padding: var(--space-5) var(--space-6);
+}
+
+.metric-label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-value {
+  font-size: var(--font-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: var(--space-1);
+  line-height: 1.2;
+}
+
+.metric-hint {
+  font-size: var(--font-xs);
+  color: var(--text-faint);
+  margin-top: var(--space-2);
+}
+
+/* ── Section ── */
+.section { margin-bottom: var(--space-8); }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.section-title {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.section-count {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+/* ── Top 5 Recommendation Cards ── */
+.rec-card {
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.rec-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.rec-rank-wrap { display: flex; align-items: center; gap: var(--space-3); flex: 1; min-width: 0; }
+
+.rec-rank {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: var(--font-base);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rec-rank.top { background: var(--accent); color: #fff; }
+
+.rec-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rec-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rec-title a:hover { color: var(--accent); }
+
+.rec-score {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  min-width: 52px;
+}
+
+.rec-score-value {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.rec-score-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.rec-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.rec-source {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.rec-source::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.rec-source.github::before { background: var(--text-primary); }
+.rec-source.hackernews::before { background: #ff6600; }
+.rec-source.devto::before { background: var(--accent); }
+.rec-source.arxiv::before { background: #b31b1b; }
+
+.rec-date {
+  font-size: var(--font-xs);
+  color: var(--text-faint);
+}
+
+/* ── Tags ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  padding: 3px 8px;
+  font-size: var(--font-xs);
+  font-weight: 500;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.tag.accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: transparent;
+}
+
+.tag-list { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-3); }
+
+/* ── Recommendation Content ── */
+.rec-content { margin-top: var(--space-4); }
+
+.rec-field { margin-top: var(--space-3); }
+
+.rec-field-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-1);
+}
+
+.rec-field-text {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.rec-risk {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--warning-soft);
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  color: #92400e;
+  line-height: 1.5;
+}
+
+/* ── Score Breakdown ── */
+.score-breakdown {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.score-item-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-muted);
+  overflow: hidden;
+}
+
+.score-item-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.score-item.penalty .score-item-fill { background: var(--danger); }
+
+.rec-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.rec-link:hover { color: var(--accent-hover); text-decoration: underline; }
+
+/* ── Compact Cards (6-10) ── */
+.compact-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.compact-card {
+  padding: var(--space-4) var(--space-5);
+}
+
+.compact-card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.compact-rank {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compact-body { flex: 1; min-width: 0; }
+
+.compact-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.compact-title a { color: inherit; text-decoration: none; }
+.compact-title a:hover { color: var(--accent); }
+
+.compact-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.compact-reason {
+  margin-top: var(--space-2);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.compact-score {
+  flex-shrink: 0;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  min-width: 36px;
+}
+
+.compact-score span {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-faint);
+}
+
+/* ── Keywords ── */
+.keyword-cloud { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
+/* ── LLM Report ── */
+.report-preview {
+  padding: var(--space-6);
+  line-height: 1.7;
+}
+
+.report-preview-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+}
+
+.report-preview-summary {
+  font-size: var(--font-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.6;
+}
+
+.report-body { font-size: var(--font-base); color: var(--text-primary); }
+
+.report-body h1 { font-size: var(--font-xl); font-weight: 600; margin: var(--space-6) 0 var(--space-3); }
+.report-body h2 { font-size: var(--font-lg); font-weight: 600; margin: var(--space-5) 0 var(--space-2); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-subtle); }
+.report-body h3 { font-size: var(--font-md); font-weight: 600; margin: var(--space-4) 0 var(--space-2); }
+.report-body p { margin-bottom: var(--space-3); line-height: 1.7; }
+.report-body strong { font-weight: 600; }
+.report-body ul, .report-body ol { padding-left: 22px; margin-bottom: var(--space-3); }
+.report-body li { margin-bottom: var(--space-2); line-height: 1.6; }
+.report-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: var(--space-2) var(--space-4);
+  margin: var(--space-3) 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.report-body code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  background: var(--bg-subtle);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+.report-body pre {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  overflow-x: auto;
+  margin: var(--space-3) 0;
+}
+.report-body pre code { border: none; padding: 0; background: none; }
+.report-body hr { border: none; border-top: 1px solid var(--border-subtle); margin: var(--space-5) 0; }
+
+/* ── Candidates Table ── */
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.candidates-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+.candidates-table td {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.candidates-table tr:hover td { background: var(--bg-subtle); }
+
+.candidates-table a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.candidates-table a:hover { color: var(--accent); }
+
+.cand-source {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: var(--font-xs);
+  color: var(--text-faint);
+  line-height: 1.6;
+}
+
+/* ── States ── */
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px var(--space-6);
+  text-align: center;
+}
+
+.state-icon { font-size: 36px; margin-bottom: var(--space-4); opacity: 0.5; }
+
+.state-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.state-desc {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.state-desc code {
+  font-size: var(--font-xs);
+  background: var(--bg-subtle);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Skeleton Loading ── */
+.skeleton-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+  background: var(--bg-muted);
+  border-radius: var(--radius-sm);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.skeleton-card { padding: var(--space-6); margin-bottom: var(--space-4); }
+.skeleton-line { height: 16px; margin-bottom: var(--space-2); }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.medium { width: 85%; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .page-container { padding: var(--space-5) var(--space-4) 40px; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .header-title { font-size: var(--font-xl); }
+  .section-title { font-size: var(--font-lg); }
+
+  .rec-card-header { flex-direction: column; }
+  .rec-score { align-self: flex-end; }
+  .compact-card-inner { flex-wrap: wrap; }
+  .compact-score { margin-left: auto; }
+
+  .candidates-table { font-size: var(--font-xs); }
+  .candidates-table th:nth-child(4),
+  .candidates-table td:nth-child(4) { display: none; }
+
+  .score-breakdown { gap: var(--space-2); }
+}
+
+@media (max-width: 480px) {
+  .overview-grid { grid-template-columns: 1fr; }
+  .candidates-table th:nth-child(3),
+  .candidates-table td:nth-child(3) { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-container" id="app"></div>
+</div>
+
+<script>
+/* ── Simple markdown renderer (lightweight, no dependency) ── */
+function renderMarkdown(text) {
+  if (!text) return '';
+
+  let html = text
+    // Escape HTML
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    // Headings
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    // Bold
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    // Italic
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Code blocks
+    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+    // Inline code
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    // Horizontal rules
+    .replace(/^---$/gm, '<hr>')
+    // Unordered lists
+    .replace(/^- (.+)$/gm, '<li class="md-li">$1</li>')
+    // Ordered lists (simple)
+    .replace(/^\d+\. (.+)$/gm, '<li class="md-li">$1</li>')
+    // Blockquotes
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    // Paragraphs (double newline)
+    .replace(/\n\n/g, '</p><p>')
+    // Line breaks
+    .replace(/\n/g, '<br>');
+
+  // Wrap in paragraphs, clean up
+  html = '<p>' + html + '</p>';
+  // Wrap consecutive <li> in <ul>
+  html = html.replace(/(<li class="md-li">.*?<\/li>(?:<br>)?)+/g, function(m) {
+    return '<ul>' + m.replace(/<br>/g, '') + '</ul>';
+  });
+  // Clean up empty paragraphs
+  html = html.replace(/<p>\s*<\/p>/g, '');
+  html = html.replace(/<p><br><\/p>/g, '');
+
+  return html;
+}
+
+/* ── Helpers ── */
+function formatDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const pad = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function escapeHtml(str) {
+  const el = document.createElement('span');
+  el.textContent = str;
+  return el.innerHTML;
+}
+
+const SOURCE_LABELS = {
+  github: 'GitHub',
+  hackernews: 'Hacker News',
+  devto: 'Dev.to',
+  arxiv: 'ArXiv',
+};
+
+const SCORE_FIELDS = [
+  { key: 'relevance', label: '相关性', max: 30 },
+  { key: 'practicality', label: '实用性', max: 25 },
+  { key: 'popularity', label: '热度', max: 20 },
+  { key: 'freshness', label: '新鲜度', max: 15 },
+  { key: 'sourceQuality', label: '来源质量', max: 10 },
+  { key: 'penalty', label: '扣分', max: 0, isPenalty: true },
+];
+
+/* ── Render ── */
+function render(data) {
+  const { date, generatedAt, stats, keywords, topRecommendations, candidates, llmReport, email } = data;
+  const top5 = topRecommendations.slice(0, 5);
+  const more5 = topRecommendations.slice(5, 10);
+
+  let html = '';
+
+  /* ── Header ── */
+  html += '<div class="header">';
+  html += '<h1 class="header-title">信息雷达</h1>';
+  html += '<p class="header-subtitle">每日自动抓取 AI / Agent / 开源项目信号，去重、评分，并生成 Top 推荐与日报。</p>';
+  html += '<div class="header-time">最近生成：' + formatDate(generatedAt) + '（' + (date || '') + '）</div>';
+  html += '</div>';
+
+  /* ── Overview Cards ── */
+  html += '<div class="overview-grid">';
+  html += metricCard('今日抓取', stats.totalFetched, '条原始信息');
+  html += metricCard('去重后', stats.totalAfterDedupe, '条有效信息');
+  html += metricCard('Top 推荐', stats.recommendationCount, '条精选推荐');
+  html += metricCard('数据源', data.sources.length, '个来源覆盖');
+  html += '</div>';
+
+  /* ── Top 5 精选推荐 ── */
+  html += '<div class="section">';
+  html += '<div class="section-header"><h2 class="section-title">Top 5 精选推荐</h2><span class="section-count">最高优先级</span></div>';
+
+  top5.forEach((rec, i) => {
+    const rankClass = i < 3 ? ' top' : '';
+    html += '<div class="card rec-card card-clickable" onclick="window.open(\'' + escapeHtml(rec.url) + '\', \'_blank\')">';
+
+    /* Header row */
+    html += '<div class="rec-card-header">';
+    html += '<div class="rec-rank-wrap">';
+    html += '<div class="rec-rank' + rankClass + '">' + (i + 1) + '</div>';
+    html += '<div class="rec-title"><a href="' + escapeHtml(rec.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(rec.title) + '</a></div>';
+    html += '</div>';
+    html += '<div class="rec-score"><span class="rec-score-value">' + rec.score + '</span><span class="rec-score-label">分</span></div>';
+    html += '</div>';
+
+    /* Meta */
+    html += '<div class="rec-meta">';
+    html += '<span class="rec-source ' + rec.source + '">' + (SOURCE_LABELS[rec.source] || rec.source) + '</span>';
+    html += '<span class="rec-date">' + formatDate(rec.publishedAt) + '</span>';
+    html += '</div>';
+
+    /* Tags */
+    html += '<div class="tag-list">';
+    (rec.tags || []).forEach(t => { html += '<span class="tag">' + escapeHtml(t) + '</span>'; });
+    html += '</div>';
+
+    /* Content */
+    html += '<div class="rec-content">';
+    if (rec.llmSummary) {
+      html += '<div class="rec-field"><div class="rec-field-label">摘要</div><div class="rec-field-text">' + escapeHtml(rec.llmSummary) + '</div></div>';
+    }
+    if (rec.llmRecommendationReason) {
+      html += '<div class="rec-field"><div class="rec-field-label">推荐理由</div><div class="rec-field-text">' + escapeHtml(rec.llmRecommendationReason) + '</div></div>';
+    }
+
+    /* Score breakdown */
+    if (rec.scoreBreakdown) {
+      html += '<div class="score-breakdown">';
+      SCORE_FIELDS.forEach(f => {
+        const val = rec.scoreBreakdown[f.key] ?? 0;
+        if (f.isPenalty && val === 0) return;
+        const pct = f.max ? Math.min(Math.abs(val) / f.max * 100, 100) : Math.abs(val) * 10;
+        html += '<div class="score-item' + (f.isPenalty ? ' penalty' : '') + '">';
+        html += '<span>' + f.label + ' ' + (val >= 0 ? '+' : '') + val + '</span>';
+        html += '<div class="score-item-bar"><div class="score-item-fill" style="width:' + pct + '%"></div></div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
+    if (rec.llmRiskNote) {
+      html += '<div class="rec-risk">&#9888; ' + escapeHtml(rec.llmRiskNote) + '</div>';
+    }
+
+    html += '</div>';
+
+    /* Link */
+    html += '<a class="rec-link" href="' + escapeHtml(rec.url) + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">查看原文 &#8599;</a>';
+
+    html += '</div>';
+  });
+
+  html += '</div>';
+
+  /* ── 6-10 补充推荐 ── */
+  html += '<div class="section">';
+  html += '<div class="section-header"><h2 class="section-title">另外 5 条值得关注</h2><span class="section-count">补充推荐</span></div>';
+  html += '<div class="compact-list">';
+
+  more5.forEach((rec, i) => {
+    const rank = i + 6;
+    html += '<div class="card compact-card card-clickable" onclick="window.open(\'' + escapeHtml(rec.url) + '\', \'_blank\')">';
+    html += '<div class="compact-card-inner">';
+    html += '<div class="compact-rank">' + rank + '</div>';
+    html += '<div class="compact-body">';
+    html += '<div class="compact-title"><a href="' + escapeHtml(rec.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(rec.title) + '</a></div>';
+    html += '<div class="compact-meta">';
+    html += '<span class="rec-source ' + rec.source + '">' + (SOURCE_LABELS[rec.source] || rec.source) + '</span>';
+    html += '<span class="rec-date">' + formatDate(rec.publishedAt) + '</span>';
+    html += '<span class="tag-list" style="margin-top:0">';
+    (rec.tags || []).slice(0, 3).forEach(t => { html += '<span class="tag">' + escapeHtml(t) + '</span>'; });
+    html += '</span>';
+    html += '</div>';
+    if (rec.llmRecommendationReason) {
+      html += '<div class="compact-reason">' + escapeHtml(rec.llmRecommendationReason) + '</div>';
+    }
+    html += '<a class="rec-link" href="' + escapeHtml(rec.url) + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="margin-top:8px">查看原文 &#8599;</a>';
+    html += '</div>';
+    html += '<div class="compact-score">' + rec.score + '<span>分</span></div>';
+    html += '</div>';
+    html += '</div>';
+  });
+
+  html += '</div></div>';
+
+  /* ── Trend Keywords ── */
+  html += '<div class="section">';
+  html += '<div class="section-header"><h2 class="section-title">趋势关键词</h2></div>';
+  html += '<div class="keyword-cloud">';
+  (keywords || []).forEach(k => { html += '<span class="tag accent">' + escapeHtml(k) + '</span>'; });
+  html += '</div>';
+  html += '</div>';
+
+  /* ── LLM Daily Report ── */
+  if (llmReport) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2 class="section-title">' + escapeHtml(llmReport.title || '日报') + '</h2></div>';
+    html += '<div class="card report-preview">';
+
+    if (llmReport.summary) {
+      html += '<div class="report-preview-summary">' + escapeHtml(llmReport.summary) + '</div>';
+    }
+
+    if (llmReport.markdown) {
+      html += '<div class="report-body">' + renderMarkdown(llmReport.markdown) + '</div>';
+    } else if (llmReport.summary) {
+      html += '<div class="report-body"><p>' + escapeHtml(llmReport.summary) + '</p></div>';
+    } else {
+      html += '<div class="state" style="padding:40px"><div class="state-title">报告内容暂未生成</div><div class="state-desc">后续将由 LLM 根据每日抓取数据自动生成完整日报内容。</div></div>';
+    }
+
+    html += '</div></div>';
+  }
+
+  /* ── All Candidates ── */
+  html += '<div class="section">';
+  html += '<div class="section-header"><h2 class="section-title">全部候选</h2><span class="section-count">共 ' + (candidates || []).length + ' 条，按分数降序</span></div>';
+  html += '<div class="card" style="overflow-x:auto">';
+  html += '<table class="candidates-table">';
+  html += '<thead><tr><th>标题</th><th>来源</th><th>分数</th><th>标签</th></tr></thead>';
+  html += '<tbody>';
+
+  const sorted = [...(candidates || [])].sort((a, b) => (b.score || 0) - (a.score || 0));
+  sorted.forEach(c => {
+    html += '<tr>';
+    html += '<td><a href="' + escapeHtml(c.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(c.title) + '</a></td>';
+    html += '<td><span class="cand-source">' + (SOURCE_LABELS[c.source] || c.source) + '</span></td>';
+    html += '<td><strong>' + (c.score || 0) + '</strong></td>';
+    html += '<td><div class="tag-list" style="margin-top:0">';
+    (c.tags || []).slice(0, 3).forEach(t => { html += '<span class="tag">' + escapeHtml(t) + '</span>'; });
+    html += '</div></td>';
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  html += '</div></div>';
+
+  /* ── Footer ── */
+  html += '<div class="footer">';
+  html += '<p class="footer-text">当前为本地示例数据。后续将由 GitHub Actions 每日生成 latest.json，并通过 Vercel 展示最新日报。</p>';
+  if (email && email.status === 'not_configured') {
+    html += '<p class="footer-text" style="margin-top:4px">邮件推送未配置。配置后，每日日报将自动发送到你的邮箱。</p>';
+  }
+  html += '</div>';
+
+  return html;
+}
+
+function metricCard(label, value, hint) {
+  return '<div class="card metric-card">'
+    + '<div class="metric-label">' + escapeHtml(label) + '</div>'
+    + '<div class="metric-value">' + value + '</div>'
+    + '<div class="metric-hint">' + escapeHtml(hint) + '</div>'
+    + '</div>';
+}
+
+/* ── States ── */
+function renderLoading() {
+  let html = '<div class="state"><div class="state-icon">&#9203;</div><div class="state-title">正在加载数据…</div></div>';
+
+  html += '<div class="overview-grid">';
+  for (let i = 0; i < 4; i++) {
+    html += '<div class="card metric-card skeleton-pulse" style="height:90px"></div>';
+  }
+  html += '</div>';
+
+  html += '<div class="section"><div class="section-header"><div class="skeleton-pulse skeleton-line" style="width:200px;height:24px"></div></div>';
+  for (let i = 0; i < 5; i++) {
+    html += '<div class="card skeleton-card skeleton-pulse"></div>';
+  }
+  html += '</div>';
+
+  return html;
+}
+
+function renderError(err) {
+  return '<div class="state">'
+    + '<div class="state-icon">&#9888;</div>'
+    + '<div class="state-title">数据加载失败</div>'
+    + '<div class="state-desc">'
+    + escapeHtml(err.message || String(err))
+    + '<br><br>'
+    + '如果你是直接双击 <code>file://</code> 打开页面，浏览器可能会阻止 fetch 读取本地 JSON。<br><br>'
+    + '请在工作区根目录运行：<br>'
+    + '<code>python -m http.server 5173</code><br><br>'
+    + '然后访问：<br>'
+    + '<code>http://localhost:5173/dashboard.html</code>'
+    + '</div>'
+    + '</div>';
+}
+
+function renderEmpty() {
+  return '<div class="state">'
+    + '<div class="state-icon">&#128203;</div>'
+    + '<div class="state-title">还没有生成今日报告</div>'
+    + '<div class="state-desc">运行 <code>pnpm radar:run</code> 后，这里会展示最新推荐结果。</div>'
+    + '</div>';
+}
+
+/* ── Init ── */
+async function main() {
+  const app = document.getElementById('app');
+
+  /* Loading state */
+  app.innerHTML = renderLoading();
+
+  try {
+    const resp = await fetch('./data/latest.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status + ' — 无法获取 latest.json');
+    const data = await resp.json();
+
+    /* Empty check */
+    if (!data || (!data.topRecommendations?.length && !data.candidates?.length)) {
+      app.innerHTML = renderEmpty();
+      return;
+    }
+
+    app.innerHTML = render(data);
+  } catch (err) {
+    app.innerHTML = renderError(err);
+  }
+}
+
+main();
+</script>
+</body>
+</html>
