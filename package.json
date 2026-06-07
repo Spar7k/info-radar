@@ -12,6 +12,8 @@
     "radar:email:preview": "tsx src/radar/email/renderEmailPreview.ts",
     "radar:email:dry-run": "tsx src/radar/email/sendEmailDryRun.ts",
     "radar:email:send": "tsx src/radar/email/sendEmail.ts",
+    "site:build": "tsx src/radar/site/buildStaticSite.ts",
+    "site:check": "tsx src/radar/site/checkDist.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

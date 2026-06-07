@@ -1,0 +1,32 @@
+# agent雷达 / Info Radar — Nginx static site config
+# Copy to /etc/nginx/sites-available/ and symlink to sites-enabled/
+# Replace your-domain.com with your actual domain.
+
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    root /var/www/agent-radar;
+    index dashboard.html;
+
+    # Security: deny access to hidden files
+    location ~ /\. {
+        deny all;
+    }
+
+    # Main route — fallback to dashboard.html
+    location / {
+        try_files $uri $uri/ /dashboard.html;
+    }
+
+    # Data files — allow with no-cache to ensure fresh content
+    location /data/ {
+        add_header Cache-Control "no-cache";
+        try_files $uri =404;
+    }
+
+    # Gzip
+    gzip on;
+    gzip_types text/html application/json text/css;
+    gzip_min_length 256;
+}

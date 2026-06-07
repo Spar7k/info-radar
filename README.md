@@ -205,6 +205,47 @@ npm run radar:email:send
 
 > **重要**：密码/授权码不要提交到 git。使用 `.env` 文件（已 gitignored）或系统环境变量。
 
+## 静态站点构建
+
+```bash
+npm run site:build
+```
+
+输出 `dist/` 目录（仅包含前端展示文件）：
+
+```
+dist/
+├── dashboard.html
+└── data/
+    └── latest.json
+```
+
+本地预览：
+
+```bash
+cd dist
+python -m http.server 5173
+# 打开 http://localhost:5173/dashboard.html
+```
+
+> `dist/` 只包含静态展示文件，不包含源码、密钥、raw/generated 数据。
+
+## 自有服务器部署
+
+本项目为纯静态站点，构建后上传到自有服务器的 Nginx 即可。
+
+```bash
+npm run site:build              # 生成 dist/
+npm run site:check              # 验证 dist/ 完整性
+rsync -av --delete dist/ user@server:/var/www/agent-radar/
+```
+
+详细部署指南：[DEPLOY_SELF_HOSTED.md](DEPLOY_SELF_HOSTED.md)
+
+Nginx 配置示例：[deploy/nginx/agent-radar.conf.example](deploy/nginx/agent-radar.conf.example)
+
+> 不包含任何密钥，不需要 API Key，不需要数据库。Vercel 也可作为可选方案（`npm run site:build` 输出的 `dist/` 即为部署目录）。
+
 ## 当前 MVP 边界
 
 **已完成**：
