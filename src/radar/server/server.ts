@@ -9,6 +9,8 @@
  */
 
 import express from "express";
+import fs from "node:fs";
+import path from "node:path";
 import { loadSettings, saveSettings } from "./emailSettings.ts";
 import { sendRadarEmail } from "../email/sendRadarEmail.ts";
 
@@ -16,6 +18,8 @@ const app = express();
 app.use(express.json());
 
 const PORT = parseInt(process.env["INFO_RADAR_SERVER_PORT"] || "3000", 10);
+const DIST = path.resolve("dist");
+const hasDist = fs.existsSync(path.join(DIST, "dashboard.html"));
 
 // ---------------------------------------------------------------------------
 // Health
@@ -98,14 +102,46 @@ app.post("/api/email/send", async (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
+// Static files (after API routes — must come last)
+// ---------------------------------------------------------------------------
+
+function serveFile(res: express.Response, filepath: string, contentType: string): void {
+  try {
+    const content = fs.readFileSync(filepath, "utf-8");
+    res.type(contentType).send(content);
+  } catch {
+    res.status(404).send("File not found: " + path.basename(filepath));
+  }
+}
+
+if (hasDist) {
+  app.get("/dashboard.html", (_req, res) => serveFile(res, path.join(DIST, "dashboard.html"), "text/html"));
+  app.get("/data/latest.json", (_req, res) => serveFile(res, path.join(DIST, "data", "latest.json"), "application/json"));
+  app.get("/data/status.json", (_req, res) => {
+    const sp = path.join(DIST, "data", "status.json");
+    if (fs.existsSync(sp)) return serveFile(res, sp, "application/json");
+    res.status(404).json({ error: "status.json not found" });
+  });
+  app.get("/", (_req, res) => res.redirect("/dashboard.html"));
+} else {
+  app.get("/", (_req, res) => {
+    res.status(503).send("dist/ not found. Run: npm run site:build");
+  });
+  app.get("/dashboard.html", (_req, res) => {
+    res.status(503).send("dist/dashboard.html not found. Run: npm run site:build");
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Start
 // ---------------------------------------------------------------------------
 
 app.listen(PORT, () => {
-  console.log(`[server] agent-radar API running on http://localhost:${PORT}`);
-  console.log(`[server] Endpoints:`);
-  console.log(`  GET  /api/health`);
-  console.log(`  GET  /api/email/settings`);
-  console.log(`  POST /api/email/settings`);
-  console.log(`  POST /api/email/send`);
+  console.log(`[server] agent-radar API + static server running on http://localhost:${PORT}`);
+  console.log(`[server] API:       http://localhost:${PORT}/api/health`);
+  if (hasDist) {
+    console.log(`[server] Dashboard: http://localhost:${PORT}/dashboard.html`);
+  } else {
+    console.log(`[server] Dashboard: dist/ not found — run 'npm run site:build' first`);
+  }
 });

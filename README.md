@@ -220,15 +220,26 @@ dist/
     └── latest.json
 ```
 
-本地预览：
+> `dist/` 只包含静态展示文件，不包含源码、密钥、raw/generated 数据。
+
+## 本地联调（API + 前端）
+
+**测试邮件按钮需要同源访问，推荐使用 Express 服务器**：
 
 ```bash
-cd dist
-python -m http.server 5173
-# 打开 http://localhost:5173/dashboard.html
+npm run site:build
+npm run server:start
+# 打开 http://localhost:3000/dashboard.html
 ```
 
-> `dist/` 只包含静态展示文件，不包含源码、密钥、raw/generated 数据。
+> 不推荐用 `python -m http.server` 测试邮件按钮。Python 静态服务器只支持 GET/HEAD，POST `/api/email/send` 会返回 HTTP 501。`server:start` 同时托管 API 和静态文件，前端同源请求可正常到达 API。
+
+纯静态预览（无需 API）：
+
+```bash
+cd dist && python -m http.server 5173
+# 打开 http://localhost:5173/dashboard.html
+```
 
 ## 自有服务器部署
 
