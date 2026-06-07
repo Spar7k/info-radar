@@ -9,6 +9,7 @@
     "radar:generate:latest": "tsx src/radar/processors/generateLatest.ts",
     "radar:llm:preview": "tsx src/radar/llm/enrichLatestPreview.ts",
     "radar:llm:apply": "tsx src/radar/llm/applyLatestPreview.ts",
+    "radar:email:preview": "tsx src/radar/email/renderEmailPreview.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

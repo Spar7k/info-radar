@@ -27,3 +27,5 @@ data/raw/*.json
 
 agents-radar/
 data/generated/*.json
+data/generated/*.html
+data/generated/*.txt
