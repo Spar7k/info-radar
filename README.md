@@ -134,14 +134,62 @@ info-radar/
 └── _reference/                     # 参考项目（gitignored）
 ```
 
-## 邮件 dry-run（Task 5B）
+## 邮件（Task 5）
 
-当前只做 dry-run，不真实发送邮件。
+### 预览和 dry-run
 
 ```bash
 npm run radar:email:preview    # 生成邮件 HTML/TXT 预览
-npm run radar:email:dry-run    # SMTP 配置验证 + would-send 摘要
+npm run radar:email:dry-run    # SMTP 配置验证 + would-send 摘要（不发送）
 ```
+
+### 真实发送（需显式开启）
+
+```bash
+npm run radar:email:send       # 真实发送一封测试邮件
+```
+
+> **默认不会发送邮件。** 必须设置 `INFO_RADAR_EMAIL_SEND_ENABLED=true` 才会真实发送。
+
+### Provider 预设
+
+| Provider | 邮箱 | SMTP Host | Port | Secure |
+|----------|------|-----------|------|--------|
+| `qq` | QQ 邮箱 | smtp.qq.com | 465 | true |
+| `netease163` | 网易 163 | smtp.163.com | 465 | true |
+| `netease126` | 网易 126 | smtp.126.com | 465 | true |
+| `neteaseyeah` | 网易 yeah | smtp.yeah.net | 465 | true |
+| `custom` / 不设 | 自定义 | 手动指定 SMTP_HOST/PORT/SECURE | — | — |
+
+### QQ 邮箱配置示例
+
+```cmd
+set INFO_RADAR_EMAIL_PROVIDER=qq
+set INFO_RADAR_SMTP_USER=your_qq_email@qq.com
+set INFO_RADAR_SMTP_PASS=your_qq_authorization_code
+set INFO_RADAR_EMAIL_FROM=your_qq_email@qq.com
+set INFO_RADAR_EMAIL_TO=your_target_email@example.com
+set INFO_RADAR_EMAIL_SEND_ENABLED=true
+npm run radar:email:dry-run
+npm run radar:email:send
+```
+
+> QQ 邮箱需使用**授权码**（不是 QQ 密码）。在 QQ 邮箱 → 设置 → 账户 → POP3/SMTP 服务中生成。
+
+### 网易 163 配置示例
+
+```cmd
+set INFO_RADAR_EMAIL_PROVIDER=netease163
+set INFO_RADAR_SMTP_USER=your_163_email@163.com
+set INFO_RADAR_SMTP_PASS=your_netease_client_password
+set INFO_RADAR_EMAIL_FROM=your_163_email@163.com
+set INFO_RADAR_EMAIL_TO=your_target_email@example.com
+set INFO_RADAR_EMAIL_SEND_ENABLED=true
+npm run radar:email:dry-run
+npm run radar:email:send
+```
+
+> 网易邮箱需使用**客户端授权密码**（不是网页登录密码）。在网易邮箱 → 设置 → POP3/SMTP/IMAP 中开启并获取。
 
 ### SMTP 环境变量
 

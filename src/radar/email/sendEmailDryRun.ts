@@ -43,11 +43,13 @@ function main(): void {
   console.log("");
 
   console.log("── SMTP config ──");
+  console.log(`  Provider: ${config.provider}`);
   console.log(`  Host:     ${config.smtp?.host ?? "(missing)"}`);
   console.log(`  Port:     ${config.smtp?.port ?? "(missing)"}`);
   console.log(`  Secure:   ${config.smtp?.secure ?? false}`);
   console.log(`  User:     ${config.smtp?.user ? "***configured***" : "(missing)"}`);
   console.log(`  Pass:     ${config.smtp?.pass ? "***configured***" : "(missing)"}`);
+  console.log(`  Send enabled: ${config.sendEnabled}`);
 
   if (config.missingFields.length > 0) {
     console.log(`\n  Missing config: ${config.missingFields.join(", ")}`);
@@ -64,6 +66,8 @@ function main(): void {
     textLength: text.length,
     topRecommendationsCount: top10.length,
     sourceDistribution: sourceDist(top10),
+    provider: config.provider,
+    sendEnabled: config.sendEnabled,
     smtp: {
       hostConfigured: !!config.smtp?.host,
       portConfigured: !!config.smtp?.port,
