@@ -1114,14 +1114,15 @@ function renderSettingsPanel(status, data) {
   html += '</div></div>';
   html += '<div class="setting-row"><label>状态</label><span class="setting-badge ' + emailStatus + '">' + (emailStatus === 'ok' ? '已支持' : '未配置') + '</span></div>';
   html += '<div class="setting-row"><label>发送模式</label><span class="value">手动发送已验证</span></div>';
+  html += '<div class="setting-row"><label>定时推送</label><span class="value" id="tzDisplay">每天 08:00（Asia/Shanghai）</span></div>';
   html += '<div class="toggle-row">';
-  html += '<div><div class="toggle-label">开启邮件推送</div><div class="toggle-hint">保存到本地浏览器</div></div>';
+  html += '<div><div class="toggle-label">每天早上 8 点自动推送</div><div class="toggle-hint">定时执行需服务器 Task 6C-3 cron</div></div>';
   html += '<label class="toggle-switch"><input type="checkbox" id="emailToggle" ' + (savedToggle ? 'checked' : '') + ' onchange="saveEmailToggle()"><span class="toggle-slider"></span></label>';
   html += '</div>';
   html += '<div class="email-input-row">';
   html += '<input type="email" id="emailInput" placeholder="your@email.com" value="' + escapeHtml(savedEmail) + '">';
   html += '<button onclick="saveEmail()">保存</button>';
-  html += '<button onclick="sendTestEmail()">发送测试</button>';
+  html += '<button id="sendTestBtn" onclick="sendTestEmail()">发送测试</button>';
   html += '</div>';
   html += '</div>';
 
@@ -1141,20 +1142,87 @@ function renderSettingsPanel(status, data) {
   return html;
 }
 
-/* ── Settings Panel: localStorage ── */
-function saveEmail() {
-  const val = document.getElementById('emailInput').value.trim();
-  localStorage.setItem('ir-email', val);
-  alert(val ? '收件邮箱已保存到本地浏览器。' : '已清除收件邮箱。');
+/* ── Settings Panel: API helpers ── */
+async function apiGet(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
+async function apiPost(url, body) {
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.error || 'HTTP ' + r.status);
+  return data;
+}
+
+async function loadSettingsFromApi() {
+  try {
+    const data = await apiGet('/api/email/settings');
+    if (data.ok && data.settings) {
+      document.getElementById('emailInput').value = data.settings.to || '';
+      document.getElementById('emailToggle').checked = data.settings.dailyEnabled === true;
+      const tz = data.settings.timezone || 'Asia/Shanghai';
+      const h = data.settings.dailyHour || 8;
+      const tzEl = document.getElementById('tzDisplay');
+      if (tzEl) tzEl.textContent = '每天 ' + String(h).padStart(2,'0') + ':00（' + tz + '）';
+      return true;
+    }
+  } catch { /* server not available */ }
+  return false;
 }
 
 function saveEmailToggle() {
   const checked = document.getElementById('emailToggle').checked;
+  const email = document.getElementById('emailInput').value.trim();
+  if (checked && !email) {
+    alert('请先输入收件邮箱再开启每日推送。');
+    document.getElementById('emailToggle').checked = false;
+    return;
+  }
   localStorage.setItem('ir-email-enabled', checked ? 'true' : 'false');
+  // Save to API
+  apiPost('/api/email/settings', { to: email, dailyEnabled: checked })
+    .then(() => { /* silent */ })
+    .catch(() => { /* API may not be available */ });
 }
 
-function sendTestEmail() {
-  alert('当前为静态演示模式，真实发送需服务器 API。\n\n本地可使用：npm run radar:email:send\n\n请确保已配置 INFO_RADAR_EMAIL_SEND_ENABLED=true');
+function saveEmail() {
+  const email = document.getElementById('emailInput').value.trim();
+  const enabled = document.getElementById('emailToggle').checked;
+  localStorage.setItem('ir-email', email);
+  apiPost('/api/email/settings', { to: email, dailyEnabled: enabled })
+    .then(() => alert('邮件设置已保存。'))
+    .catch(() => alert('已保存到本地浏览器（服务器 API 未连接）。'));
+}
+
+async function sendTestEmail() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email) { alert('请先输入收件邮箱。'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('邮箱格式不正确。'); return; }
+
+  const btn = document.getElementById('sendTestBtn');
+  const orig = btn.textContent;
+  btn.textContent = '发送中…';
+  btn.disabled = true;
+
+  try {
+    await apiPost('/api/email/send', { to: email });
+    alert('测试邮件已发送，请查收。');
+  } catch (err) {
+    if (err.message.includes('404') || err.message.includes('Failed to fetch')) {
+      alert('当前静态部署未启用服务器端邮件 API。\n\n本地可使用：npm run radar:email:send');
+    } else {
+      alert('发送失败：' + err.message);
+    }
+  } finally {
+    btn.textContent = orig;
+    btn.disabled = false;
+  }
 }
 
 /* ── Init ── */
@@ -1183,6 +1251,9 @@ async function main() {
     } catch { /* optional */ }
 
     app.innerHTML = render(data, statusData);
+
+    // Load email settings from API (async, after render)
+    loadSettingsFromApi();
   } catch (err) {
     app.innerHTML = renderError(err);
   }
