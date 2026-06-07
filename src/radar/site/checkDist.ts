@@ -8,6 +8,7 @@ import path from "node:path";
 const DIST = path.resolve("dist");
 
 const REQUIRED = ["dashboard.html", path.join("data", "latest.json")];
+const OPTIONAL = [path.join("data", "status.json")];
 const FORBIDDEN = ["src", "node_modules", ".env", "data/raw", "data/generated", "_reference"];
 
 function main(): void {
@@ -26,6 +27,15 @@ function main(): void {
       failures.push(`Missing: ${f}`);
     } else {
       console.log(`  ✅ ${f}`);
+    }
+  }
+
+  for (const f of OPTIONAL) {
+    const full = path.join(DIST, f);
+    if (fs.existsSync(full)) {
+      console.log(`  ✅ ${f}`);
+    } else {
+      console.log(`  ⚠️  ${f} (optional, skipped)`);
     }
   }
 

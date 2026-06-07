@@ -80,11 +80,7 @@ function main(): void {
   }
   console.log(`[site:build] dashboard.html: found`);
 
-  // 2. Clean + create dist
-  if (fs.existsSync(DIST)) {
-    fs.rmSync(DIST, { recursive: true, force: true });
-    console.log(`[site:build] Cleaned ${DIST}`);
-  }
+  // 2. Ensure dist/data exists
   fs.mkdirSync(DIST_DATA, { recursive: true });
 
   // 3. Copy files
@@ -93,6 +89,14 @@ function main(): void {
 
   fs.copyFileSync(LATEST_SRC, path.join(DIST_DATA, "latest.json"));
   console.log(`[site:build] Copied data/latest.json`);
+
+  const STATUS_SRC = path.join(ROOT, "data", "status.json");
+  if (fs.existsSync(STATUS_SRC)) {
+    fs.copyFileSync(STATUS_SRC, path.join(DIST_DATA, "status.json"));
+    console.log("[site:build] Copied data/status.json");
+  } else {
+    console.log("[site:build] data/status.json not found — skipping (run 'npm run radar:status')");
+  }
 
   // 4. Summary
   const files = walkDist(DIST);

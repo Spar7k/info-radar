@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-06-07T12:21:58.442Z",
+  "llm": {
+    "status": "connected",
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "description": "已用于生成摘要、推荐理由、风险提示和日报"
+  },
+  "email": {
+    "status": "manual_verified",
+    "supported": true,
+    "mode": "manual",
+    "providers": [
+      "qq",
+      "netease163",
+      "netease126",
+      "neteaseyeah",
+      "custom"
+    ],
+    "sendEnabledByDefault": false,
+    "description": "已支持本地脚本发送，前端真实发送需服务器 API"
+  },
+  "automation": {
+    "status": "not_configured",
+    "description": "当前为手动生成和手动发送，自动化定时任务尚未接入"
+  },
+  "pipeline": {
+    "fetchStatus": "ok",
+    "rankingStatus": "ok",
+    "topRecommendations": 10,
+    "candidateCount": 80,
+    "sources": [
+      "hackernews",
+      "devto",
+      "arxiv"
+    ]
+  }
+}
