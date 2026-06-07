@@ -1,0 +1,154 @@
+# 信息雷达 / Info Radar
+
+每日自动抓取 AI / Agent / 开源项目公开信息，规则评分筛选 Top 10，可选 LLM 生成摘要、推荐理由和日报，通过静态 HTML 页面展示。
+
+## 当前数据源
+
+| 来源 | 类型 | 认证 |
+|------|------|------|
+| Hacker News | Algolia Search API（JSON） | 无 |
+| Dev.to | Forem API（JSON） | 无 |
+| ArXiv | Atom/XML API | 无 |
+| GitHub Trending | HTML 页面解析 | 无（当前网络环境可能不可达） |
+
+## 本地安装
+
+```bash
+npm install
+```
+
+## 本地运行
+
+### 完整流程（4 步）
+
+```bash
+# Step 1: 抓取真实数据 → data/raw/
+npm run radar:fetch
+
+# Step 2: 去重 + 规则评分 + Top 10 → data/latest.json
+npm run radar:generate:latest
+
+# Step 3: LLM 生成推荐理由和日报预览 → data/generated/latest_llm_preview.json
+npm run radar:llm:preview
+
+# Step 4: 应用 LLM 结果到正式数据 → data/latest.json
+npm run radar:llm:apply
+
+# Step 5: 启动本地服务器查看
+python -m http.server 5173
+# 打开 http://localhost:5173/dashboard.html
+```
+
+### 快捷命令
+
+```bash
+npm run typecheck              # TypeScript 类型检查
+npm run radar:generate:preview # 只生成预览（不覆盖正式数据）
+```
+
+## LLM 配置（可选）
+
+不配置 LLM 也能运行完整 pipeline，只是推荐理由和日报保持为空。
+
+支持任何 OpenAI-compatible API（DeepSeek、OpenAI、Ollama 等）。
+
+### Windows CMD
+
+```cmd
+set INFO_RADAR_LLM_API_KEY=your_key_here
+set INFO_RADAR_LLM_BASE_URL=https://api.deepseek.com
+set INFO_RADAR_LLM_MODEL=deepseek-v4-flash
+set INFO_RADAR_LLM_MAX_TOKENS=4096
+```
+
+### macOS / Linux
+
+```bash
+export INFO_RADAR_LLM_API_KEY=your_key_here
+export INFO_RADAR_LLM_BASE_URL=https://api.deepseek.com
+export INFO_RADAR_LLM_MODEL=deepseek-v4-flash
+export INFO_RADAR_LLM_MAX_TOKENS=4096
+```
+
+### LLM 环境变量
+
+| 变量 | 必需 | 默认值 | 说明 |
+|------|------|--------|------|
+| `INFO_RADAR_LLM_API_KEY` | 是 | — | API Key |
+| `INFO_RADAR_LLM_BASE_URL` | 否 | `https://api.openai.com/v1` | API 地址 |
+| `INFO_RADAR_LLM_MODEL` | 否 | `gpt-4o-mini` | 模型名 |
+| `INFO_RADAR_LLM_MAX_TOKENS` | 否 | `4096` | 最大输出 token 数 |
+| `INFO_RADAR_LLM_JSON_MODE` | 否 | `true` | 是否启用 JSON mode |
+
+## 生成文件说明
+
+| 路径 | 用途 | 是否提交 |
+|------|------|---------|
+| `data/latest.json` | 正式前端展示数据 | ✅ 可提交 |
+| `dashboard.html` | 静态展示页 | ✅ |
+| `data/raw/*.json` | 原始抓取结果 | ❌ gitignored |
+| `data/generated/*.json` | 预览 / 备份 | ❌ gitignored |
+
+## 安全说明
+
+- API Key 不进入前端（dashboard.html 只读取 JSON 文件）
+- API Key 不写入 data/latest.json
+- API Key 不提交 git（`.env` 和 `.env.*` 已 gitignored）
+- LLM 只在本地 `npm run radar:llm:preview` 阶段调用
+
+## 项目结构
+
+```
+info-radar/
+├── dashboard.html                  # 前端展示页
+├── data/
+│   ├── latest.json                 # 正式数据（前端读取）
+│   ├── raw/                        # 原始抓取数据（gitignored）
+│   └── generated/                  # 预览和备份（gitignored）
+├── src/
+│   └── radar/
+│       ├── types.ts                # 核心类型定义
+│       ├── run.ts                  # 抓取入口
+│       ├── utils/http.ts           # HTTP fetch 工具
+│       ├── fetchers/               # 数据源抓取
+│       │   ├── hackernews.ts
+│       │   ├── devto.ts
+│       │   ├── githubTrending.ts
+│       │   ├── arxiv.ts
+│       │   └── index.ts
+│       ├── processors/             # 去重 + 评分 + 生成
+│       │   ├── dedupe.ts
+│       │   ├── score.ts
+│       │   ├── buildOutput.ts
+│       │   ├── generateLatest.ts
+│       │   └── generateLatestPreview.ts
+│       └── llm/                    # LLM 增强
+│           ├── client.ts
+│           ├── prompt.ts
+│           ├── types.ts
+│           ├── enrichLatestPreview.ts
+│           └── applyLatestPreview.ts
+├── sources.json                    # 数据源配置（预留）
+├── DESIGN.md                       # UI 设计规范
+├── AGENTS.md                       # Agent 指令
+└── _reference/                     # 参考项目（gitignored）
+```
+
+## 当前 MVP 边界
+
+**已完成**：
+- 4 个公开数据源抓取（HN / Dev.to / ArXiv / GitHub Trending）
+- 规则去重 + 多维度评分 + Top 10 推荐
+- LLM 生成推荐理由和日报（可选）
+- 静态 Dashboard 展示
+
+**未包含**：
+- 用户登录
+- 私有数据抓取
+- 邮件推送（Task 5）
+- GitHub Actions 自动化（Task 6）
+- Vercel 部署（Task 6）
+
+## 许可证
+
+MIT
