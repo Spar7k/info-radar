@@ -1,0 +1,19 @@
+# agent雷达 — daily email timer
+# Fires at 08:00 every day (requires server timezone = Asia/Shanghai).
+#
+# Install:
+#   sudo timedatectl set-timezone Asia/Shanghai
+#   sudo cp deploy/systemd/agent-radar-email.service.example /etc/systemd/system/agent-radar-email.service
+#   sudo cp deploy/systemd/agent-radar-email.timer.example /etc/systemd/system/agent-radar-email.timer
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now agent-radar-email.timer
+
+[Unit]
+Description=agent-radar daily email timer (08:00 Asia/Shanghai)
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

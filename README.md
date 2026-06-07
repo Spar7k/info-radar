@@ -205,6 +205,20 @@ npm run radar:email:send
 
 > **重要**：密码/授权码不要提交到 git。使用 `.env` 文件（已 gitignored）或系统环境变量。
 
+### 每天 08:00 定时推送
+
+前端"每天早上 8 点自动推送"开关保存设置到 `data/server/email_settings.json`。真正定时发送由服务器 cron 或 systemd timer 触发，每天 **08:00（北京时间 / Asia/Shanghai）** 执行。
+
+```bash
+# Dry-run（验证设置，不发送）
+INFO_RADAR_SCHEDULED_EMAIL_DRY_RUN=true npm run radar:email:scheduled
+
+# 真实发送（由 cron/systemd 调用）
+npm run radar:email:scheduled
+```
+
+部署示例：[deploy/cron/](deploy/cron/) | [deploy/systemd/](deploy/systemd/) | [DEPLOY_SELF_HOSTED.md](DEPLOY_SELF_HOSTED.md)
+
 ## 静态站点构建
 
 ```bash

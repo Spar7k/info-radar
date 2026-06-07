@@ -1,0 +1,14 @@
+# agent雷达 — scheduled email service
+# Replace /path/to/agent-radar with your actual project path.
+
+[Unit]
+Description=agent-radar daily email sender (08:00 Asia/Shanghai)
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/path/to/agent-radar
+ExecStart=/usr/bin/npm run radar:email:scheduled
+EnvironmentFile=/etc/agent-radar/agent-radar.env
+StandardOutput=journal
+StandardError=journal

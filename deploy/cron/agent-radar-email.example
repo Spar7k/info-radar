@@ -1,0 +1,22 @@
+# agent雷达 — daily email cron job
+# Runs every day at 08:00 Beijing time (Asia/Shanghai).
+#
+# Prerequisites:
+#   1. Server timezone set to Asia/Shanghai:
+#      sudo timedatectl set-timezone Asia/Shanghai
+#
+#   2. Environment variables configured (e.g. in /etc/agent-radar/agent-radar.env):
+#      INFO_RADAR_EMAIL_PROVIDER
+#      INFO_RADAR_SMTP_USER
+#      INFO_RADAR_SMTP_PASS
+#      INFO_RADAR_EMAIL_FROM
+#      INFO_RADAR_EMAIL_SEND_ENABLED=true
+#
+#   3. settings saved by dashboard or API:
+#      POST /api/email/settings  { "to": "...", "dailyEnabled": true }
+#
+# Install:
+#   crontab -e
+#   (paste the line below, replacing /path/to with your actual project path)
+
+0 8 * * * cd /path/to/agent-radar && npm run radar:email:scheduled >> /var/log/agent-radar-email.log 2>&1

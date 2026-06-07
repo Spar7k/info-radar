@@ -12,6 +12,7 @@
     "radar:email:preview": "tsx src/radar/email/renderEmailPreview.ts",
     "radar:email:dry-run": "tsx src/radar/email/sendEmailDryRun.ts",
     "radar:email:send": "tsx src/radar/email/sendEmail.ts",
+    "radar:email:scheduled": "tsx src/radar/email/sendScheduledEmail.ts",
     "site:build": "tsx src/radar/site/buildStaticSite.ts",
     "site:check": "tsx src/radar/site/checkDist.ts",
     "radar:status": "tsx src/radar/status/generateStatus.ts",
