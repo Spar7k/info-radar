@@ -10,6 +10,7 @@
     "radar:llm:preview": "tsx src/radar/llm/enrichLatestPreview.ts",
     "radar:llm:apply": "tsx src/radar/llm/applyLatestPreview.ts",
     "radar:email:preview": "tsx src/radar/email/renderEmailPreview.ts",
+    "radar:email:dry-run": "tsx src/radar/email/sendEmailDryRun.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

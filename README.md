@@ -134,6 +134,29 @@ info-radar/
 └── _reference/                     # 参考项目（gitignored）
 ```
 
+## 邮件 dry-run（Task 5B）
+
+当前只做 dry-run，不真实发送邮件。
+
+```bash
+npm run radar:email:preview    # 生成邮件 HTML/TXT 预览
+npm run radar:email:dry-run    # SMTP 配置验证 + would-send 摘要
+```
+
+### SMTP 环境变量
+
+| 变量 | 必需 | 说明 |
+|------|------|------|
+| `INFO_RADAR_SMTP_HOST` | 是 | SMTP 服务器地址（如 `smtp.gmail.com`） |
+| `INFO_RADAR_SMTP_PORT` | 是 | 端口（如 `587`） |
+| `INFO_RADAR_SMTP_SECURE` | 否 | 是否使用 TLS（`true`/`false`，默认 false） |
+| `INFO_RADAR_SMTP_USER` | 是 | SMTP 登录用户名 |
+| `INFO_RADAR_SMTP_PASS` | 是 | SMTP 密码或授权码（建议使用应用专用密码） |
+| `INFO_RADAR_EMAIL_FROM` | 是 | 发件人地址 |
+| `INFO_RADAR_EMAIL_TO` | 是 | 收件人地址（多个用逗号分隔） |
+
+> **重要**：密码/授权码不要提交到 git。使用 `.env` 文件（已 gitignored）或系统环境变量。
+
 ## 当前 MVP 边界
 
 **已完成**：
