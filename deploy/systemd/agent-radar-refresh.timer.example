@@ -1,0 +1,21 @@
+# agent雷达 — daily data refresh timer
+# Fires at 07:30 every day (requires server timezone = Asia/Shanghai).
+#
+# Chain: 07:30 refresh data → 08:00 send email
+#
+# Install:
+#   sudo timedatectl set-timezone Asia/Shanghai
+#   sudo cp deploy/systemd/agent-radar-refresh.service.example /etc/systemd/system/agent-radar-refresh.service
+#   sudo cp deploy/systemd/agent-radar-refresh.timer.example /etc/systemd/system/agent-radar-refresh.timer
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now agent-radar-refresh.timer
+
+[Unit]
+Description=agent-radar daily data refresh timer (07:30 Asia/Shanghai)
+
+[Timer]
+OnCalendar=*-*-* 07:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

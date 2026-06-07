@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-07T12:21:58.442Z",
+  "generatedAt": "2026-06-07T13:18:12.341Z",
   "llm": {
-    "status": "connected",
+    "status": "not_used",
     "provider": "DeepSeek",
     "model": "deepseek-v4-flash",
-    "description": "已用于生成摘要、推荐理由、风险提示和日报"
+    "description": "未在当前数据中使用（可能未配置 API Key）"
   },
   "email": {
     "status": "manual_verified",
@@ -28,10 +28,11 @@
     "fetchStatus": "ok",
     "rankingStatus": "ok",
     "topRecommendations": 10,
-    "candidateCount": 80,
+    "candidateCount": 105,
     "sources": [
       "hackernews",
       "devto",
+      "github",
       "arxiv"
     ]
   }

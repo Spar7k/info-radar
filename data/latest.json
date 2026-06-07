@@ -1,15 +1,16 @@
 {
   "date": "2026-06-07",
-  "generatedAt": "2026-06-07T10:40:13.385Z",
+  "generatedAt": "2026-06-07T13:18:11.829Z",
   "stats": {
-    "totalFetched": 80,
-    "totalAfterDedupe": 80,
-    "totalScored": 80,
+    "totalFetched": 105,
+    "totalAfterDedupe": 105,
+    "totalScored": 105,
     "recommendationCount": 10
   },
   "sources": [
     "hackernews",
     "devto",
+    "github",
     "arxiv"
   ],
   "keywords": [
@@ -17,14 +18,45 @@
     "AI Agent",
     "cs.CL",
     "RAG",
+    "llm",
     "ai",
     "developer tools",
     "Workflow",
     "cs.CR",
-    "machinelearning",
-    "llm"
+    "machinelearning"
   ],
   "topRecommendations": [
+    {
+      "id": "hackernews:48434312",
+      "title": "LLMs are eroding my software engineering career and I don't know what to do",
+      "url": "https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T12:49:29Z",
+      "summary": "LLMs are eroding my software engineering career and I don't know what to do",
+      "tags": [
+        "Hacker News",
+        "llm"
+      ],
+      "metrics": {
+        "points": 82,
+        "comments": 35
+      },
+      "score": 88,
+      "scoreBreakdown": {
+        "relevance": 18,
+        "practicality": 15,
+        "popularity": 15,
+        "freshness": 25,
+        "sourceQuality": 15,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: llm / large.language.model"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
     {
       "id": "hackernews:48413629",
       "title": "Ask HN: What is your (AI) dev tech stack / workflow?",
@@ -39,7 +71,7 @@
         "Workflow"
       ],
       "metrics": {
-        "points": 152,
+        "points": 154,
         "comments": 130
       },
       "score": 86,
@@ -55,9 +87,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: workflow / automation"
       ],
-      "llmSummary": "HN讨论AI开发技术栈与工作流",
-      "llmRecommendationReason": "汇集社区最新实践，适合参考搭建AI开发环境",
-      "llmRiskNote": "结果因人而异，需结合自身场景筛选"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.06399v1",
@@ -86,9 +118,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: research / paper / study"
       ],
-      "llmSummary": "新方法评估LLM智能体协作能力",
-      "llmRecommendationReason": "为多智能体系统协作设计提供评测框架",
-      "llmRiskNote": "方法验证样本有限，未必直接推广"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.06387v1",
@@ -117,9 +149,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: research / paper / study"
       ],
-      "llmSummary": "揭示WebMCP协议下AI代理工具投毒攻击",
-      "llmRecommendationReason": "新协议安全风险研究，对代理系统安全设计有警示",
-      "llmRiskNote": "具体攻击场景可能尚未覆盖所有变体"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "devto:3803423",
@@ -152,9 +184,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: llm / large.language.model"
       ],
-      "llmSummary": "速率限制是AI代理的隐性故障主因",
-      "llmRecommendationReason": "点出工程实践痛点，提供容量管理思路",
-      "llmRiskNote": "部分观点可能忽略模型本身局限"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.06473v1",
@@ -183,9 +215,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: llm / large.language.model"
       ],
-      "llmSummary": "自进化LLM代理自动发现ML算法",
-      "llmRecommendationReason": "推动自动化科学发现，架构有参考价值",
-      "llmRiskNote": "进化稳定性可能受搜索空间影响"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "devto:3806074",
@@ -196,14 +228,14 @@
       "summary": "A few years ago, we started adapting our websites for mobile devices. Then we adapted them for...",
       "tags": [
         "Dev.to",
-        "ai",
         "javascript",
         "react",
-        "mcp"
+        "mcp",
+        "ai"
       ],
       "metrics": {
         "comments": 110,
-        "likes": 108
+        "likes": 106
       },
       "score": 84,
       "scoreBreakdown": {
@@ -217,9 +249,9 @@
       "ruleReasonHints": [
         "命中关键词: mcp"
       ],
-      "llmSummary": "webMCP演示，未来网站构建新方式",
-      "llmRecommendationReason": "展示AI代理与网站交互新模式",
-      "llmRiskNote": "实际部署可能面临安全和兼容性问题"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.06003v1",
@@ -247,9 +279,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": "超越向量相似度，图增强检索提升结构推理",
-      "llmRecommendationReason": "解决工业知识图谱复杂查询，方法实用",
-      "llmRiskNote": "依赖高质量知识图谱构建"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.05901v1",
@@ -278,9 +310,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": "基于图的RAG方法减少复杂问答幻觉",
-      "llmRecommendationReason": "简单有效，直接改善事实一致性",
-      "llmRiskNote": "图结构设计仍需领域知识"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
       "id": "arxiv:2606.05875v1",
@@ -309,46 +341,25 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": "新缓存融合技术提升RAG服务效率",
-      "llmRecommendationReason": "降低预填充计算成本，提升性能",
-      "llmRiskNote": "兼容性未广泛测试"
-    },
-    {
-      "id": "devto:3791709",
-      "title": "I Rebuilt My Karaoke App So Everyone's Phone Could Be a Remote",
-      "url": "https://dev.to/lehuygiang28/i-rebuilt-my-karaoke-app-so-everyones-phone-could-be-a-remote-4k8b",
-      "source": "devto",
-      "publishedAt": "2026-06-01T00:47:27Z",
-      "summary": "This is a submission for the GitHub Finish-Up-A-Thon Challenge What I Built VKara is a...",
-      "tags": [
-        "Dev.to",
-        "webdev",
-        "devchallenge",
-        "githubchallenge",
-        "githubcopilot"
-      ],
-      "metrics": {
-        "comments": 16,
-        "likes": 38
-      },
-      "score": 83,
-      "scoreBreakdown": {
-        "relevance": 17,
-        "practicality": 20,
-        "popularity": 14,
-        "freshness": 20,
-        "sourceQuality": 12,
-        "penalty": 0
-      },
-      "ruleReasonHints": [
-        "命中关键词: open.source / github"
-      ],
-      "llmSummary": "重构卡拉OK应用实现手机远程控制",
-      "llmRecommendationReason": "展示Web开发创意与实践结合",
-      "llmRiskNote": "功能相对简单，技术普适性一般"
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     }
   ],
   "candidates": [
+    {
+      "id": "hackernews:48434312",
+      "title": "LLMs are eroding my software engineering career and I don't know what to do",
+      "url": "https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T12:49:29Z",
+      "summary": "LLMs are eroding my software engineering career and I don't know what to do",
+      "tags": [
+        "Hacker News",
+        "llm"
+      ],
+      "score": 88
+    },
     {
       "id": "hackernews:48413629",
       "title": "Ask HN: What is your (AI) dev tech stack / workflow?",
@@ -432,10 +443,10 @@
       "summary": "A few years ago, we started adapting our websites for mobile devices. Then we adapted them for...",
       "tags": [
         "Dev.to",
-        "ai",
         "javascript",
         "react",
-        "mcp"
+        "mcp",
+        "ai"
       ],
       "score": 84
     },
@@ -529,16 +540,18 @@
       "score": 83
     },
     {
-      "id": "hackernews:48433171",
-      "title": "Ask HN: What do you currently use for AI coding (personal or professional)?",
-      "url": "https://news.ycombinator.com/item?id=48433171",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T09:14:50Z",
-      "summary": "Given how quickly things evolve, it's easy to get lost in the numerous offerings and hard to get the best deal. So, what do you use? Both clients&#x2F;harnesses and LLM providers or local setups would be interesting. Personally, I've been using opencode with Github copilot for work. I'm currently lo...",
+      "id": "devto:3762268",
+      "title": "After 7 Next.js 16 Caching Bugs, I Stopped Guessing and Built a System",
+      "url": "https://dev.to/shubhradev/after-7-nextjs-16-caching-bugs-i-stopped-guessing-and-built-a-system-4ijp",
+      "source": "devto",
+      "publishedAt": "2026-06-03T05:09:01Z",
+      "summary": "There's a specific feeling you get after your third production caching incident. It's not panic....",
       "tags": [
-        "Hacker News",
-        "llm",
-        "AI Agent"
+        "Dev.to",
+        "webdev",
+        "nextjs",
+        "typescript",
+        "performance"
       ],
       "score": 82
     },
@@ -551,10 +564,42 @@
       "summary": "Over the past few months, I’ve increasingly noticed something through my network: more people from...",
       "tags": [
         "Dev.to",
+        "productivity",
         "ai",
         "vibecoding",
-        "softwareengineering",
-        "productivity"
+        "softwareengineering"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3812919",
+      "title": "Am I Becoming Too Slow for the AI World?",
+      "url": "https://dev.to/marcosomma/am-i-becoming-too-slow-for-the-ai-world-1904",
+      "source": "devto",
+      "publishedAt": "2026-06-03T17:30:38Z",
+      "summary": "The AI world is full of old infrastructure with stochastic organs. That sentence probably explains...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "ai",
+        "programming",
+        "career"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3800157",
+      "title": "I Thought AI Would Make Me Code Faster. Then I Spent 6 Hours Debugging One Line.",
+      "url": "https://dev.to/trojanmocx/i-thought-ai-would-make-me-code-faster-then-i-spent-6-hours-debugging-one-line-3ffh",
+      "source": "devto",
+      "publishedAt": "2026-06-02T05:16:18Z",
+      "summary": "Everyone keeps saying AI will replace developers. Meanwhile I was sitting at 3:17 AM staring at a bug...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "discuss",
+        "ai",
+        "programming"
       ],
       "score": 82
     },
@@ -571,54 +616,6 @@
         "programming",
         "discuss",
         "career"
-      ],
-      "score": 82
-    },
-    {
-      "id": "devto:3812919",
-      "title": "Am I Becoming Too Slow for the AI World?",
-      "url": "https://dev.to/marcosomma/am-i-becoming-too-slow-for-the-ai-world-1904",
-      "source": "devto",
-      "publishedAt": "2026-06-03T17:30:38Z",
-      "summary": "The AI world is full of old infrastructure with stochastic organs. That sentence probably explains...",
-      "tags": [
-        "Dev.to",
-        "ai",
-        "programming",
-        "productivity",
-        "career"
-      ],
-      "score": 82
-    },
-    {
-      "id": "devto:3800157",
-      "title": "I Thought AI Would Make Me Code Faster. Then I Spent 6 Hours Debugging One Line.",
-      "url": "https://dev.to/trojanmocx/i-thought-ai-would-make-me-code-faster-then-i-spent-6-hours-debugging-one-line-3ffh",
-      "source": "devto",
-      "publishedAt": "2026-06-02T05:16:18Z",
-      "summary": "Everyone keeps saying AI will replace developers. Meanwhile I was sitting at 3:17 AM staring at a bug...",
-      "tags": [
-        "Dev.to",
-        "ai",
-        "discuss",
-        "programming",
-        "productivity"
-      ],
-      "score": 82
-    },
-    {
-      "id": "devto:3762268",
-      "title": "After 7 Next.js 16 Caching Bugs, I Stopped Guessing and Built a System",
-      "url": "https://dev.to/shubhradev/after-7-nextjs-16-caching-bugs-i-stopped-guessing-and-built-a-system-4ijp",
-      "source": "devto",
-      "publishedAt": "2026-06-03T05:09:01Z",
-      "summary": "There's a specific feeling you get after your third production caching incident. It's not panic....",
-      "tags": [
-        "Dev.to",
-        "webdev",
-        "nextjs",
-        "typescript",
-        "performance"
       ],
       "score": 82
     },
@@ -725,6 +722,19 @@
       "score": 80
     },
     {
+      "id": "hackernews:48433738",
+      "title": "Show HN: Cordium – FOSS self-hosted sandbox platform alt. Codespaces/E2B/Daytona",
+      "url": "https://github.com/octelium/cordium",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T11:13:29Z",
+      "summary": "Hello HN , Cordium is a FOSS, self-hosted, general-purpose sandbox platform that I've been working on for a long time now that is built on Kubernetes and Octelium https:&#x2F;&#x2F;github.com&#x2F;octelium&#x2F;octelium , my main work. Cordium can be used for various persistent&#x2F;ephemeral long&#...",
+      "tags": [
+        "Hacker News",
+        "ai agent"
+      ],
+      "score": 79
+    },
+    {
       "id": "hackernews:48433268",
       "title": "Show HN: Best setup local LLM found for a 5090 (llama.cpp fork + turboquant)",
       "url": "https://local-llm.utop.workers.dev/",
@@ -755,6 +765,34 @@
       "score": 79
     },
     {
+      "id": "github:aaif-goose/goose",
+      "title": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Rust] Star aaif-goose / goose an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "Rust"
+      ],
+      "score": 79
+    },
+    {
+      "id": "hackernews:48433857",
+      "title": "Show HN: Version Control for AI Agents",
+      "url": "https://cognatoai.com",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T11:32:21Z",
+      "summary": "Git&#x2F;GitHub did not evolve for agentic era, so we are building",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 78
+    },
+    {
       "id": "hackernews:48432586",
       "title": "GitHub's CPO on AI Coding Agents, Macro-Delegation, and the Future of Developers",
       "url": "https://www.turingpost.com/p/mario-rodriguez-github-ai-coding-agents-copilot",
@@ -764,20 +802,6 @@
       "tags": [
         "Hacker News",
         "ai agent",
-        "AI Agent"
-      ],
-      "score": 78
-    },
-    {
-      "id": "hackernews:48433422",
-      "title": "Show HN: Grafana Cloud observability plugin for Hermes Agent",
-      "url": "https://github.com/alexander-akhmetov/sigil-hermes",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T10:12:45Z",
-      "summary": "Show HN: Grafana Cloud observability plugin for Hermes Agent",
-      "tags": [
-        "Hacker News",
-        "rag",
         "AI Agent"
       ],
       "score": 78
@@ -831,6 +855,32 @@
       "score": 78
     },
     {
+      "id": "hackernews:48433784",
+      "title": "Show HN: A macOS game with zero asset files – terrain, sound, art all generated",
+      "url": "https://github.com/PerpetualBeta/Strataris",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T11:21:57Z",
+      "summary": "Strataris is a first-person colony-defence shoot-'em-up for macOS — Defender by way of Rescue on Fractalus. But the reason I'm posting it here is the build constraint: there are no asset files at all. No textures, no audio files, no 3-D models, no fonts. Everything is generated in code: - Terrain is...",
+      "tags": [
+        "Hacker News",
+        "llm"
+      ],
+      "score": 77
+    },
+    {
+      "id": "hackernews:48433756",
+      "title": "Show HN: Lathe – Use LLMs to learn a new domain, not skip past it",
+      "url": "https://github.com/devenjarvis/lathe",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T11:16:46Z",
+      "summary": "Hey HN! Lathe is an experiment in using LLMs to teach me something new, instead of doing the work for me. It generates a hands-on, source-backed tutorial for any technical topic you want to learn. Then you work through it yourself by reading and typing the code by hand ( gasp ) in a local UI built f...",
+      "tags": [
+        "Hacker News",
+        "llm"
+      ],
+      "score": 77
+    },
+    {
       "id": "devto:3812098",
       "title": "I Got Sick of Miro Eating 10 Minutes of Every Retro. So I Built a Corkboard for the Web.",
       "url": "https://dev.to/varshithvhegde/i-got-sick-of-miro-eating-10-minutes-of-every-retro-so-i-built-a-corkboard-for-the-web-41n9",
@@ -863,56 +913,28 @@
       "score": 77
     },
     {
-      "id": "hackernews:48432796",
-      "title": "The Grad Student Who Broke Microplastics Research",
-      "url": "https://drstanfield.com/en-eu/blogs/articles/the-grad-student-who-broke-microplastics-research",
+      "id": "hackernews:48434263",
+      "title": "Recent LLVM hash table improvements",
+      "url": "https://maskray.me/blog/2026-06-07-recent-llvm-hash-table-improvements",
       "source": "hackernews",
-      "publishedAt": "2026-06-07T07:54:51Z",
-      "summary": "The Grad Student Who Broke Microplastics Research",
+      "publishedAt": "2026-06-07T12:41:48Z",
+      "summary": "Recent LLVM hash table improvements",
       "tags": [
         "Hacker News",
-        "mcp"
+        "llm"
       ],
       "score": 76
     },
     {
-      "id": "hackernews:48427178",
-      "title": "A wild idea: Abstract reality using ontology",
-      "url": "https://news.ycombinator.com/item?id=48427178",
+      "id": "hackernews:48434032",
+      "title": "Show HN: Create and Maintain Filesystem Structures for LLMs [v1.0.11 Out]",
+      "url": "https://pypi.org/project/seed-cli/",
       "source": "hackernews",
-      "publishedAt": "2026-06-06T17:40:51Z",
-      "summary": "# A Wild Idea: Abstract Reality with Ontology ## Background Large language models (LLMs) debuted with GPT-3 back in June 2020. After roughly five to six years of development, I believe the technology is still in its infancy, with massive room for improvement. A major priority is building powerful mo...",
+      "publishedAt": "2026-06-07T12:11:03Z",
+      "summary": "Show HN: Create and Maintain Filesystem Structures for LLMs [v1.0.11 Out]",
       "tags": [
         "Hacker News",
-        "workflow"
-      ],
-      "score": 76
-    },
-    {
-      "id": "hackernews:48433196",
-      "title": "SourceHut Disrupted by LLM Crawlers",
-      "url": "https://status.sr.ht/issues/2026-06-06-llms-again/",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T09:19:23Z",
-      "summary": "SourceHut Disrupted by LLM Crawlers",
-      "tags": [
-        "Hacker News",
-        "llm",
-        "LLM"
-      ],
-      "score": 76
-    },
-    {
-      "id": "hackernews:48432647",
-      "title": "Thoughts on starting new projects with LLM agents",
-      "url": "https://eli.thegreenplace.net/2026/thoughts-on-starting-new-projects-with-llm-agents/",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T07:19:49Z",
-      "summary": "Thoughts on starting new projects with LLM agents",
-      "tags": [
-        "Hacker News",
-        "llm",
-        "LLM"
+        "llm"
       ],
       "score": 76
     },
@@ -945,40 +967,25 @@
       "score": 76
     },
     {
-      "id": "hackernews:48432432",
-      "title": "Show HN: SVAHNAR – Serverless infrastructure to run AI agents in isolated VMs",
-      "url": "https://www.svahnar.com/",
+      "id": "hackernews:48427178",
+      "title": "A wild idea: Abstract reality using ontology",
+      "url": "https://news.ycombinator.com/item?id=48427178",
       "source": "hackernews",
-      "publishedAt": "2026-06-07T06:35:59Z",
-      "summary": "Show HN: SVAHNAR – Serverless infrastructure to run AI agents in isolated VMs",
+      "publishedAt": "2026-06-06T17:40:51Z",
+      "summary": "# A Wild Idea: Abstract Reality with Ontology ## Background Large language models (LLMs) debuted with GPT-3 back in June 2020. After roughly five to six years of development, I believe the technology is still in its infancy, with massive room for improvement. A major priority is building powerful mo...",
       "tags": [
         "Hacker News",
-        "ai agent",
-        "AI Agent"
+        "workflow"
       ],
       "score": 76
     },
     {
-      "id": "hackernews:48432339",
-      "title": "Obsidian-agent-bridge – let AI agents read, write, and deepen Obsidian vaults",
-      "url": "https://github.com/samuraisguilt-jpg/obsidian-agent-bridge",
+      "id": "hackernews:48434430",
+      "title": "Show HN: I made a better zsh autosuggestion tool that predicts your next command",
+      "url": "https://github.com/Giammarco-Ferranti/deja",
       "source": "hackernews",
-      "publishedAt": "2026-06-07T06:15:41Z",
-      "summary": "Obsidian-agent-bridge – let AI agents read, write, and deepen Obsidian vaults",
-      "tags": [
-        "Hacker News",
-        "ai agent",
-        "AI Agent"
-      ],
-      "score": 76
-    },
-    {
-      "id": "hackernews:48433363",
-      "title": "Ask HN: Why do AIs talk like this?",
-      "url": "https://news.ycombinator.com/item?id=48433363",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T10:01:09Z",
-      "summary": "It's not X, it's Y. That is so a genre or idiom of the current AI age. Why? I think because AIs live in language. They don't live somewhere else. So they have to exclude all the language network of things it's not in order to focus themselves on the thing it is. If they were more subconscious&#x2F;s...",
+      "publishedAt": "2026-06-07T13:06:04Z",
+      "summary": "Hi everyone I just created Deja, a tool that instead of only surfacing commands that start with what you've typed, suggest what you actually want to run. I built it because I was using zsh autosuggestions but got tired of typing the same commands again and again. So Deja predicts your next command f...",
       "tags": [
         "Hacker News",
         "rag"
@@ -986,12 +993,12 @@
       "score": 76
     },
     {
-      "id": "hackernews:48433327",
-      "title": "Show HN: YourMemory, agentic memory is a pruning problem, not a hoarding problem",
-      "url": "https://yourmemoryai.vercel.app/",
+      "id": "hackernews:48434252",
+      "title": "Realisation of Unfixable",
+      "url": "https://news.ycombinator.com/item?id=48434252",
       "source": "hackernews",
-      "publishedAt": "2026-06-07T09:49:42Z",
-      "summary": "This is a project that I have been building for a while now, YourMemory is a solution to agentic memory which focuses on pruning of noise rather than hoarding of data. In the current state of agentic memory most of the context is stored in the form of a MD file or is derived through a RAG model wher...",
+      "publishedAt": "2026-06-07T12:40:18Z",
+      "summary": "Tell me, what’s in the world is unfixable? You will take some time to think and the answers that you come up with are the things that happens very rarely in the world. The list might contain death, passed time, environmental extinctions, entropy, etc. I bet the list isn’t that huge and that’s what t...",
       "tags": [
         "Hacker News",
         "rag"
@@ -1015,43 +1022,74 @@
       "score": 76
     },
     {
-      "id": "hackernews:48432740",
-      "title": "Project the aircraft passing overhead onto your ceiling, in real time",
-      "url": "https://github.com/cpaczek/skylight",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T07:40:03Z",
-      "summary": "Project the aircraft passing overhead onto your ceiling, in real time",
+      "id": "github:mvanhorn/last30days-skill",
+      "title": "mvanhorn/last30days-skill",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star mvanhorn / last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
       "tags": [
-        "Hacker News",
-        "mcp"
+        "GitHub Trending",
+        "daily",
+        "Python"
       ],
-      "score": 75
+      "score": 76
     },
     {
-      "id": "hackernews:48432679",
-      "title": "Help Nearby – humanitarian map with UN data integration",
-      "url": "https://help-nearby.org",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T07:25:46Z",
-      "summary": "Help Nearby – humanitarian map with UN data integration",
+      "id": "github:NousResearch/hermes-agent",
+      "title": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star NousResearch / hermes-agent The agent that grows with you",
       "tags": [
-        "Hacker News",
-        "mcp"
+        "GitHub Trending",
+        "daily",
+        "Python"
       ],
-      "score": 75
+      "score": 76
     },
     {
-      "id": "hackernews:48432642",
-      "title": "How LLMs Work: A Friendly Map for Humans",
-      "url": "https://oreoro.github.io/posts/how-llms-actually-work-friendly-guide/",
-      "source": "hackernews",
-      "publishedAt": "2026-06-07T07:18:57Z",
-      "summary": "How LLMs Work: A Friendly Map for Humans",
+      "id": "github:ggml-org/llama.cpp",
+      "title": "ggml-org/llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[C++] Star ggml-org / llama.cpp LLM inference in C/C++",
       "tags": [
-        "Hacker News",
-        "mcp"
+        "GitHub Trending",
+        "daily",
+        "C++"
       ],
-      "score": 75
+      "score": 76
+    },
+    {
+      "id": "github:Panniantong/Agent-Reach",
+      "title": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star Panniantong / Agent-Reach Give your AI agent eyes to see the entire internet. Read &amp; search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 76
+    },
+    {
+      "id": "github:withastro/flue",
+      "title": "withastro/flue",
+      "url": "https://github.com/withastro/flue",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Sponsor Star withastro / flue The sandbox agent framework.",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 76
     },
     {
       "id": "hackernews:48426453",
@@ -1068,12 +1106,12 @@
       "score": 75
     },
     {
-      "id": "hackernews:48433364",
-      "title": "Pennsylvania Healthcare meta analysis for June 2026 [pdf]",
-      "url": "https://ia601502.us.archive.org/23/items/pa-rating-area-individual-analyses-june-2026/PA_Rating_Area_Individual_Analyses_June2026.pdf",
+      "id": "hackernews:48434022",
+      "title": "Birth rates are declining in most of the world—here's why it really matters",
+      "url": "https://phys.org/news/2026-06-birth-declining-world.html",
       "source": "hackernews",
-      "publishedAt": "2026-06-07T10:01:24Z",
-      "summary": "Pennsylvania Healthcare meta analysis for June 2026 [pdf]",
+      "publishedAt": "2026-06-07T12:09:48Z",
+      "summary": "Birth rates are declining in most of the world—here's why it really matters",
       "tags": [
         "Hacker News",
         "rag"
@@ -1081,18 +1119,41 @@
       "score": 75
     },
     {
-      "id": "devto:3791187",
-      "title": "When Is 100% Vibe Coding OK ?",
-      "url": "https://dev.to/realvorl/when-is-100-vibe-coding-ok--38p",
-      "source": "devto",
-      "publishedAt": "2026-05-31T22:20:09Z",
-      "summary": "Recently, I lost a lot of time reviewing and would have lost even more implementing, what I can only...",
+      "id": "hackernews:48434010",
+      "title": "Show HN: pypoLCA – Latent Class Analysis and Regression in Python",
+      "url": "https://github.com/marcandre259/pypolca",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T12:07:13Z",
+      "summary": "Show HN: pypoLCA – Latent Class Analysis and Regression in Python",
       "tags": [
-        "Dev.to",
-        "ai",
-        "go",
-        "cschallenge",
-        "productivity"
+        "Hacker News",
+        "rag"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48433750",
+      "title": "AMD reaches almost 45% CPU share for Windows gaming PCs",
+      "url": "https://www.tomshardware.com/pc-components/cpus/amd-reaches-almost-45-percent-cpu-share-in-the-latest-steam-hardware-survey-for-windows-gaming-pcs-ryzen-is-steadily-gaining-ground-against-intels-legacy-domination",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T11:15:58Z",
+      "summary": "AMD reaches almost 45% CPU share for Windows gaming PCs",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48433619",
+      "title": "Show HN: Fact check, summarize, explain any article or webpage on local CPU",
+      "url": "https://github.com/kouhxp/fftext",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T10:54:46Z",
+      "summary": "Show HN: Fact check, summarize, explain any article or webpage on local CPU",
+      "tags": [
+        "Hacker News",
+        "mcp"
       ],
       "score": 75
     },
@@ -1113,18 +1174,20 @@
       "score": 75
     },
     {
-      "id": "hackernews:48422480",
-      "title": "How should we teach digital research workflows to undergrad philosophy students?",
-      "url": "https://news.ycombinator.com/item?id=48422480",
-      "source": "hackernews",
-      "publishedAt": "2026-06-06T07:46:53Z",
-      "summary": "I'm mainly looking for tools and resources, ideally focusing on open-source, open-access, and free options. Any suggestions on the presentation approach, along with any dos and don'ts, would be very welcome.",
+      "id": "devto:3791187",
+      "title": "When Is 100% Vibe Coding OK ?",
+      "url": "https://dev.to/realvorl/when-is-100-vibe-coding-ok--38p",
+      "source": "devto",
+      "publishedAt": "2026-05-31T22:20:09Z",
+      "summary": "Recently, I lost a lot of time reviewing and would have lost even more implementing, what I can only...",
       "tags": [
-        "Hacker News",
-        "workflow",
-        "Workflow"
+        "Dev.to",
+        "productivity",
+        "ai",
+        "go",
+        "cschallenge"
       ],
-      "score": 74
+      "score": 75
     },
     {
       "id": "hackernews:48415709",
@@ -1140,6 +1203,60 @@
       "score": 74
     },
     {
+      "id": "hackernews:48434058",
+      "title": "Beware Management Consultants",
+      "url": "https://about.iceland.co.uk/our-story/the-dark-ages/beware-management-consultants/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T12:14:22Z",
+      "summary": "Beware Management Consultants",
+      "tags": [
+        "Hacker News",
+        "rag"
+      ],
+      "score": 74
+    },
+    {
+      "id": "hackernews:48433586",
+      "title": "How to Train Your Goblin",
+      "url": "https://goblins.mchen.workers.dev/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T10:47:50Z",
+      "summary": "How to Train Your Goblin",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
+      "score": 74
+    },
+    {
+      "id": "github:Crosstalk-Solutions/project-nomad",
+      "title": "Crosstalk-Solutions/project-nomad",
+      "url": "https://github.com/Crosstalk-Solutions/project-nomad",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star Crosstalk-Solutions / project-nomad Project N.O.M.A.D, is a self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere.",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "TypeScript"
+      ],
+      "score": 74
+    },
+    {
+      "id": "github:NangoHQ/nango",
+      "title": "NangoHQ/nango",
+      "url": "https://github.com/NangoHQ/nango",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star NangoHQ / nango Build product integrations with AI.",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 74
+    },
+    {
       "id": "hackernews:48423498",
       "title": "Lessons from a weekend building local AI workflows",
       "url": "http://stefano.petrilli.xyz/building-ai-workflows/",
@@ -1151,22 +1268,6 @@
         "workflow",
         "AI Agent",
         "Workflow"
-      ],
-      "score": 73
-    },
-    {
-      "id": "devto:3797965",
-      "title": "AI gateways: why and how",
-      "url": "https://dev.to/nfrankel/ai-gateways-why-and-how-b5o",
-      "source": "devto",
-      "publishedAt": "2026-06-04T09:02:00Z",
-      "summary": "Before working for 2 years on the Apache APISIX API gateway, I was mainly oblivious to API gateways....",
-      "tags": [
-        "Dev.to",
-        "ai",
-        "codingassistants",
-        "aigateway",
-        "claude"
       ],
       "score": 73
     },
@@ -1187,20 +1288,216 @@
       "score": 73
     },
     {
-      "id": "devto:3804706",
-      "title": "MLOps Lifecycle: Stages, Workflow, and Best Practices",
-      "url": "https://dev.to/launchdarkly/mlops-lifecycle-stages-workflow-and-best-practices-227d",
+      "id": "devto:3797965",
+      "title": "AI gateways: why and how",
+      "url": "https://dev.to/nfrankel/ai-gateways-why-and-how-b5o",
       "source": "devto",
-      "publishedAt": "2026-06-02T16:48:26Z",
-      "summary": "Understand the MLOps lifecycle from data preparation to deployment, monitoring, governance, and retraining.",
+      "publishedAt": "2026-06-04T09:02:00Z",
+      "summary": "Before working for 2 years on the Apache APISIX API gateway, I was mainly oblivious to API gateways....",
       "tags": [
         "Dev.to",
-        "machinelearning",
         "ai",
-        "mlops",
-        "tutorial"
+        "codingassistants",
+        "aigateway",
+        "claude"
       ],
-      "score": 72
+      "score": 73
+    },
+    {
+      "id": "github:opencv/opencv",
+      "title": "opencv/opencv",
+      "url": "https://github.com/opencv/opencv",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[C++] Sponsor Star opencv / opencv Open Source Computer Vision Library",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "C++"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:Leonxlnx/taste-skill",
+      "title": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Shell] Sponsor Star Leonxlnx / taste-skill Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "Shell"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:lfnovo/open-notebook",
+      "title": "lfnovo/open-notebook",
+      "url": "https://github.com/lfnovo/open-notebook",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star lfnovo / open-notebook An Open Source implementation of Notebook LM with more flexibility and features",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "TypeScript"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:yikart/AiToEarn",
+      "title": "yikart/AiToEarn",
+      "url": "https://github.com/yikart/AiToEarn",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star yikart / AiToEarn Let's use AI to Earn!",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "TypeScript"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:RyanCodrai/turbovec",
+      "title": "RyanCodrai/turbovec",
+      "url": "https://github.com/RyanCodrai/turbovec",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star RyanCodrai / turbovec A vector index built on TurboQuant, written in Rust with Python bindings",
+      "tags": [
+        "GitHub Trending",
+        "daily",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:HunxByts/GhostTrack",
+      "title": "HunxByts/GhostTrack",
+      "url": "https://github.com/HunxByts/GhostTrack",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star HunxByts / GhostTrack Useful tool to track location or mobile number",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:roboflow/supervision",
+      "title": "roboflow/supervision",
+      "url": "https://github.com/roboflow/supervision",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star roboflow / supervision We write your reusable computer vision tools. 💜",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:microsoft/VibeVoice",
+      "title": "microsoft/VibeVoice",
+      "url": "https://github.com/microsoft/VibeVoice",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star microsoft / VibeVoice Open-Source Frontier Voice AI",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:MemPalace/mempalace",
+      "title": "MemPalace/mempalace",
+      "url": "https://github.com/MemPalace/mempalace",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star MemPalace / mempalace The best-benchmarked open-source AI memory system. And it's free.",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:sherlock-project/sherlock",
+      "title": "sherlock-project/sherlock",
+      "url": "https://github.com/sherlock-project/sherlock",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star sherlock-project / sherlock Hunt down social media accounts by username across social networks",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:refactoringhq/tolaria",
+      "title": "refactoringhq/tolaria",
+      "url": "https://github.com/refactoringhq/tolaria",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star refactoringhq / tolaria Desktop app to manage markdown knowledge bases",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:danielmiessler/Personal_AI_Infrastructure",
+      "title": "danielmiessler/Personal_AI_Infrastructure",
+      "url": "https://github.com/danielmiessler/Personal_AI_Infrastructure",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Sponsor Star danielmiessler / Personal_AI_Infrastructure Agentic AI Infrastructure for magnifying HUMAN capabilities.",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:CopilotKit/CopilotKit",
+      "title": "CopilotKit/CopilotKit",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star CopilotKit / CopilotKit The Frontend Stack for Agents &amp; Generative UI. React, Angular, Mobile, Slack, and more. Makers of the AG-UI Protocol",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 73
+    },
+    {
+      "id": "github:heygen-com/hyperframes",
+      "title": "heygen-com/hyperframes",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Star heygen-com / hyperframes Write HTML. Render video. Built for agents.",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 73
     },
     {
       "id": "devto:3752190",
@@ -1267,6 +1564,22 @@
       "score": 72
     },
     {
+      "id": "devto:3804706",
+      "title": "MLOps Lifecycle: Stages, Workflow, and Best Practices",
+      "url": "https://dev.to/launchdarkly/mlops-lifecycle-stages-workflow-and-best-practices-227d",
+      "source": "devto",
+      "publishedAt": "2026-06-02T16:48:26Z",
+      "summary": "Understand the MLOps lifecycle from data preparation to deployment, monitoring, governance, and retraining.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "mlops",
+        "tutorial"
+      ],
+      "score": 72
+    },
+    {
       "id": "hackernews:48414029",
       "title": "A curated list of AI for developers",
       "url": "https://github.com/ai-for-developers/awesome-ai-coding-tools",
@@ -1277,22 +1590,6 @@
         "Hacker News",
         "developer tools",
         "AI Agent"
-      ],
-      "score": 71
-    },
-    {
-      "id": "devto:3812736",
-      "title": "Brute-Force Retrieval Holds Through 5,000 Memories. Then It Doesn't.",
-      "url": "https://dev.to/newtorob/brute-force-retrieval-holds-through-5000-memories-then-it-doesnt-5bm3",
-      "source": "devto",
-      "publishedAt": "2026-06-03T16:52:56Z",
-      "summary": "I measured where the linear cosine scan in a local AI memory store stops being free. Through 5,000 entries it's negligible. By 10,000 the tail widens visibly. The threshold is sharper than I expected.",
-      "tags": [
-        "Dev.to",
-        "machinelearning",
-        "performance",
-        "benchmarks",
-        "retrieval"
       ],
       "score": 71
     },
@@ -1345,6 +1642,38 @@
       "score": 71
     },
     {
+      "id": "devto:3812736",
+      "title": "Brute-Force Retrieval Holds Through 5,000 Memories. Then It Doesn't.",
+      "url": "https://dev.to/newtorob/brute-force-retrieval-holds-through-5000-memories-then-it-doesnt-5bm3",
+      "source": "devto",
+      "publishedAt": "2026-06-03T16:52:56Z",
+      "summary": "I measured where the linear cosine scan in a local AI memory store stops being free. Through 5,000 entries it's negligible. By 10,000 the tail widens visibly. The threshold is sharper than I expected.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "performance",
+        "benchmarks",
+        "retrieval"
+      ],
+      "score": 71
+    },
+    {
+      "id": "devto:3829138",
+      "title": "AI Won't Replace Humans — It'll Just Make Us Pickier",
+      "url": "https://dev.to/markofrei919/ai-wont-replace-humans-itll-just-make-us-pickier-2iij",
+      "source": "devto",
+      "publishedAt": "2026-06-05T15:45:48Z",
+      "summary": "Every few weeks someone posts the same screenshot: an AI writing a whole app from a one-line prompt,...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "ai",
+        "discuss",
+        "career"
+      ],
+      "score": 71
+    },
+    {
       "id": "hackernews:48423041",
       "title": "I built a workflow orchestrator where each stage defines the next one",
       "url": "https://processflow.tech/",
@@ -1391,38 +1720,6 @@
       "score": 70
     },
     {
-      "id": "devto:3811838",
-      "title": "Cross-Machine Memory Query: About 20 Milliseconds, Most Days",
-      "url": "https://dev.to/newtorob/cross-machine-memory-query-about-20-milliseconds-most-days-1a3d",
-      "source": "devto",
-      "publishedAt": "2026-06-03T14:26:30Z",
-      "summary": "I built a peer-memory endpoint so my Mac can query my Linux box's memory store over a WireGuard mesh. The first measurement felt suspiciously clean. I measured three times before publishing.",
-      "tags": [
-        "Dev.to",
-        "machinelearning",
-        "performance",
-        "benchmarks",
-        "wireguard"
-      ],
-      "score": 70
-    },
-    {
-      "id": "devto:3812371",
-      "title": "Operating Real-Time AI: SLAs, Observability, and Knowing When It's Broken",
-      "url": "https://dev.to/kenwalger/operating-real-time-ai-slas-observability-and-knowing-when-its-broken-8n2",
-      "source": "devto",
-      "publishedAt": "2026-06-03T15:59:38Z",
-      "summary": "The previous four posts in this series covered the three architectural pillars of real-time AI at...",
-      "tags": [
-        "Dev.to",
-        "machinelearning",
-        "ai",
-        "monitoring",
-        "sre"
-      ],
-      "score": 70
-    },
-    {
       "id": "devto:3810615",
       "title": "Gnoke Skins: Every Device Already Has a Face. It Just Hasn't Rendered Yet.",
       "url": "https://dev.to/edmundsparrow/gnoke-skins-every-device-already-has-a-face-it-just-hasnt-rendered-yet-1n2b",
@@ -1451,22 +1748,6 @@
         "devchallenge",
         "gamechallenge",
         "gamedev"
-      ],
-      "score": 70
-    },
-    {
-      "id": "devto:3829138",
-      "title": "AI Won't Replace Humans — It'll Just Make Us Pickier",
-      "url": "https://dev.to/markofrei919/ai-wont-replace-humans-itll-just-make-us-pickier-2iij",
-      "source": "devto",
-      "publishedAt": "2026-06-05T15:45:48Z",
-      "summary": "Every few weeks someone posts the same screenshot: an AI writing a whole app from a one-line prompt,...",
-      "tags": [
-        "Dev.to",
-        "productivity",
-        "ai",
-        "discuss",
-        "career"
       ],
       "score": 70
     },
@@ -1518,6 +1799,38 @@
       "score": 70
     },
     {
+      "id": "devto:3811838",
+      "title": "Cross-Machine Memory Query: About 20 Milliseconds, Most Days",
+      "url": "https://dev.to/newtorob/cross-machine-memory-query-about-20-milliseconds-most-days-1a3d",
+      "source": "devto",
+      "publishedAt": "2026-06-03T14:26:30Z",
+      "summary": "I built a peer-memory endpoint so my Mac can query my Linux box's memory store over a WireGuard mesh. The first measurement felt suspiciously clean. I measured three times before publishing.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "performance",
+        "benchmarks",
+        "wireguard"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3812371",
+      "title": "Operating Real-Time AI: SLAs, Observability, and Knowing When It's Broken",
+      "url": "https://dev.to/kenwalger/operating-real-time-ai-slas-observability-and-knowing-when-its-broken-8n2",
+      "source": "devto",
+      "publishedAt": "2026-06-03T15:59:38Z",
+      "summary": "The previous four posts in this series covered the three architectural pillars of real-time AI at...",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "monitoring",
+        "sre"
+      ],
+      "score": 70
+    },
+    {
       "id": "hackernews:48423506",
       "title": "France, Germany, and the Netherlands public admin co-developed public tools",
       "url": "https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/how-france-germany-and-netherlands-co-developed-public-tools",
@@ -1545,16 +1858,44 @@
         "react"
       ],
       "score": 64
+    },
+    {
+      "id": "github:SudoHopeX/KaliGPT",
+      "title": "SudoHopeX/KaliGPT",
+      "url": "https://github.com/SudoHopeX/KaliGPT",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[Python] Star SudoHopeX / KaliGPT KaliGPT: an Agentic AI (built with Gemini, ChatGPT, Ollama, OpenRouter Models) fine tuned for ethical hackers &amp; students in offensive security making workflows smarter, faster, and more accessible.",
+      "tags": [
+        "GitHub Trending",
+        "python",
+        "Python"
+      ],
+      "score": 62
+    },
+    {
+      "id": "github:Makisuo/maple",
+      "title": "Makisuo/maple",
+      "url": "https://github.com/Makisuo/maple",
+      "source": "github",
+      "publishedAt": null,
+      "summary": "[TypeScript] Sponsor Star Makisuo / maple OpenTelemetry observability platform",
+      "tags": [
+        "GitHub Trending",
+        "typescript",
+        "TypeScript"
+      ],
+      "score": 62
     }
   ],
   "llmReport": {
-    "enabled": true,
+    "enabled": false,
     "provider": "none",
     "model": "none",
-    "status": "ok",
+    "status": "rule-only",
     "title": "信息雷达日报｜2026-06-07",
-    "summary": "今日头条涵盖AI开发工具、智能体协作安全、RAG效率优化等关键议题。趋势上，AI代理从能力讨论转向工程可靠性，WebMCP协议带来新安全挑战，图增强RAG持续进步。",
-    "markdown": "## 今日概览\n今日Top10聚焦AI代理工程实践与安全新挑战：Hacker News热议开发技术栈，arXiv三篇论文分别从协作评测、协议攻击、图增强RAG切入，Dev.to文章则点出速率限制、WebMCP演示等实践话题。\n\n## 精选Top 5\n1. **Ask HN: 你的AI开发栈是什么？** — 社区智慧，快速了解主流工具链。\n2. **CollabSim: 评估LLM代理协作能力** — 为多代理系统提供评测基准。\n3. **WebMCP工具表面投毒攻击** — 新协议安全风险，开发者必读。\n4. **速率限制才是AI代理失败的真正原因** — 工程实战洞察，直击痛点。\n5. **MLEvolve: 自进化ML算法发现** — 自动化科学探索，架构创新。\n\n## 其余值得关注\n- **webMCP现场演示**：未来网站交互新模式，但需警惕兼容性。\n- **图增强检索/图RAG**：三篇论文共同指向图结构提升检索与问答质量，工业场景潜力大。\n- **缓存融合优化RAG**：QCFuse方案可显著降低推理成本。\n- **卡拉OK应用重构**：虽简单但体现Web开发创意。\n\n## 趋势判断\nAI代理正从“能否对话”转向“工程可靠性”：速率限制、安全攻击、效率优化成为关注焦点。WebMCP协议兴起，代理与网站交互规则待建立。图增强RAG成为减少幻觉的主流方向。\n\n## 后续关注\n- WebMCP安全后续防御方案\n- 图RAG在工业级场景的落地效果\n- AI代理容量管理工具\n- 自进化框架的泛化能力"
+    "summary": "规则评分日报。共评分 105 条，推荐 10 条。",
+    "markdown": null
   },
   "email": {
     "enabled": false,

@@ -217,6 +217,17 @@ INFO_RADAR_SCHEDULED_EMAIL_DRY_RUN=true npm run radar:email:scheduled
 npm run radar:email:scheduled
 ```
 
+### 每日自动化链路
+
+每天两次定时任务（北京时间 / Asia/Shanghai）：
+
+| 时间 | 命令 | 说明 |
+|------|------|------|
+| 07:30 | `npm run radar:daily:refresh` | 抓取 → 生成 → LLM → 构建 dist |
+| 08:00 | `npm run radar:email:scheduled` | 发送日报邮件 |
+
+> 服务器系统时区必须设置为 Asia/Shanghai。无 LLM Key 时跳过 LLM 步骤，仍生成规则推荐版本。
+
 部署示例：[deploy/cron/](deploy/cron/) | [deploy/systemd/](deploy/systemd/) | [DEPLOY_SELF_HOSTED.md](DEPLOY_SELF_HOSTED.md)
 
 ## 静态站点构建

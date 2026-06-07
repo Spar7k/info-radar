@@ -1,0 +1,14 @@
+# agent雷达 — daily data refresh service
+# Replace /path/to/agent-radar with your actual project path.
+
+[Unit]
+Description=agent-radar daily data refresh (07:30 Asia/Shanghai)
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/path/to/agent-radar
+ExecStart=/usr/bin/npm run radar:daily:refresh
+EnvironmentFile=/etc/agent-radar/agent-radar.env
+StandardOutput=journal
+StandardError=journal

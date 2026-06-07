@@ -77,17 +77,31 @@ sudo certbot --nginx -d your-domain.com
 
 `npm run site:check` 可以验证这些规则。
 
+## 每日自动化链路
+
+每天两次定时任务，均使用北京时间（Asia/Shanghai）：
+
+| 时间 | 任务 | 命令 |
+|------|------|------|
+| 07:30 | 刷新数据 | `npm run radar:daily:refresh` |
+| 08:00 | 发送邮件 | `npm run radar:email:scheduled` |
+
+**07:30 刷新数据**执行：fetch → generate → llm preview → llm apply → status → site:build
+
+**08:00 发送邮件**读取已生成的最新日报并发送。
+
+部署示例：
+- [deploy/cron/agent-radar-daily-refresh.example](deploy/cron/agent-radar-daily-refresh.example)
+- [deploy/systemd/agent-radar-refresh.timer.example](deploy/systemd/agent-radar-refresh.timer.example)
+
+> 服务器系统时区必须为 Asia/Shanghai：`sudo timedatectl set-timezone Asia/Shanghai`
+
 ## 后续更新
 
 本地重新生成数据后同步：
 
 ```bash
-npm run radar:fetch
-npm run radar:generate:latest
-npm run radar:llm:preview
-npm run radar:llm:apply
-npm run site:build
-npm run site:check
+npm run radar:daily:refresh
 rsync -av --delete dist/ user@your-server-ip:/var/www/agent-radar/
 ```
 

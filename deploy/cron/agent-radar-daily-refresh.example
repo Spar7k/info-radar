@@ -1,0 +1,20 @@
+# agent雷达 — daily data refresh cron job
+# Runs every day at 07:30 Beijing time (Asia/Shanghai).
+#
+# Chain: 07:30 refresh data → 08:00 send email
+#
+# Prerequisites:
+#   1. Server timezone set to Asia/Shanghai:
+#      sudo timedatectl set-timezone Asia/Shanghai
+#
+#   2. Environment variables (in /etc/agent-radar/agent-radar.env):
+#      INFO_RADAR_LLM_API_KEY     (optional — skip if not set)
+#      INFO_RADAR_LLM_BASE_URL    (optional)
+#      INFO_RADAR_LLM_MODEL       (optional)
+#      INFO_RADAR_LLM_MAX_TOKENS  (optional)
+#
+# Install:
+#   crontab -e
+#   (paste the line below)
+
+30 7 * * * cd /path/to/agent-radar && npm run radar:daily:refresh >> /var/log/agent-radar-refresh.log 2>&1
