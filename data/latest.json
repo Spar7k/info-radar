@@ -55,9 +55,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: workflow / automation"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "HN讨论AI开发技术栈与工作流",
+      "llmRecommendationReason": "汇集社区最新实践，适合参考搭建AI开发环境",
+      "llmRiskNote": "结果因人而异，需结合自身场景筛选"
     },
     {
       "id": "arxiv:2606.06399v1",
@@ -86,9 +86,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: research / paper / study"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "新方法评估LLM智能体协作能力",
+      "llmRecommendationReason": "为多智能体系统协作设计提供评测框架",
+      "llmRiskNote": "方法验证样本有限，未必直接推广"
     },
     {
       "id": "arxiv:2606.06387v1",
@@ -117,9 +117,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: research / paper / study"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "揭示WebMCP协议下AI代理工具投毒攻击",
+      "llmRecommendationReason": "新协议安全风险研究，对代理系统安全设计有警示",
+      "llmRiskNote": "具体攻击场景可能尚未覆盖所有变体"
     },
     {
       "id": "devto:3803423",
@@ -152,9 +152,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: llm / large.language.model"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "速率限制是AI代理的隐性故障主因",
+      "llmRecommendationReason": "点出工程实践痛点，提供容量管理思路",
+      "llmRiskNote": "部分观点可能忽略模型本身局限"
     },
     {
       "id": "arxiv:2606.06473v1",
@@ -183,9 +183,9 @@
         "命中关键词: ai.agent / multi.agent / agent",
         "命中关键词: llm / large.language.model"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "自进化LLM代理自动发现ML算法",
+      "llmRecommendationReason": "推动自动化科学发现，架构有参考价值",
+      "llmRiskNote": "进化稳定性可能受搜索空间影响"
     },
     {
       "id": "devto:3806074",
@@ -217,9 +217,9 @@
       "ruleReasonHints": [
         "命中关键词: mcp"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "webMCP演示，未来网站构建新方式",
+      "llmRecommendationReason": "展示AI代理与网站交互新模式",
+      "llmRiskNote": "实际部署可能面临安全和兼容性问题"
     },
     {
       "id": "arxiv:2606.06003v1",
@@ -247,9 +247,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "超越向量相似度，图增强检索提升结构推理",
+      "llmRecommendationReason": "解决工业知识图谱复杂查询，方法实用",
+      "llmRiskNote": "依赖高质量知识图谱构建"
     },
     {
       "id": "arxiv:2606.05901v1",
@@ -278,9 +278,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "基于图的RAG方法减少复杂问答幻觉",
+      "llmRecommendationReason": "简单有效，直接改善事实一致性",
+      "llmRiskNote": "图结构设计仍需领域知识"
     },
     {
       "id": "arxiv:2606.05875v1",
@@ -309,9 +309,9 @@
         "命中关键词: llm / large.language.model",
         "命中关键词: rag / retrieval.augmented.generation"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "新缓存融合技术提升RAG服务效率",
+      "llmRecommendationReason": "降低预填充计算成本，提升性能",
+      "llmRiskNote": "兼容性未广泛测试"
     },
     {
       "id": "devto:3791709",
@@ -343,9 +343,9 @@
       "ruleReasonHints": [
         "命中关键词: open.source / github"
       ],
-      "llmSummary": null,
-      "llmRecommendationReason": null,
-      "llmRiskNote": null
+      "llmSummary": "重构卡拉OK应用实现手机远程控制",
+      "llmRecommendationReason": "展示Web开发创意与实践结合",
+      "llmRiskNote": "功能相对简单，技术普适性一般"
     }
   ],
   "candidates": [
@@ -1548,13 +1548,13 @@
     }
   ],
   "llmReport": {
-    "enabled": false,
+    "enabled": true,
     "provider": "none",
     "model": "none",
-    "status": "rule-only",
+    "status": "ok",
     "title": "信息雷达日报｜2026-06-07",
-    "summary": "规则评分日报。共评分 80 条，推荐 10 条。",
-    "markdown": null
+    "summary": "今日头条涵盖AI开发工具、智能体协作安全、RAG效率优化等关键议题。趋势上，AI代理从能力讨论转向工程可靠性，WebMCP协议带来新安全挑战，图增强RAG持续进步。",
+    "markdown": "## 今日概览\n今日Top10聚焦AI代理工程实践与安全新挑战：Hacker News热议开发技术栈，arXiv三篇论文分别从协作评测、协议攻击、图增强RAG切入，Dev.to文章则点出速率限制、WebMCP演示等实践话题。\n\n## 精选Top 5\n1. **Ask HN: 你的AI开发栈是什么？** — 社区智慧，快速了解主流工具链。\n2. **CollabSim: 评估LLM代理协作能力** — 为多代理系统提供评测基准。\n3. **WebMCP工具表面投毒攻击** — 新协议安全风险，开发者必读。\n4. **速率限制才是AI代理失败的真正原因** — 工程实战洞察，直击痛点。\n5. **MLEvolve: 自进化ML算法发现** — 自动化科学探索，架构创新。\n\n## 其余值得关注\n- **webMCP现场演示**：未来网站交互新模式，但需警惕兼容性。\n- **图增强检索/图RAG**：三篇论文共同指向图结构提升检索与问答质量，工业场景潜力大。\n- **缓存融合优化RAG**：QCFuse方案可显著降低推理成本。\n- **卡拉OK应用重构**：虽简单但体现Web开发创意。\n\n## 趋势判断\nAI代理正从“能否对话”转向“工程可靠性”：速率限制、安全攻击、效率优化成为关注焦点。WebMCP协议兴起，代理与网站交互规则待建立。图增强RAG成为减少幻觉的主流方向。\n\n## 后续关注\n- WebMCP安全后续防御方案\n- 图RAG在工业级场景的落地效果\n- AI代理容量管理工具\n- 自进化框架的泛化能力"
   },
   "email": {
     "enabled": false,
