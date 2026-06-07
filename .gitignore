@@ -1,5 +1,5 @@
 # Reference project, do not commit
-agents-radar/
+_reference/
 
 # Dependencies
 node_modules/
@@ -25,3 +25,5 @@ pnpm-debug.log*
 yarn-debug.log*
 data/raw/*.json
 
+agents-radar/
+data/generated/*.json

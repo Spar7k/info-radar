@@ -1,444 +1,1560 @@
 {
   "date": "2026-06-07",
-  "generatedAt": "2026-06-07T00:00:00.000Z",
+  "generatedAt": "2026-06-07T10:40:13.385Z",
   "stats": {
-    "totalFetched": 64,
-    "totalAfterDedupe": 41,
-    "totalScored": 41,
+    "totalFetched": 80,
+    "totalAfterDedupe": 80,
+    "totalScored": 80,
     "recommendationCount": 10
   },
-  "sources": ["github", "hackernews", "devto", "arxiv"],
-  "keywords": ["AI Agent", "RAG", "Workflow", "Open Source", "Developer Tools", "Multi-Agent", "LLM", "Code Generation"],
+  "sources": [
+    "hackernews",
+    "devto",
+    "arxiv"
+  ],
+  "keywords": [
+    "cs.AI",
+    "AI Agent",
+    "cs.CL",
+    "RAG",
+    "ai",
+    "developer tools",
+    "Workflow",
+    "cs.CR",
+    "machinelearning",
+    "llm"
+  ],
   "topRecommendations": [
     {
-      "id": "rec-001",
-      "title": "AgentFlow: A Lightweight Multi-Agent Orchestration Framework",
-      "url": "https://github.com/agentflow-ai/agentflow",
-      "source": "github",
-      "publishedAt": "2026-06-06T14:30:00.000Z",
-      "summary": "AgentFlow 是一个基于有向无环图的多智能体编排框架，支持条件分支、并行执行和人工审批节点。项目发布 3 天内获得 1.2k stars。",
-      "tags": ["AI Agent", "Multi-Agent", "Workflow", "Python"],
-      "metrics": {
-        "stars": 1230,
-        "forks": 89,
-        "recentActivity": "high"
-      },
-      "score": 92,
-      "scoreBreakdown": {
-        "relevance": 28,
-        "practicality": 23,
-        "popularity": 18,
-        "freshness": 14,
-        "sourceQuality": 9,
-        "penalty": 0
-      },
-      "ruleReasonHints": ["多智能体编排 + 工作流引擎高热度方向", "3 天内破千星", "活跃社区 + README 质量高"],
-      "llmSummary": "AgentFlow 是一个将多 Agent 协作抽象为 DAG 工作流的新兴框架，设计理念接近 LangGraph 但更轻量，适合快速构建可观测的 Agent 管线。",
-      "llmRecommendationReason": "该项目精准命中了当前 Agent 编排从单体走向多体协作的趋势，同时保持 API 简洁和文档清晰，适合关注 AI Agent 工程化的开发者跟进。",
-      "llmRiskNote": "项目仍处于早期阶段，API 可能变动频繁，尚未发布正式版本。建议关注但暂不建议在生产环境直接依赖。"
-    },
-    {
-      "id": "rec-002",
-      "title": "How We Replaced 80% of Our Internal Docs Search with RAG in 2 Weeks",
-      "url": "https://dev.to/sarahchen/internal-docs-rag-migration-2026",
-      "source": "devto",
-      "publishedAt": "2026-06-06T09:15:00.000Z",
-      "summary": "一篇详细的工程实践文章，记录了团队如何用 RAG 替代传统全文搜索，将内部文档检索准确率从 54% 提升到 91%。",
-      "tags": ["RAG", "Engineering", "Search", "LLM"],
-      "metrics": {
-        "reactions": 342,
-        "comments": 57,
-        "readingTime": 12
-      },
-      "score": 88,
-      "scoreBreakdown": {
-        "relevance": 26,
-        "practicality": 24,
-        "popularity": 16,
-        "freshness": 13,
-        "sourceQuality": 8,
-        "penalty": -1
-      },
-      "ruleReasonHints": ["实操性强、有量化指标", "Dev.to 高互动文章", "RAG 落地案例稀缺"],
-      "llmSummary": "这是一篇来自一线团队的真实 RAG 迁移复盘，覆盖了数据清洗、分块策略、向量数据库选型和评估指标等关键决策点。",
-      "llmRecommendationReason": "文章提供了从 0 到 1 的完整 RAG 落地路径和真实性能数据，对正在评估是否引入 RAG 的团队有很高的参考价值。",
-      "llmRiskNote": "结论基于特定团队规模和文档量，不一定适用于所有场景。需要结合自己的数据规模和查询模式评估。"
-    },
-    {
-      "id": "rec-003",
-      "title": "Ask HN: What Are You Using for AI Code Review in 2026?",
-      "url": "https://news.ycombinator.com/item?id=48430000",
+      "id": "hackernews:48413629",
+      "title": "Ask HN: What is your (AI) dev tech stack / workflow?",
+      "url": "https://news.ycombinator.com/item?id=48413629",
       "source": "hackernews",
-      "publishedAt": "2026-06-06T16:45:00.000Z",
-      "summary": "Hacker News 热门讨论帖，开发者们分享了各自使用的 AI Code Review 工具和实际体验，涵盖了 Claude Code、CodeRabbit、Graphite 等。",
-      "tags": ["AI Coding", "Code Review", "Developer Tools", "Discussion"],
+      "publishedAt": "2026-06-05T15:13:54Z",
+      "summary": "Hello, happy Friday! I am looking to do some in-person \"developer boot-up\" workshops, and seek your suggestions for \"modern tooling\". The background of the participants range from motivated newbie (\"I heard you can make your own app with AI!\") to existing software developers who want to get up to sp...",
+      "tags": [
+        "Hacker News",
+        "developer tools",
+        "AI Agent",
+        "Workflow"
+      ],
       "metrics": {
-        "points": 287,
-        "comments": 203,
-        "sentiment": "positive"
+        "points": 152,
+        "comments": 130
       },
       "score": 86,
       "scoreBreakdown": {
-        "relevance": 27,
-        "practicality": 22,
-        "popularity": 18,
-        "freshness": 14,
-        "sourceQuality": 7,
-        "penalty": -2
+        "relevance": 20,
+        "practicality": 16,
+        "popularity": 15,
+        "freshness": 20,
+        "sourceQuality": 15,
+        "penalty": 0
       },
-      "ruleReasonHints": ["HN 高热度讨论", "AI 编程工具赛道核心话题", "大量一线开发者真实反馈"],
-      "llmSummary": "203 条评论中涌现了几个共识：Claude Code 在代码理解和重构方面领先，但成本是最大痛点；开源方案正在快速追赶；团队普遍认为 AI Code Review 已经进入'必备'阶段。",
-      "llmRecommendationReason": "如果你想了解 2026 年 AI 编程工具的开发者真实口碑，这可能是本月最有价值的讨论帖。203 条评论几乎覆盖了所有主流工具的使用体验。",
-      "llmRiskNote": "讨论偏向早期采用者视角，主流企业团队的实际采用情况可能与 HN 社区的反馈有偏差。"
+      "ruleReasonHints": [
+        "命中关键词: ai.agent / multi.agent / agent",
+        "命中关键词: workflow / automation"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
-      "id": "rec-004",
-      "title": "RAGCache: Semantic Caching Layer for RAG Pipelines with 10x Throughput",
-      "url": "https://github.com/ragcache/ragcache",
-      "source": "github",
-      "publishedAt": "2026-06-05T22:10:00.000Z",
-      "summary": "RAGCache 是一个面向 RAG 管线的语义缓存中间件，通过向量相似度匹配复用历史查询结果，实测吞吐量提升 10 倍。",
-      "tags": ["RAG", "Infrastructure", "Performance", "Go"],
+      "id": "arxiv:2606.06399v1",
+      "title": "CollabSim: A CSCW-Grounded Methodology for Investigating Collaborative Competence of LLM Agents through Controlled Multi-Agent Experiments",
+      "url": "https://arxiv.org/abs/2606.06399v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:06:22Z",
+      "summary": "Multi-agent systems (MAS) built on large language models have shown growing promise, with their effectiveness resting on agents' ability to coordinate through text-based channels much as human teams do. Yet recent study suggests that MAS often falter not because agents lack individual task-solving ability, but because they lack collaborative competence: the capacity to establish common ground, maintain shared task understanding, balance individual and collective incentives, and repair misalignment as interaction unfolds. Decades of research in Computer-Supported Cooperative Work have characterized these requirements for human teams coordinating under constrained communication, yet existing MAS evaluations focus mainly on task outcomes or single-agent proficiency in reasoning, planning, and",
+      "tags": [
+        "ArXiv",
+        "AI Agent",
+        "cs.CL"
+      ],
+      "metrics": {},
+      "score": 86,
+      "scoreBreakdown": {
+        "relevance": 22,
+        "practicality": 18,
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: ai.agent / multi.agent / agent",
+        "命中关键词: llm / large.language.model",
+        "命中关键词: research / paper / study"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "arxiv:2606.06387v1",
+      "title": "WebMCP Tool Surface Poisoning: Runtime Manipulation Attacks on LLM Agents",
+      "url": "https://arxiv.org/abs/2606.06387v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T16:52:43Z",
+      "summary": "WebMCP is a newly emerging protocol that enables websites to expose tools directly to AI agents, bypassing traditional user interfaces and introducing new security risks. The dynamic exposure of agent-accessible tools in WebMCP expands the attack surface of web sessions, especially when third-party scripts are involved. In this study, we identify a new potential threat, termed Mid-Session Tool Injection (MSTI), in which attackers leverage third-party scripts to inject malicious tools during an active session. To better characterize this threat, we classify MSTI based on the stage and target of manipulation, distinguishing between Tool Hijacking and Tool Framing. Tool Hijacking modifies the set of tools visible to the agent through mechanisms such as the AbortSignal API or race conditions d",
+      "tags": [
+        "ArXiv",
+        "AI Agent",
+        "cs.CR"
+      ],
+      "metrics": {},
+      "score": 86,
+      "scoreBreakdown": {
+        "relevance": 22,
+        "practicality": 18,
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: ai.agent / multi.agent / agent",
+        "命中关键词: llm / large.language.model",
+        "命中关键词: research / paper / study"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "devto:3803423",
+      "title": "Your AI Agent Isn't Failing Because It Hallucinates — It's Failing Because of Rate Limits",
+      "url": "https://dev.to/p0rt/your-ai-agent-isnt-failing-because-it-hallucinates-its-failing-because-of-rate-limits-2d60",
+      "source": "devto",
+      "publishedAt": "2026-06-02T13:09:00Z",
+      "summary": "The dominant production failure mode for LLM agents in 2026 isn't bad reasoning — it's capacity. Here's what the data shows, why nobody demos it, and the capacity-engineering patterns that actually keep agents alive under load.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "llm",
+        "devops"
+      ],
       "metrics": {
-        "stars": 890,
-        "forks": 45,
-        "recentActivity": "medium"
+        "comments": 14,
+        "likes": 31
+      },
+      "score": 85,
+      "scoreBreakdown": {
+        "relevance": 21,
+        "practicality": 21,
+        "popularity": 11,
+        "freshness": 20,
+        "sourceQuality": 12,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: ai.agent / multi.agent / agent",
+        "命中关键词: llm / large.language.model"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "arxiv:2606.06473v1",
+      "title": "MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery",
+      "url": "https://arxiv.org/abs/2606.06473v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:55:59Z",
+      "summary": "Large language model (LLM) agents are increasingly applied to long-horizon tasks such as scientific discovery and machine learning engineering (MLE), where sustained self-evolution becomes a key capability. However, existing MLE agents suffer from inter-branch information isolation, memoryless search, and lack of hierarchical control, which together hinder long-horizon optimization. We present MLEvolve, an LLM-based self-evolving multi-agent framework for end-to-end machine learning algorithm discovery. By extending tree search to Progressive MCGS, MLEvolve enables cross-branch information flow through graph-based reference edges and gradually shifts the search from broad exploration to focused exploitation with an entropy-inspired progressive schedule. To allow the agent to evolve with ac",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "metrics": {},
+      "score": 85,
+      "scoreBreakdown": {
+        "relevance": 21,
+        "practicality": 18,
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: ai.agent / multi.agent / agent",
+        "命中关键词: llm / large.language.model"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "devto:3806074",
+      "title": "Is This How We'll Build Websites Soon? (webMCP Live Demo 🚀)",
+      "url": "https://dev.to/sylwia-lask/is-this-how-well-build-websites-soon-webmcp-live-demo--2e33",
+      "source": "devto",
+      "publishedAt": "2026-06-03T07:11:55Z",
+      "summary": "A few years ago, we started adapting our websites for mobile devices. Then we adapted them for...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "javascript",
+        "react",
+        "mcp"
+      ],
+      "metrics": {
+        "comments": 110,
+        "likes": 108
       },
       "score": 84,
       "scoreBreakdown": {
-        "relevance": 25,
-        "practicality": 22,
+        "relevance": 17,
+        "practicality": 20,
         "popularity": 15,
-        "freshness": 14,
-        "sourceQuality": 8,
+        "freshness": 20,
+        "sourceQuality": 12,
         "penalty": 0
       },
-      "ruleReasonHints": ["RAG 基础设施方向新兴需求", "10x 性能提升有说服力", "Go 生态稀缺"],
-      "llmSummary": "一个用 Go 实现的 RAG 语义缓存层，通过 embedding 相似度阈值判断是否命中缓存，避免了重复的 LLM 和向量检索开销。",
-      "llmRecommendationReason": "随着 RAG 管线进入生产环境，缓存成为降本增效的关键环节。RAGCache 方案简洁、有清晰的 benchmark 数据，是 RAG 工程化方向值得关注的项目。",
-      "llmRiskNote": "语义缓存的相似度阈值选取得当与否直接影响结果质量，建议在生产环境实际评测后再决定是否替换现有缓存方案。"
+      "ruleReasonHints": [
+        "命中关键词: mcp"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
-      "id": "rec-005",
-      "title": "Chain-of-Agents: Large Language Models Collaborating on Long-Context Tasks",
-      "url": "https://arxiv.org/abs/2606.12345",
+      "id": "arxiv:2606.06003v1",
+      "title": "Beyond Vector Similarity: A Structural Analysis of Graph-Augmented Retrieval for Industrial Knowledge Graphs",
+      "url": "https://arxiv.org/abs/2606.06003v1",
       "source": "arxiv",
-      "publishedAt": "2026-06-06T02:00:00.000Z",
-      "summary": "来自 Stanford 和 Anthropic 联合团队的最新论文，提出了一种让多个 LLM Agent 协作处理超长上下文任务的新方法，在 128K token 任务上效果显著优于单 Agent 方案。",
-      "tags": ["Multi-Agent", "LLM", "Research", "Long-Context"],
-      "metrics": {
-        "citations": 0,
-        "category": "cs.CL"
-      },
-      "score": 82,
+      "publishedAt": "2026-06-04T10:56:57Z",
+      "summary": "Retrieval-Augmented Generation (RAG) fails systematically on queries requiring structural reasoning over interconnected entities. We compare eight retrieval architectures for aerospace supply chain intelligence, progressing from text retrieval through graph traversal to graph computation. Using a 46-node knowledge graph with 64 typed edges, we evaluate 23 queries across 10 intent categories and demonstrate that five query classes are structurally unreachable for vector retrieval. Our central finding is the operator vocabulary thesis: the barrier to LLM-based graph reasoning is not model intelligence but the computational operators available as tools. An LLM Query Planner with 9 typed traversal primitives outperforms bespoke handlers (F1 = 0.632 vs. 0.472) while generalizing to unseen queri",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.AI"
+      ],
+      "metrics": {},
+      "score": 84,
       "scoreBreakdown": {
-        "relevance": 28,
+        "relevance": 20,
         "practicality": 18,
-        "popularity": 14,
-        "freshness": 15,
-        "sourceQuality": 10,
-        "penalty": -3
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
       },
-      "ruleReasonHints": ["多 Agent + 长上下文前沿方向", "Stanford + Anthropic 团队", "ArXiv 当日最高关注度"],
-      "llmSummary": "这篇论文提出了 Chain-of-Agents 方法，将长上下文任务拆分为子任务并分配给多个专业化 Agent，通过迭代通信机制合并结果。实验显示在 128K token 的 QA 和摘要任务上，多 Agent 方案比单 Agent 提升了 23-35%。",
-      "llmRecommendationReason": "多 Agent 协作是 2026 年 AI 研究最活跃的方向之一。这篇文章来自顶尖团队，方法论扎实，对正在设计多 Agent 系统的开发者有直接的启发意义。",
-      "llmRiskNote": "论文仍处于 preprint 阶段，尚未经过同行评审。实验设置与实际生产环境可能存在差距。"
+      "ruleReasonHints": [
+        "命中关键词: llm / large.language.model",
+        "命中关键词: rag / retrieval.augmented.generation"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     },
     {
-      "id": "rec-006",
-      "title": "OpenDevin: An Open Platform for AI Software Engineers",
-      "url": "https://github.com/opendevin-ai/opendevin",
-      "source": "github",
-      "publishedAt": "2026-06-06T08:30:00.000Z",
-      "summary": "OpenDevin 是一个开源的 AI 软件工程师平台，提供完整的代码生成、测试、调试和部署能力，支持接入多种 LLM 后端。",
-      "tags": ["AI Coding", "Open Source", "Agent", "Python"],
-      "metrics": {
-        "stars": 3400,
-        "forks": 410,
-        "recentActivity": "high"
-      },
-      "score": 79,
-      "scoreBreakdown": {
-        "relevance": 26,
-        "practicality": 20,
-        "popularity": 17,
-        "freshness": 12,
-        "sourceQuality": 7,
-        "penalty": -3
-      },
-      "ruleReasonHints": ["AI 编程自动化方向高关注度", "社区活跃", "多 LLM 后端支持"],
-      "llmSummary": "OpenDevin 把 AI 编程从代码补全提升到完整的软件开发任务自动化，通过沙箱环境执行代码、运行测试并迭代修复。",
-      "llmRecommendationReason": "AI 编程从 Copilot 模式向全自动开发演进的代表性项目，适合关注软件工程 AI 化的开发者和团队评估。社区活跃度高，迭代速度快。",
-      "llmRiskNote": "自动生成和执行的代码需要人工审查，不推荐直接用于生产部署。项目目前处于快速迭代期，功能范围还在扩大。"
-    },
-    {
-      "id": "rec-007",
-      "title": "A Developer's Guide to Building Reliable RAG Evaluation Pipelines",
-      "url": "https://dev.to/jamesliu/rag-evaluation-guide-2026",
-      "source": "devto",
-      "publishedAt": "2026-06-05T15:20:00.000Z",
-      "summary": "从评估指标选择、数据集构建到 CI 集成，系统性地讲解了如何为 RAG 系统建立可靠的评估管线。",
-      "tags": ["RAG", "Evaluation", "CI/CD", "Engineering"],
-      "metrics": {
-        "reactions": 278,
-        "comments": 44,
-        "readingTime": 15
-      },
-      "score": 75,
-      "scoreBreakdown": {
-        "relevance": 24,
-        "practicality": 23,
-        "popularity": 14,
-        "freshness": 11,
-        "sourceQuality": 7,
-        "penalty": -4
-      },
-      "ruleReasonHints": ["RAG 评估是工程落地痛点", "系统工程化视角", "Dev.to 高收藏文章"],
-      "llmSummary": "作者从实际项目中总结了 RAG 评估的三个层次：检索质量、生成质量和端到端任务完成度，并给出了每个层次的推荐指标和工具。",
-      "llmRecommendationReason": "RAG 的热度很高，但系统地做评估的文章很少。这篇指南填补了一个重要空白，适合已经部署了 RAG 但还没建立评估体系的团队。",
-      "llmRiskNote": "推荐的工具和指标偏向英文和通用领域场景，中文和垂直领域需要额外适配。"
-    },
-    {
-      "id": "rec-008",
-      "title": "Show HN: Autonoma — A Visual Agent Builder That Generates Python Code",
-      "url": "https://news.ycombinator.com/item?id=48431000",
-      "source": "hackernews",
-      "publishedAt": "2026-06-06T11:00:00.000Z",
-      "summary": "一个可视化的 Agent 构建器，通过拖拽方式设计 Agent 工作流并自动生成可导出的 Python 代码，支持多种 LLM 和工具集成。",
-      "tags": ["AI Agent", "No-Code", "Show HN", "Developer Tools"],
-      "metrics": {
-        "points": 156,
-        "comments": 48,
-        "sentiment": "positive"
-      },
-      "score": 73,
-      "scoreBreakdown": {
-        "relevance": 23,
-        "practicality": 20,
-        "popularity": 12,
-        "freshness": 13,
-        "sourceQuality": 6,
-        "penalty": -1
-      },
-      "ruleReasonHints": ["可视化 Agent 构建降低门槛", "Show HN 社区验证", "代码生成 + 可导出是实用卖点"],
-      "llmSummary": "Autonoma 试图解决 Agent 开发的复杂度问题——通过可视化画布让非技术用户也能搭建 Agent 工作流，同时生成可读的 Python 代码供开发者进一步定制。",
-      "llmRecommendationReason": "可视化 Agent 构建是一个新兴方向，如果这个工具确实降低了 Agent 开发门槛，它对推动 Agent 在更多场景落地会有帮助。Show HN 的反馈表明社区对这类工具需求真实。",
-      "llmRiskNote": "目前生成的代码质量需要人工审查，复杂场景下可能仍需手写代码。No-Code 工具的长期维护和扩展性也是常见问题。"
-    },
-    {
-      "id": "rec-009",
-      "title": "LLM Starter Kit: Open-Source Template for Building Production-Ready LLM Apps",
-      "url": "https://github.com/llm-starter/llm-starter-kit",
-      "source": "github",
-      "publishedAt": "2026-06-04T20:00:00.000Z",
-      "summary": "一个生产级别的 LLM 应用开发模板，内置了流式响应、速率限制、缓存、监控和成本追踪等基础设施。支持 Next.js + Vercel AI SDK。",
-      "tags": ["LLM", "Starter", "Production", "TypeScript"],
-      "metrics": {
-        "stars": 560,
-        "forks": 72,
-        "recentActivity": "medium"
-      },
-      "score": 70,
-      "scoreBreakdown": {
-        "relevance": 21,
-        "practicality": 22,
-        "popularity": 12,
-        "freshness": 10,
-        "sourceQuality": 7,
-        "penalty": -2
-      },
-      "ruleReasonHints": ["LLM 应用工程化模板稀缺", "生产级关注点覆盖全面", "TypeScript 生态友好"],
-      "llmSummary": "一个 'batteries-included' 的 LLM 应用模板，覆盖了从开发到部署的全链路非功能需求，附带 Vercel 一键部署按钮。",
-      "llmRecommendationReason": "对于想快速启动 LLM 项目的团队，这比从零搭建要高效很多。模板内置了大多数团队在项目初期容易忽略的工程基础设施（速率限制、成本追踪等）。",
-      "llmRiskNote": "模板偏向 Vercel + Next.js 生态，如果团队使用其他技术栈可能需要较大改造。版本更新频率可能跟不上依赖库的变化。"
-    },
-    {
-      "id": "rec-010",
-      "title": "Benchmarking LLM Agents on Real-World Software Engineering Tasks: SWE-Bench 2.0",
-      "url": "https://arxiv.org/abs/2606.07890",
+      "id": "arxiv:2606.05901v1",
+      "title": "Reducing Hallucinations in Complex Question Answering using Simple Graph-based Retrieval-Augmented Generation (long version)",
+      "url": "https://arxiv.org/abs/2606.05901v1",
       "source": "arxiv",
-      "publishedAt": "2026-06-05T18:00:00.000Z",
-      "summary": "CMU 团队发布的 SWE-Bench 2.0 基准测试，扩展了原始 SWE-Bench 到 2000+ 个真实 GitHub Issue，覆盖更多编程语言和框架，并引入了新的评估维度。",
-      "tags": ["AI Coding", "Benchmark", "Research", "Evaluation"],
-      "metrics": {
-        "citations": 0,
-        "category": "cs.SE"
-      },
-      "score": 68,
+      "publishedAt": "2026-06-04T09:07:06Z",
+      "summary": "Large language models (LLMs) have fundamentally transformed the landscape of Natural Language Processing. Despite these advances, LLMs and LLM-based systems remain prone to a variety of failure modes. Retrieval-augmented generation (RAG) systems have emerged as a common deployment scenario seeking to both avoid the well known risk of the LLM \"hallucinating\" information, and to enable reasoning and question answering over proprietary information that the LLM did not have access to during training without resorting to expensive model fine-tuning. In this work, we explore the idea of using a lightweight graph structure with a relatively simple graph schema, to support the RAG subsystem via a dedicated toolset. We design an agentic system with a variety of vector search and graph query tools o",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.CL",
+        "cs.AI"
+      ],
+      "metrics": {},
+      "score": 84,
       "scoreBreakdown": {
-        "relevance": 22,
-        "practicality": 15,
-        "popularity": 12,
-        "freshness": 14,
-        "sourceQuality": 9,
-        "penalty": -4
+        "relevance": 20,
+        "practicality": 18,
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
       },
-      "ruleReasonHints": ["AI 编码评估标准更新", "2000+ 真实 Issue 扩展", "CMU 团队延续高影响力工作"],
-      "llmSummary": "SWE-Bench 2.0 将评估数据扩展到 2000+ 个真实 Issue，新增了对 TypeScript、Rust 和 Go 语言的支持，并引入了代码可维护性和测试覆盖率等新评估维度。",
-      "llmRecommendationReason": "AI 编码能力的评估标准对行业至关重要。如果你在评估 AI 编程工具，了解最新的 benchmark 设计思路和方法论会帮助你做出更有依据的判断。",
-      "llmRiskNote": "Benchmark 分数与实际开发体验不一定完全正相关。建议结合自身业务场景进行评估，不要只看 benchmark 排名。"
+      "ruleReasonHints": [
+        "命中关键词: llm / large.language.model",
+        "命中关键词: rag / retrieval.augmented.generation"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "arxiv:2606.05875v1",
+      "title": "QCFuse: Query-Aware Cache Fusion via Compressed View for Efficient RAG Serving",
+      "url": "https://arxiv.org/abs/2606.05875v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T08:47:46Z",
+      "summary": "Retrieval-augmented generation (RAG) improves large language model (LLM) answer quality by grounding generation in external evidence, but processing retrieved contexts makes the prefill stage a dominant serving cost. RAG cache fusion reduces this cost by reusing precomputed key-value (KV) caches for retrieved chunks and selectively recomputing tokens under the current prompt. Existing selectors, however, face a dilemma between quality and efficiency: fast query-agnostic or final-layer query-to-context selectors can miss request-relevant evidence, whereas full-view query-aware selectors require broad context and layer visibility before recomputation and therefore stall the layer-wise cache-fusion pipeline. We present QCFuse, a compressed-view query-aware selector for RAG cache fusion. QCFus",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.AI",
+        "cs.DB"
+      ],
+      "metrics": {},
+      "score": 84,
+      "scoreBreakdown": {
+        "relevance": 20,
+        "practicality": 18,
+        "popularity": 8,
+        "freshness": 20,
+        "sourceQuality": 18,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: llm / large.language.model",
+        "命中关键词: rag / retrieval.augmented.generation"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
+    },
+    {
+      "id": "devto:3791709",
+      "title": "I Rebuilt My Karaoke App So Everyone's Phone Could Be a Remote",
+      "url": "https://dev.to/lehuygiang28/i-rebuilt-my-karaoke-app-so-everyones-phone-could-be-a-remote-4k8b",
+      "source": "devto",
+      "publishedAt": "2026-06-01T00:47:27Z",
+      "summary": "This is a submission for the GitHub Finish-Up-A-Thon Challenge What I Built VKara is a...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "devchallenge",
+        "githubchallenge",
+        "githubcopilot"
+      ],
+      "metrics": {
+        "comments": 16,
+        "likes": 38
+      },
+      "score": 83,
+      "scoreBreakdown": {
+        "relevance": 17,
+        "practicality": 20,
+        "popularity": 14,
+        "freshness": 20,
+        "sourceQuality": 12,
+        "penalty": 0
+      },
+      "ruleReasonHints": [
+        "命中关键词: open.source / github"
+      ],
+      "llmSummary": null,
+      "llmRecommendationReason": null,
+      "llmRiskNote": null
     }
   ],
   "candidates": [
     {
-      "id": "cand-001",
-      "title": "Claude Code 2026.6 更新：新增多工作区支持和自定义 MCP 热加载",
-      "url": "https://github.com/anthropics/claude-code/releases/tag/2026.6",
-      "source": "github",
-      "publishedAt": "2026-06-06T10:00:00.000Z",
-      "summary": "Claude Code 最新版本支持同时打开多个工作区，新增 MCP 服务器热加载，并大幅优化了大文件处理性能。",
-      "tags": ["AI Coding", "Claude Code", "Release"],
+      "id": "hackernews:48413629",
+      "title": "Ask HN: What is your (AI) dev tech stack / workflow?",
+      "url": "https://news.ycombinator.com/item?id=48413629",
+      "source": "hackernews",
+      "publishedAt": "2026-06-05T15:13:54Z",
+      "summary": "Hello, happy Friday! I am looking to do some in-person \"developer boot-up\" workshops, and seek your suggestions for \"modern tooling\". The background of the participants range from motivated newbie (\"I heard you can make your own app with AI!\") to existing software developers who want to get up to sp...",
+      "tags": [
+        "Hacker News",
+        "developer tools",
+        "AI Agent",
+        "Workflow"
+      ],
+      "score": 86
+    },
+    {
+      "id": "arxiv:2606.06399v1",
+      "title": "CollabSim: A CSCW-Grounded Methodology for Investigating Collaborative Competence of LLM Agents through Controlled Multi-Agent Experiments",
+      "url": "https://arxiv.org/abs/2606.06399v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:06:22Z",
+      "summary": "Multi-agent systems (MAS) built on large language models have shown growing promise, with their effectiveness resting on agents' ability to coordinate through text-based channels much as human teams do. Yet recent study suggests that MAS often falter not because agents lack individual task-solving ability, but because they lack collaborative competence: the capacity to establish common ground, maintain shared task understanding, balance individual and collective incentives, and repair misalignment as interaction unfolds. Decades of research in Computer-Supported Cooperative Work have characterized these requirements for human teams coordinating under constrained communication, yet existing MAS evaluations focus mainly on task outcomes or single-agent proficiency in reasoning, planning, and",
+      "tags": [
+        "ArXiv",
+        "AI Agent",
+        "cs.CL"
+      ],
+      "score": 86
+    },
+    {
+      "id": "arxiv:2606.06387v1",
+      "title": "WebMCP Tool Surface Poisoning: Runtime Manipulation Attacks on LLM Agents",
+      "url": "https://arxiv.org/abs/2606.06387v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T16:52:43Z",
+      "summary": "WebMCP is a newly emerging protocol that enables websites to expose tools directly to AI agents, bypassing traditional user interfaces and introducing new security risks. The dynamic exposure of agent-accessible tools in WebMCP expands the attack surface of web sessions, especially when third-party scripts are involved. In this study, we identify a new potential threat, termed Mid-Session Tool Injection (MSTI), in which attackers leverage third-party scripts to inject malicious tools during an active session. To better characterize this threat, we classify MSTI based on the stage and target of manipulation, distinguishing between Tool Hijacking and Tool Framing. Tool Hijacking modifies the set of tools visible to the agent through mechanisms such as the AbortSignal API or race conditions d",
+      "tags": [
+        "ArXiv",
+        "AI Agent",
+        "cs.CR"
+      ],
+      "score": 86
+    },
+    {
+      "id": "devto:3803423",
+      "title": "Your AI Agent Isn't Failing Because It Hallucinates — It's Failing Because of Rate Limits",
+      "url": "https://dev.to/p0rt/your-ai-agent-isnt-failing-because-it-hallucinates-its-failing-because-of-rate-limits-2d60",
+      "source": "devto",
+      "publishedAt": "2026-06-02T13:09:00Z",
+      "summary": "The dominant production failure mode for LLM agents in 2026 isn't bad reasoning — it's capacity. Here's what the data shows, why nobody demos it, and the capacity-engineering patterns that actually keep agents alive under load.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "llm",
+        "devops"
+      ],
+      "score": 85
+    },
+    {
+      "id": "arxiv:2606.06473v1",
+      "title": "MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery",
+      "url": "https://arxiv.org/abs/2606.06473v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:55:59Z",
+      "summary": "Large language model (LLM) agents are increasingly applied to long-horizon tasks such as scientific discovery and machine learning engineering (MLE), where sustained self-evolution becomes a key capability. However, existing MLE agents suffer from inter-branch information isolation, memoryless search, and lack of hierarchical control, which together hinder long-horizon optimization. We present MLEvolve, an LLM-based self-evolving multi-agent framework for end-to-end machine learning algorithm discovery. By extending tree search to Progressive MCGS, MLEvolve enables cross-branch information flow through graph-based reference edges and gradually shifts the search from broad exploration to focused exploitation with an entropy-inspired progressive schedule. To allow the agent to evolve with ac",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "score": 85
+    },
+    {
+      "id": "devto:3806074",
+      "title": "Is This How We'll Build Websites Soon? (webMCP Live Demo 🚀)",
+      "url": "https://dev.to/sylwia-lask/is-this-how-well-build-websites-soon-webmcp-live-demo--2e33",
+      "source": "devto",
+      "publishedAt": "2026-06-03T07:11:55Z",
+      "summary": "A few years ago, we started adapting our websites for mobile devices. Then we adapted them for...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "javascript",
+        "react",
+        "mcp"
+      ],
+      "score": 84
+    },
+    {
+      "id": "arxiv:2606.06003v1",
+      "title": "Beyond Vector Similarity: A Structural Analysis of Graph-Augmented Retrieval for Industrial Knowledge Graphs",
+      "url": "https://arxiv.org/abs/2606.06003v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T10:56:57Z",
+      "summary": "Retrieval-Augmented Generation (RAG) fails systematically on queries requiring structural reasoning over interconnected entities. We compare eight retrieval architectures for aerospace supply chain intelligence, progressing from text retrieval through graph traversal to graph computation. Using a 46-node knowledge graph with 64 typed edges, we evaluate 23 queries across 10 intent categories and demonstrate that five query classes are structurally unreachable for vector retrieval. Our central finding is the operator vocabulary thesis: the barrier to LLM-based graph reasoning is not model intelligence but the computational operators available as tools. An LLM Query Planner with 9 typed traversal primitives outperforms bespoke handlers (F1 = 0.632 vs. 0.472) while generalizing to unseen queri",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.AI"
+      ],
+      "score": 84
+    },
+    {
+      "id": "arxiv:2606.05901v1",
+      "title": "Reducing Hallucinations in Complex Question Answering using Simple Graph-based Retrieval-Augmented Generation (long version)",
+      "url": "https://arxiv.org/abs/2606.05901v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T09:07:06Z",
+      "summary": "Large language models (LLMs) have fundamentally transformed the landscape of Natural Language Processing. Despite these advances, LLMs and LLM-based systems remain prone to a variety of failure modes. Retrieval-augmented generation (RAG) systems have emerged as a common deployment scenario seeking to both avoid the well known risk of the LLM \"hallucinating\" information, and to enable reasoning and question answering over proprietary information that the LLM did not have access to during training without resorting to expensive model fine-tuning. In this work, we explore the idea of using a lightweight graph structure with a relatively simple graph schema, to support the RAG subsystem via a dedicated toolset. We design an agentic system with a variety of vector search and graph query tools o",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.CL",
+        "cs.AI"
+      ],
+      "score": 84
+    },
+    {
+      "id": "arxiv:2606.05875v1",
+      "title": "QCFuse: Query-Aware Cache Fusion via Compressed View for Efficient RAG Serving",
+      "url": "https://arxiv.org/abs/2606.05875v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T08:47:46Z",
+      "summary": "Retrieval-augmented generation (RAG) improves large language model (LLM) answer quality by grounding generation in external evidence, but processing retrieved contexts makes the prefill stage a dominant serving cost. RAG cache fusion reduces this cost by reusing precomputed key-value (KV) caches for retrieved chunks and selectively recomputing tokens under the current prompt. Existing selectors, however, face a dilemma between quality and efficiency: fast query-agnostic or final-layer query-to-context selectors can miss request-relevant evidence, whereas full-view query-aware selectors require broad context and layer visibility before recomputation and therefore stall the layer-wise cache-fusion pipeline. We present QCFuse, a compressed-view query-aware selector for RAG cache fusion. QCFus",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.AI",
+        "cs.DB"
+      ],
+      "score": 84
+    },
+    {
+      "id": "devto:3791709",
+      "title": "I Rebuilt My Karaoke App So Everyone's Phone Could Be a Remote",
+      "url": "https://dev.to/lehuygiang28/i-rebuilt-my-karaoke-app-so-everyones-phone-could-be-a-remote-4k8b",
+      "source": "devto",
+      "publishedAt": "2026-06-01T00:47:27Z",
+      "summary": "This is a submission for the GitHub Finish-Up-A-Thon Challenge What I Built VKara is a...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "devchallenge",
+        "githubchallenge",
+        "githubcopilot"
+      ],
+      "score": 83
+    },
+    {
+      "id": "arxiv:2606.06464v1",
+      "title": "Human Adults and LLMs as Scientists: Who Benefits from Active Exploration?",
+      "url": "https://arxiv.org/abs/2606.06464v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:53:36Z",
+      "summary": "A long-standing finding in the causal learning literature is that adults struggle to identify conjunctive causal rules, where an effect requires the simultaneous presence of multiple causes, while performing better in disjunctive settings. However, most demonstrations of this ``conjunctive handicap'' rely on passive observation paradigms with limited evidence, where learners have no control over evidence generation. This paper asks whether this bias persists when adults are granted agency through active exploration. Using a modified ``blicket detector'' task, adult participants freely intervened to identify causal objects under conjunctive or disjunctive rule structures. We show that active exploration substantially improves adults' conjunctive causal reasoning, although conjunctive rules ",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.CL"
+      ],
+      "score": 83
+    },
+    {
+      "id": "arxiv:2606.06454v1",
+      "title": "Scaffold, Not Vocabulary? A Controlled, Two-Tier, Pre-Registered Study of a Popperian Code-Generation Skill",
+      "url": "https://arxiv.org/abs/2606.06454v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:49:00Z",
+      "summary": "Large language models increasingly write, review, and judge code, and a fast-growing practice equips them with prompt 'skills' that ask the model to reason like a scientist. A prominent example tells the model to act as a Popperian falsificationist, and such skills are reported to improve generated code. But these gains are almost always read off an LLM-as-a-judge, an instrument with documented positional, self-preference, and stylistic biases. We ask: if it appears to help, is the gain from the skill's Popperian content, or from the structure any scaffold imposes? We pre-register a two-tier ablation with three controls: a length-matched placebo, a labels-only scaffold that keeps the Popperian headers but strips the procedure, and an execution oracle (HumanEval+ unit tests), plus a vocabul",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.SE",
+        "cs.CL"
+      ],
+      "score": 83
+    },
+    {
+      "id": "hackernews:48433171",
+      "title": "Ask HN: What do you currently use for AI coding (personal or professional)?",
+      "url": "https://news.ycombinator.com/item?id=48433171",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T09:14:50Z",
+      "summary": "Given how quickly things evolve, it's easy to get lost in the numerous offerings and hard to get the best deal. So, what do you use? Both clients&#x2F;harnesses and LLM providers or local setups would be interesting. Personally, I've been using opencode with Github copilot for work. I'm currently lo...",
+      "tags": [
+        "Hacker News",
+        "llm",
+        "AI Agent"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3641400",
+      "title": "From vibe coding to clear thinking: what non-technical builders need in the age of AI",
+      "url": "https://dev.to/javz/from-vibe-coding-to-clear-thinking-what-non-technical-builders-need-in-the-age-of-ai-4nbd",
+      "source": "devto",
+      "publishedAt": "2026-06-01T12:43:53Z",
+      "summary": "Over the past few months, I’ve increasingly noticed something through my network: more people from...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "vibecoding",
+        "softwareengineering",
+        "productivity"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3792290",
+      "title": "My Company Bought a $660K AI Platform. I Was Replaced. On Friday at 2:58 AM, It Fixed Everything. Then It Rolled Back the Wrong Patch.",
+      "url": "https://dev.to/xulingfeng/my-company-bought-a-660k-ai-platform-i-was-replaced-on-friday-at-258-am-it-fixed-everything-3kc4",
+      "source": "devto",
+      "publishedAt": "2026-06-01T03:47:40Z",
+      "summary": "Based on real system architecture decisions. About a $660K AI platform, three AI agents that kept the...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "programming",
+        "discuss",
+        "career"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3812919",
+      "title": "Am I Becoming Too Slow for the AI World?",
+      "url": "https://dev.to/marcosomma/am-i-becoming-too-slow-for-the-ai-world-1904",
+      "source": "devto",
+      "publishedAt": "2026-06-03T17:30:38Z",
+      "summary": "The AI world is full of old infrastructure with stochastic organs. That sentence probably explains...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "programming",
+        "productivity",
+        "career"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3800157",
+      "title": "I Thought AI Would Make Me Code Faster. Then I Spent 6 Hours Debugging One Line.",
+      "url": "https://dev.to/trojanmocx/i-thought-ai-would-make-me-code-faster-then-i-spent-6-hours-debugging-one-line-3ffh",
+      "source": "devto",
+      "publishedAt": "2026-06-02T05:16:18Z",
+      "summary": "Everyone keeps saying AI will replace developers. Meanwhile I was sitting at 3:17 AM staring at a bug...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "discuss",
+        "programming",
+        "productivity"
+      ],
+      "score": 82
+    },
+    {
+      "id": "devto:3762268",
+      "title": "After 7 Next.js 16 Caching Bugs, I Stopped Guessing and Built a System",
+      "url": "https://dev.to/shubhradev/after-7-nextjs-16-caching-bugs-i-stopped-guessing-and-built-a-system-4ijp",
+      "source": "devto",
+      "publishedAt": "2026-06-03T05:09:01Z",
+      "summary": "There's a specific feeling you get after your third production caching incident. It's not panic....",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "nextjs",
+        "typescript",
+        "performance"
+      ],
+      "score": 82
+    },
+    {
+      "id": "arxiv:2606.06485v1",
+      "title": "PAR3D: A Unified 3D-MLLM with Part-Aware Representation for Scene Understanding",
+      "url": "https://arxiv.org/abs/2606.06485v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:59:04Z",
+      "summary": "Recent advances in 3D multimodal large language models (3D-MLLMs) have enabled unified solutions for 3D scene understanding tasks, including visual question answering, captioning, and referring segmentation. However, existing 3D-MLLMs remain largely object-centric, limiting their ability to model fine-grained part structures that are essential for embodied interaction with 3D environments. In this work, we present PAR3D, a unified part-aware 3D-MLLM framework that enables models to understand, reason about, and ground both objects and their parts in 3D scenes. To enable training and evaluation of part-aware 3D scene understanding, we introduce ScenePart, a synthetic 3D scene dataset with part-level annotations and language instructions. We further develop Part-Aware 3D Representation Learn",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.CV"
+      ],
+      "score": 82
+    },
+    {
+      "id": "arxiv:2606.06453v1",
+      "title": "Vortex: Efficient and Programmable Sparse Attention Serving for AI Agents",
+      "url": "https://arxiv.org/abs/2606.06453v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:48:17Z",
+      "summary": "Sparse attention is becoming increasingly important for serving large language models (LLMs) as generation lengths continue to grow. However, deploying and evaluating new sparse attention algorithms at scale remains highly engineering-intensive, slowing both human researchers and AI agents in exploring the sparse attention design. To address this challenge, we present Vortex, a system that combines a Python-embedded frontend language atop a page-centric tensor abstraction for expressing a broad range of sparse attention algorithms, with an efficient backend tightly integrated into modern LLM serving stacks. Vortex enables rapid prototyping, deployment, and evaluation of sparse attention algorithms, effectively translating their theoretical efficiency gains into real-world throughput improv",
+      "tags": [
+        "ArXiv",
+        "LLM",
+        "cs.AI"
+      ],
+      "score": 82
+    },
+    {
+      "id": "arxiv:2606.06423v1",
+      "title": "RiskFlow: Fast and Faithful Safety-Critical Traffic Scenario Generation",
+      "url": "https://arxiv.org/abs/2606.06423v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:28:42Z",
+      "summary": "Safety-critical traffic scenario generation is essential for evaluating autonomous driving systems under rare but high-risk interactions. Existing diffusion-based methods offer strong controllability in closed-loop generation, but their iterative denoising process is computationally expensive and may accumulate sampling and guidance errors over long rollouts, causing unrealistic motion artifacts such as jitter, abnormal acceleration, and off-road behavior. To address these issues, we propose RiskFlow, a closed-loop safety-critical multi-agent traffic generation framework that formulates future trajectory generation as transport in the action space. Instead of relying on iterative denoising, RiskFlow learns an average velocity field over a finite interval to transform Gaussian action sequen",
+      "tags": [
+        "ArXiv",
+        "AI Agent",
+        "cs.RO",
+        "cs.AI"
+      ],
+      "score": 82
+    },
+    {
+      "id": "arxiv:2606.06474v1",
+      "title": "Self-Augmenting Retrieval for Diffusion Language Models",
+      "url": "https://arxiv.org/abs/2606.06474v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T17:56:27Z",
+      "summary": "Discrete diffusion language models generate text by iteratively denoising an entire response in parallel. At each step, they predict tentative tokens for every masked position, committing the confident predictions to the output and discarding the unconfident ones. We show that the discarded tokens are in fact a useful lookahead signal for retrieval-augmented generation: even low-confidence tokens often surface salient entities early in the denoising trajectory, enabling retrieval of stronger evidence before the output is finalized. We exploit this through Self-Augmenting Retrieval for Diffusion Language Models (SARDI), a dynamic RAG framework that uses these lookahead tokens to guide retrieval during denoising. SARDI is training-free, retriever-agnostic, and applicable to any reasoning-cap",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "score": 81
+    },
+    {
+      "id": "arxiv:2606.06044v1",
+      "title": "IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval",
+      "url": "https://arxiv.org/abs/2606.06044v1",
+      "source": "arxiv",
+      "publishedAt": "2026-06-04T11:39:50Z",
+      "summary": "Retrieval-Augmented Generation (RAG) has shown strong effectiveness in grounding Large Language Models (LLMs) with external knowledge. However, existing RAG and Graph RAG frameworks largely treat knowledge as static or associate time with coarse-grained timestamps or metadata, failing to capture rich temporal structures such as duration, overlap, and containment. We propose IA-RAG, a hierarchical temporal RAG framework that models knowledge as time intervals and performs retrieval under formal temporal constraints. IA-RAG represents facts as Interval Event Units (IEUs) and organizes them into a hierarchical Thematic Forest, where temporal dependencies are governed by Allen's Interval Algebra. To handle incomplete or uncertain temporal boundaries, IA-RAG further introduces a Sub-graph Time ",
+      "tags": [
+        "ArXiv",
+        "RAG",
+        "cs.CL"
+      ],
+      "score": 81
+    },
+    {
+      "id": "hackernews:48414653",
+      "title": "Gemma 4 QAT models: Optimizing compression for mobile and laptop efficiency",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-05T16:18:48Z",
+      "summary": "Gemma 4 QAT models: Optimizing compression for mobile and laptop efficiency",
+      "tags": [
+        "Hacker News",
+        "developer tools"
+      ],
       "score": 80
     },
     {
-      "id": "cand-002",
-      "title": "VectorLake: PostgreSQL Extension for Hybrid Search with Zero Infrastructure Overhead",
-      "url": "https://github.com/vectorlake/vectorlake",
-      "source": "github",
-      "publishedAt": "2026-06-06T07:00:00.000Z",
-      "summary": "一个 PostgreSQL 扩展，直接利用 pgvector 实现混合搜索（向量 + 全文 + 元数据过滤），无需额外基础设施。",
-      "tags": ["RAG", "Vector Database", "PostgreSQL", "Infrastructure"],
+      "id": "devto:3727562",
+      "title": "Why Every Developer Should Attend Tech Week at Least Once",
+      "url": "https://dev.to/javz/why-every-developer-should-attend-tech-week-at-least-once-28ip",
+      "source": "devto",
+      "publishedAt": "2026-06-04T12:33:00Z",
+      "summary": "Last week, Toronto hosted Tech Week. A city-wide celebration filled with events and workshops...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "networking",
+        "softwareengineering",
+        "learning"
+      ],
+      "score": 80
+    },
+    {
+      "id": "hackernews:48433268",
+      "title": "Show HN: Best setup local LLM found for a 5090 (llama.cpp fork + turboquant)",
+      "url": "https://local-llm.utop.workers.dev/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T09:36:02Z",
+      "summary": "Hi folks, I found this setup on consummer hardware that seems to have great results on local hardware. - qwen 3.6 q6 - 450 K context using turboquant turbo3 mode llama.cpp fork - multimodal support This AI generated blog article is a kind of \"report\" of what and how I did and result exemples. I hope...",
+      "tags": [
+        "Hacker News",
+        "mcp",
+        "LLM"
+      ],
+      "score": 79
+    },
+    {
+      "id": "devto:3804289",
+      "title": "I distilled a 7B vision model into a 2B one for screenshots — and the 7B teacher scored worse",
+      "url": "https://dev.to/p0rt/i-distilled-a-7b-vision-model-into-a-2b-one-for-screenshots-and-the-7b-teacher-scored-worse-3akh",
+      "source": "devto",
+      "publishedAt": "2026-06-02T15:36:21Z",
+      "summary": "A hands-on knowledge-distillation project: Qwen2-VL-7B → 2B for UI-screenshot understanding, trained, evaluated and benchmarked end-to-end on an M4 Pro. 2.4× faster — and why the teacher lost on ROUGE-L.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "python",
+        "llm",
+        "deeplearning"
+      ],
+      "score": 79
+    },
+    {
+      "id": "hackernews:48432586",
+      "title": "GitHub's CPO on AI Coding Agents, Macro-Delegation, and the Future of Developers",
+      "url": "https://www.turingpost.com/p/mario-rodriguez-github-ai-coding-agents-copilot",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:07:26Z",
+      "summary": "GitHub's CPO on AI Coding Agents, Macro-Delegation, and the Future of Developers",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 78
+    },
+    {
+      "id": "hackernews:48433422",
+      "title": "Show HN: Grafana Cloud observability plugin for Hermes Agent",
+      "url": "https://github.com/alexander-akhmetov/sigil-hermes",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T10:12:45Z",
+      "summary": "Show HN: Grafana Cloud observability plugin for Hermes Agent",
+      "tags": [
+        "Hacker News",
+        "rag",
+        "AI Agent"
+      ],
+      "score": 78
+    },
+    {
+      "id": "devto:3792620",
+      "title": "When Duplicate Code Is the Better Design",
+      "url": "https://dev.to/adamthedeveloper/when-duplicate-code-is-the-better-design-1idk",
+      "source": "devto",
+      "publishedAt": "2026-06-01T06:09:57Z",
+      "summary": "You've seen the developer. Maybe you are the developer. They discover DRY — ✨ Don't Repeat Yourself...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "architecture",
+        "programming",
+        "productivity"
+      ],
+      "score": 78
+    },
+    {
+      "id": "devto:3810025",
+      "title": "Your Agent Failed in Prod. Good Luck Reproducing It.",
+      "url": "https://dev.to/tisha/your-agent-failed-in-prod-good-luck-reproducing-it-56ci",
+      "source": "devto",
+      "publishedAt": "2026-06-03T10:16:43Z",
+      "summary": "Why LLM agents are so hard to reproduce, why some of that nondeterminism is a feature you should not remove, and how record and replay gets you the one thing you actually need.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "llm",
+        "testing"
+      ],
+      "score": 78
+    },
+    {
+      "id": "devto:3792067",
+      "title": "What are your goals for the week? #181",
+      "url": "https://dev.to/jarvisscript/what-are-your-goals-for-the-week-181-1l58",
+      "source": "devto",
+      "publishedAt": "2026-06-01T14:00:00Z",
+      "summary": "When this posts I should be at Ren faire or on the way to faire to break down the tent. I haven't had...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "devjournal",
+        "discuss",
+        "watercooler"
+      ],
+      "score": 78
+    },
+    {
+      "id": "devto:3812098",
+      "title": "I Got Sick of Miro Eating 10 Minutes of Every Retro. So I Built a Corkboard for the Web.",
+      "url": "https://dev.to/varshithvhegde/i-got-sick-of-miro-eating-10-minutes-of-every-retro-so-i-built-a-corkboard-for-the-web-41n9",
+      "source": "devto",
+      "publishedAt": "2026-06-04T02:32:36Z",
+      "summary": "Here's a thing that happens on every team I've been on. Sprint ends. Someone schedules the retro....",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "opensource",
+        "productivity",
+        "tutorial"
+      ],
       "score": 77
     },
     {
-      "id": "cand-003",
-      "title": "The Hidden Cost of Multi-Agent Systems: A Systematical Analysis",
-      "url": "https://arxiv.org/abs/2606.04567",
-      "source": "arxiv",
-      "publishedAt": "2026-06-05T14:00:00.000Z",
-      "summary": "系统性地分析了多 Agent 系统的 token 开销、延迟和协调成本，并给出了在什么场景下多 Agent 优于单 Agent 的量化阈值。",
-      "tags": ["Multi-Agent", "Cost", "Research", "System Design"],
+      "id": "devto:3778406",
+      "title": "I Used My Last 7% of Copilot Tokens to Bring a 2014 WinForms Game Back to Life",
+      "url": "https://dev.to/gramli/i-used-my-last-7-of-copilot-tokens-to-bring-a-2014-winforms-game-back-to-life-30mo",
+      "source": "devto",
+      "publishedAt": "2026-06-02T07:06:53Z",
+      "summary": "This is a submission for the GitHub Finish-Up-A-Thon Challenge Originally, I didn't plan to join...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "devchallenge",
+        "githubchallenge",
+        "csharp"
+      ],
+      "score": 77
+    },
+    {
+      "id": "hackernews:48432796",
+      "title": "The Grad Student Who Broke Microplastics Research",
+      "url": "https://drstanfield.com/en-eu/blogs/articles/the-grad-student-who-broke-microplastics-research",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:54:51Z",
+      "summary": "The Grad Student Who Broke Microplastics Research",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
       "score": 76
     },
     {
-      "id": "cand-004",
-      "title": "Building AI-Powered Internal Tools in a Weekend: Lessons from 20 Projects",
-      "url": "https://dev.to/alexk/ai-internal-tools-weekend-2026",
+      "id": "hackernews:48427178",
+      "title": "A wild idea: Abstract reality using ontology",
+      "url": "https://news.ycombinator.com/item?id=48427178",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T17:40:51Z",
+      "summary": "# A Wild Idea: Abstract Reality with Ontology ## Background Large language models (LLMs) debuted with GPT-3 back in June 2020. After roughly five to six years of development, I believe the technology is still in its infancy, with massive room for improvement. A major priority is building powerful mo...",
+      "tags": [
+        "Hacker News",
+        "workflow"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48433196",
+      "title": "SourceHut Disrupted by LLM Crawlers",
+      "url": "https://status.sr.ht/issues/2026-06-06-llms-again/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T09:19:23Z",
+      "summary": "SourceHut Disrupted by LLM Crawlers",
+      "tags": [
+        "Hacker News",
+        "llm",
+        "LLM"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432647",
+      "title": "Thoughts on starting new projects with LLM agents",
+      "url": "https://eli.thegreenplace.net/2026/thoughts-on-starting-new-projects-with-llm-agents/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:19:49Z",
+      "summary": "Thoughts on starting new projects with LLM agents",
+      "tags": [
+        "Hacker News",
+        "llm",
+        "LLM"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432644",
+      "title": "Show HN: AI pre-screening CIS counterparties before onboarding",
+      "url": "https://agenstry.com/agents/cis-secondary-sanctions-a2a.vassiliy-lakhonin.workers.dev",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:19:13Z",
+      "summary": "Show HN: AI pre-screening CIS counterparties before onboarding",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432578",
+      "title": "How do AI agents spend your money?",
+      "url": "https://arxiv.org/abs/2604.22750",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:06:16Z",
+      "summary": "How do AI agents spend your money?",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432432",
+      "title": "Show HN: SVAHNAR – Serverless infrastructure to run AI agents in isolated VMs",
+      "url": "https://www.svahnar.com/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T06:35:59Z",
+      "summary": "Show HN: SVAHNAR – Serverless infrastructure to run AI agents in isolated VMs",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432339",
+      "title": "Obsidian-agent-bridge – let AI agents read, write, and deepen Obsidian vaults",
+      "url": "https://github.com/samuraisguilt-jpg/obsidian-agent-bridge",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T06:15:41Z",
+      "summary": "Obsidian-agent-bridge – let AI agents read, write, and deepen Obsidian vaults",
+      "tags": [
+        "Hacker News",
+        "ai agent",
+        "AI Agent"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48433363",
+      "title": "Ask HN: Why do AIs talk like this?",
+      "url": "https://news.ycombinator.com/item?id=48433363",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T10:01:09Z",
+      "summary": "It's not X, it's Y. That is so a genre or idiom of the current AI age. Why? I think because AIs live in language. They don't live somewhere else. So they have to exclude all the language network of things it's not in order to focus themselves on the thing it is. If they were more subconscious&#x2F;s...",
+      "tags": [
+        "Hacker News",
+        "rag"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48433327",
+      "title": "Show HN: YourMemory, agentic memory is a pruning problem, not a hoarding problem",
+      "url": "https://yourmemoryai.vercel.app/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T09:49:42Z",
+      "summary": "This is a project that I have been building for a while now, YourMemory is a solution to agentic memory which focuses on pruning of noise rather than hoarding of data. In the current state of agentic memory most of the context is stored in the form of a MD file or is derived through a RAG model wher...",
+      "tags": [
+        "Hacker News",
+        "rag"
+      ],
+      "score": 76
+    },
+    {
+      "id": "devto:3789811",
+      "title": "Debloating The AI-Grown Codebase",
+      "url": "https://dev.to/maximsaplin/debloating-the-ai-grown-codebase-2om",
       "source": "devto",
-      "publishedAt": "2026-06-06T08:00:00.000Z",
-      "summary": "作者分享了用 LLM 快速构建内部工具的实战经验，覆盖了 20 个不同场景的项目，从数据分析到客服机器人。",
-      "tags": ["LLM", "Internal Tools", "Engineering", "Case Study"],
+      "publishedAt": "2026-06-01T17:22:48Z",
+      "summary": "The use of AI Agents creates a distinctive smell... One can tell the GH Repo owner was high on...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "programming",
+        "agents",
+        "claude"
+      ],
+      "score": 76
+    },
+    {
+      "id": "hackernews:48432740",
+      "title": "Project the aircraft passing overhead onto your ceiling, in real time",
+      "url": "https://github.com/cpaczek/skylight",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:40:03Z",
+      "summary": "Project the aircraft passing overhead onto your ceiling, in real time",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48432679",
+      "title": "Help Nearby – humanitarian map with UN data integration",
+      "url": "https://help-nearby.org",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:25:46Z",
+      "summary": "Help Nearby – humanitarian map with UN data integration",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48432642",
+      "title": "How LLMs Work: A Friendly Map for Humans",
+      "url": "https://oreoro.github.io/posts/how-llms-actually-work-friendly-guide/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T07:18:57Z",
+      "summary": "How LLMs Work: A Friendly Map for Humans",
+      "tags": [
+        "Hacker News",
+        "mcp"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48426453",
+      "title": "Improving LM Studio's MLX Engine for Agentic Workflows",
+      "url": "https://twitter.com/ostensiblyneil/status/2063006720616734835",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T16:21:55Z",
+      "summary": "Improving LM Studio's MLX Engine for Agentic Workflows",
+      "tags": [
+        "Hacker News",
+        "workflow",
+        "Workflow"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48433364",
+      "title": "Pennsylvania Healthcare meta analysis for June 2026 [pdf]",
+      "url": "https://ia601502.us.archive.org/23/items/pa-rating-area-individual-analyses-june-2026/PA_Rating_Area_Individual_Analyses_June2026.pdf",
+      "source": "hackernews",
+      "publishedAt": "2026-06-07T10:01:24Z",
+      "summary": "Pennsylvania Healthcare meta analysis for June 2026 [pdf]",
+      "tags": [
+        "Hacker News",
+        "rag"
+      ],
+      "score": 75
+    },
+    {
+      "id": "devto:3791187",
+      "title": "When Is 100% Vibe Coding OK ?",
+      "url": "https://dev.to/realvorl/when-is-100-vibe-coding-ok--38p",
+      "source": "devto",
+      "publishedAt": "2026-05-31T22:20:09Z",
+      "summary": "Recently, I lost a lot of time reviewing and would have lost even more implementing, what I can only...",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "go",
+        "cschallenge",
+        "productivity"
+      ],
+      "score": 75
+    },
+    {
+      "id": "devto:3805393",
+      "title": "peektea opens a second eye 👀 side-by-side file previews",
+      "url": "https://dev.to/lovestaco/peektea-opens-a-second-eye-side-by-side-file-previews-n6j",
+      "source": "devto",
+      "publishedAt": "2026-06-02T19:31:31Z",
+      "summary": "Hello, I'm Maneshwar. I'm building git-lrc, a Micro AI code reviewer that runs on every commit. It is...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "programming",
+        "cli",
+        "beginners"
+      ],
+      "score": 75
+    },
+    {
+      "id": "hackernews:48422480",
+      "title": "How should we teach digital research workflows to undergrad philosophy students?",
+      "url": "https://news.ycombinator.com/item?id=48422480",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T07:46:53Z",
+      "summary": "I'm mainly looking for tools and resources, ideally focusing on open-source, open-access, and free options. Any suggestions on the presentation approach, along with any dos and don'ts, would be very welcome.",
+      "tags": [
+        "Hacker News",
+        "workflow",
+        "Workflow"
+      ],
       "score": 74
     },
     {
-      "id": "cand-005",
-      "title": "Ask HN: Is On-Premise LLM Deployment Finally Viable for Startups?",
-      "url": "https://news.ycombinator.com/item?id=48429000",
+      "id": "hackernews:48415709",
+      "title": "Show HN: On-device transcriber that's 97% accurate at identifying speakers",
+      "url": "https://mimicscribe.app/",
       "source": "hackernews",
-      "publishedAt": "2026-06-06T19:30:00.000Z",
-      "summary": "讨论在创业公司中部署本地 LLM 的可行性和成本效益，涉及硬件选型、模型量化和 TCO 计算。",
-      "tags": ["LLM", "On-Premise", "Startup", "Discussion"],
+      "publishedAt": "2026-06-05T17:33:41Z",
+      "summary": "I’ve spent the last seven months building a tool I wish I’d had in my previous roles. MimicScribe is a macOS menu bar app that fits the \"AI notetaker\" category. It has accurate on-device speaker identification (a first possibly?), real-time meeting talking points for discovery calls, and a fully key...",
+      "tags": [
+        "Hacker News",
+        "developer tools"
+      ],
+      "score": 74
+    },
+    {
+      "id": "hackernews:48423498",
+      "title": "Lessons from a weekend building local AI workflows",
+      "url": "http://stefano.petrilli.xyz/building-ai-workflows/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T10:33:49Z",
+      "summary": "Lessons from a weekend building local AI workflows",
+      "tags": [
+        "Hacker News",
+        "workflow",
+        "AI Agent",
+        "Workflow"
+      ],
+      "score": 73
+    },
+    {
+      "id": "devto:3797965",
+      "title": "AI gateways: why and how",
+      "url": "https://dev.to/nfrankel/ai-gateways-why-and-how-b5o",
+      "source": "devto",
+      "publishedAt": "2026-06-04T09:02:00Z",
+      "summary": "Before working for 2 years on the Apache APISIX API gateway, I was mainly oblivious to API gateways....",
+      "tags": [
+        "Dev.to",
+        "ai",
+        "codingassistants",
+        "aigateway",
+        "claude"
+      ],
+      "score": 73
+    },
+    {
+      "id": "devto:3822993",
+      "title": "Taxonomy Surgery, Cosine = 1.0000, and Making Routing Disappear into Infrastructure",
+      "url": "https://dev.to/wavebro_c996eee478a5ca541/taxonomy-surgery-cosine-10000-and-making-routing-disappear-into-infrastructure-c20",
+      "source": "devto",
+      "publishedAt": "2026-06-05T18:44:15Z",
+      "summary": "This is part 3 of the Adaptive Model Routing series. Part 1 built an LLM categorizer with Groq — 8...",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "llm",
+        "python"
+      ],
+      "score": 73
+    },
+    {
+      "id": "devto:3804706",
+      "title": "MLOps Lifecycle: Stages, Workflow, and Best Practices",
+      "url": "https://dev.to/launchdarkly/mlops-lifecycle-stages-workflow-and-best-practices-227d",
+      "source": "devto",
+      "publishedAt": "2026-06-02T16:48:26Z",
+      "summary": "Understand the MLOps lifecycle from data preparation to deployment, monitoring, governance, and retraining.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "mlops",
+        "tutorial"
+      ],
       "score": 72
     },
     {
-      "id": "cand-006",
-      "title": "PromptForge: A Version-Controlled Prompt Management Platform",
-      "url": "https://github.com/promptforge/promptforge",
-      "source": "github",
-      "publishedAt": "2026-06-05T16:00:00.000Z",
-      "summary": "一个开源的 Prompt 版本管理平台，支持 A/B 测试、回归测试和 CI/CD 集成，适合团队协作管理 LLM Prompt。",
-      "tags": ["LLM", "Prompt Engineering", "DevOps", "TypeScript"],
-      "score": 69
-    },
-    {
-      "id": "cand-007",
-      "title": "From Monolith to Modular: A Year of Refactoring Our AI Pipeline",
-      "url": "https://dev.to/morganwei/ai-pipeline-refactor-2026",
+      "id": "devto:3752190",
+      "title": "React State Management: When to Use useState, Context, or Zustand",
+      "url": "https://dev.to/gavincettolo/react-state-management-when-to-use-usestate-context-or-zustand-4j1f",
       "source": "devto",
-      "publishedAt": "2026-06-05T12:00:00.000Z",
-      "summary": "一篇长达一年的 AI 管线重构复盘，覆盖了从单体到微服务的架构演进、技术选型和团队协作。",
-      "tags": ["AI Pipeline", "Architecture", "Refactoring", "Engineering"],
-      "score": 66
+      "publishedAt": "2026-06-02T07:30:00Z",
+      "summary": "Here's a conversation I've had more than once. A developer is building a React app. It starts...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "react",
+        "webdev",
+        "beginners"
+      ],
+      "score": 72
     },
     {
-      "id": "cand-008",
-      "title": "Smaller, Faster, Cheaper: Distilling Reasoning Models for Production",
-      "url": "https://arxiv.org/abs/2606.05678",
-      "source": "arxiv",
-      "publishedAt": "2026-06-04T20:00:00.000Z",
-      "summary": "研究如何通过知识蒸馏将大型推理模型的能力迁移到小型模型，在保持 90% 推理能力的同时降低 70% 的推理成本。",
-      "tags": ["LLM", "Distillation", "Research", "Cost Optimization"],
-      "score": 65
-    },
-    {
-      "id": "cand-009",
-      "title": "OpenRouter Analytics: Community Dashboard for LLM API Usage Patterns",
-      "url": "https://github.com/openrouter/analytics",
-      "source": "github",
-      "publishedAt": "2026-06-05T10:00:00.000Z",
-      "summary": "OpenRouter 社区版数据看板，用于分析 LLM API 的用量模式、成本分布和模型切换趋势。",
-      "tags": ["LLM", "Analytics", "Dashboard", "Open Source"],
-      "score": 63
-    },
-    {
-      "id": "cand-010",
-      "title": "HN: What's the State of Open-Source AI Agents in Mid-2026?",
-      "url": "https://news.ycombinator.com/item?id=48428000",
-      "source": "hackernews",
-      "publishedAt": "2026-06-06T14:00:00.000Z",
-      "summary": "社区集体盘点 2026 年中开源 AI Agent 生态现状，讨论框架成熟度、社区规模和商业可行性。",
-      "tags": ["AI Agent", "Open Source", "Discussion", "Ecosystem"],
-      "score": 62
-    },
-    {
-      "id": "cand-011",
-      "title": "pg-embedding-search: Turn Any PostgreSQL Table into a Vector Search Index",
-      "url": "https://github.com/pg-embed/pg-embedding-search",
-      "source": "github",
-      "publishedAt": "2026-06-04T18:00:00.000Z",
-      "summary": "一个轻量级 PostgreSQL 插件，零配置将任何表转化为向量搜索索引，支持 pgvector 和 HNSW 索引。",
-      "tags": ["RAG", "Vector Search", "PostgreSQL", "Tool"],
-      "score": 60
-    },
-    {
-      "id": "cand-012",
-      "title": "Building a CI/CD Pipeline for LLM Applications: A Practical Guide",
-      "url": "https://dev.to/priyasharma/llm-cicd-guide-2026",
+      "id": "devto:3793088",
+      "title": "OrinIDE v1.0.7 — The AI Finally Understands Your Whole Project",
+      "url": "https://dev.to/nandan_das_369/orinide-v107-the-ai-finally-understands-your-whole-project-2nd4",
       "source": "devto",
-      "publishedAt": "2026-06-05T09:00:00.000Z",
-      "summary": "从 Prompt 测试、模型评估到部署和监控，一步步讲解如何为 LLM 应用建立 CI/CD 管线。",
-      "tags": ["LLM", "CI/CD", "DevOps", "Engineering"],
-      "score": 58
+      "publishedAt": "2026-06-01T06:13:17Z",
+      "summary": "New in OrinIDE: project-wide AI context, surgical edits that don't rewrite your whole file, a skills system, HTML preview in chat, and a free image API. Built on Android with Termux.",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "webdev",
+        "ai",
+        "opensource"
+      ],
+      "score": 72
     },
     {
-      "id": "cand-013",
-      "title": "Show HN: I Built a Personal AI Research Assistant That Reads ArXiv for Me",
-      "url": "https://news.ycombinator.com/item?id=48427000",
+      "id": "devto:3789544",
+      "title": "CHANGELOG.md is for Both Humans and AI Now, So Let’s Automate It",
+      "url": "https://dev.to/nyaomaru/changelogmd-is-for-both-humans-and-ai-now-so-lets-automate-it-18dp",
+      "source": "devto",
+      "publishedAt": "2026-06-03T12:33:59Z",
+      "summary": "Hoi hoi! I’m @nyaomaru, a frontend engineer who recently discovered the deliciousness of a cheese...",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "typescript",
+        "changelog",
+        "githubactions"
+      ],
+      "score": 72
+    },
+    {
+      "id": "devto:3826531",
+      "title": "Karate Platform: Finishing the Tournament Experience",
+      "url": "https://dev.to/apurbalabs/karate-platform-finishing-the-tournament-experience-56oo",
+      "source": "devto",
+      "publishedAt": "2026-06-05T09:41:07Z",
+      "summary": "This is a submission for the GitHub Finish-Up-A-Thon Challenge What I Built Karate...",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "devchallenge",
+        "githubchallenge",
+        "githubcopilot"
+      ],
+      "score": 72
+    },
+    {
+      "id": "hackernews:48414029",
+      "title": "A curated list of AI for developers",
+      "url": "https://github.com/ai-for-developers/awesome-ai-coding-tools",
       "source": "hackernews",
-      "publishedAt": "2026-06-05T20:00:00.000Z",
-      "summary": "一位独立开发者展示了他的个人 AI 研究助手，每天自动抓取 ArXiv 论文并生成个性化摘要。",
-      "tags": ["AI Agent", "Research", "Show HN", "Personal Tool"],
-      "score": 56
+      "publishedAt": "2026-06-05T15:39:40Z",
+      "summary": "A curated list of AI for developers",
+      "tags": [
+        "Hacker News",
+        "developer tools",
+        "AI Agent"
+      ],
+      "score": 71
     },
     {
-      "id": "cand-014",
-      "title": "LightRAG 2.0: Graph-Enhanced Retrieval for Complex Multi-Hop Queries",
-      "url": "https://github.com/hkuds/lightrag",
-      "source": "github",
-      "publishedAt": "2026-06-05T14:00:00.000Z",
-      "summary": "LightRAG 2.0 引入图增强检索机制，在多跳推理查询上相比传统向量检索提升了 45% 的准确率。",
-      "tags": ["RAG", "Graph RAG", "Knowledge Graph", "Python"],
-      "score": 55
+      "id": "devto:3812736",
+      "title": "Brute-Force Retrieval Holds Through 5,000 Memories. Then It Doesn't.",
+      "url": "https://dev.to/newtorob/brute-force-retrieval-holds-through-5000-memories-then-it-doesnt-5bm3",
+      "source": "devto",
+      "publishedAt": "2026-06-03T16:52:56Z",
+      "summary": "I measured where the linear cosine scan in a local AI memory store stops being free. Through 5,000 entries it's negligible. By 10,000 the tail widens visibly. The threshold is sharper than I expected.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "performance",
+        "benchmarks",
+        "retrieval"
+      ],
+      "score": 71
     },
     {
-      "id": "cand-015",
-      "title": "LLM-as-Judge: A Critical Review of Current Practices and Pitfalls",
-      "url": "https://arxiv.org/abs/2606.03456",
-      "source": "arxiv",
-      "publishedAt": "2026-06-04T22:00:00.000Z",
-      "summary": "对当前广泛使用的 LLM-as-Judge 评估范式进行了系统性审查，指出了位置偏差、长度偏好和自评放水等关键问题。",
-      "tags": ["LLM", "Evaluation", "Research", "Critique"],
-      "score": 53
+      "id": "devto:3786429",
+      "title": "Content Virtualization using the HTML <template> Element",
+      "url": "https://dev.to/stuffbreaker/content-virtualization-using-the-html-element-2gn7",
+      "source": "devto",
+      "publishedAt": "2026-06-02T13:26:42Z",
+      "summary": "When I started this experiment, the core question was simple: Because content inside...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "html",
+        "performance",
+        "ai"
+      ],
+      "score": 71
+    },
+    {
+      "id": "devto:3786507",
+      "title": "Mastering the Latest TypeScript: What's New in 6.0 (and a Peek at 7)",
+      "url": "https://dev.to/erikch/mastering-the-latest-typescript-whats-new-in-60-and-a-peek-at-7-4m8o",
+      "source": "devto",
+      "publishedAt": "2026-06-04T17:01:27Z",
+      "summary": "TypeScript 6.0 has been out for a few months now, and it's a bit of an unusual release. It's the last...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "typescript",
+        "webdev",
+        "node"
+      ],
+      "score": 71
+    },
+    {
+      "id": "devto:3820245",
+      "title": "The Comments Got Good. That's How I Knew.",
+      "url": "https://dev.to/p0rt/the-comments-got-good-thats-how-i-knew-42m9",
+      "source": "devto",
+      "publishedAt": "2026-06-04T14:09:06Z",
+      "summary": "I wrote a post on model distillation. The comments were thoughtful, specific, and technically sharp — and that's exactly what made me check whether any of them were written by people.",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "ai",
+        "webdev",
+        "discuss"
+      ],
+      "score": 71
+    },
+    {
+      "id": "hackernews:48423041",
+      "title": "I built a workflow orchestrator where each stage defines the next one",
+      "url": "https://processflow.tech/",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T09:24:53Z",
+      "summary": "I built a workflow orchestrator where each stage defines the next one",
+      "tags": [
+        "Hacker News",
+        "workflow",
+        "Workflow"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3790724",
+      "title": "peektea: brewing a terminal file browser with Bubble Tea",
+      "url": "https://dev.to/lovestaco/peektea-brewing-a-terminal-file-browser-with-bubble-tea-4jg1",
+      "source": "devto",
+      "publishedAt": "2026-05-31T19:00:22Z",
+      "summary": "Hello, I'm Maneshwar. I'm building git-lrc, a Micro AI code reviewer that runs on every commit. It is...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "programming",
+        "beginners",
+        "go"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3806128",
+      "title": "Why I stopped fighting the browser",
+      "url": "https://dev.to/dimonb19a/why-i-stopped-fighting-the-browser-4l1e",
+      "source": "devto",
+      "publishedAt": "2026-06-02T23:06:22Z",
+      "summary": "A while ago I was about to install another dropdown library. I'd already added one for modals and one...",
+      "tags": [
+        "Dev.to",
+        "webdev",
+        "css",
+        "html",
+        "a11y"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3811838",
+      "title": "Cross-Machine Memory Query: About 20 Milliseconds, Most Days",
+      "url": "https://dev.to/newtorob/cross-machine-memory-query-about-20-milliseconds-most-days-1a3d",
+      "source": "devto",
+      "publishedAt": "2026-06-03T14:26:30Z",
+      "summary": "I built a peer-memory endpoint so my Mac can query my Linux box's memory store over a WireGuard mesh. The first measurement felt suspiciously clean. I measured three times before publishing.",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "performance",
+        "benchmarks",
+        "wireguard"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3812371",
+      "title": "Operating Real-Time AI: SLAs, Observability, and Knowing When It's Broken",
+      "url": "https://dev.to/kenwalger/operating-real-time-ai-slas-observability-and-knowing-when-its-broken-8n2",
+      "source": "devto",
+      "publishedAt": "2026-06-03T15:59:38Z",
+      "summary": "The previous four posts in this series covered the three architectural pillars of real-time AI at...",
+      "tags": [
+        "Dev.to",
+        "machinelearning",
+        "ai",
+        "monitoring",
+        "sre"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3810615",
+      "title": "Gnoke Skins: Every Device Already Has a Face. It Just Hasn't Rendered Yet.",
+      "url": "https://dev.to/edmundsparrow/gnoke-skins-every-device-already-has-a-face-it-just-hasnt-rendered-yet-1n2b",
+      "source": "devto",
+      "publishedAt": "2026-06-03T11:28:25Z",
+      "summary": "There is a gap between what a device knows and what it shows. Your MiFi router knows signal...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "webdev",
+        "iot",
+        "showdev"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3823604",
+      "title": "I Built a Juneteenth Game for the June Solstice Game Jam - March to Freedom published",
+      "url": "https://dev.to/snipforge/i-built-a-juneteenth-game-for-the-june-solstice-game-jam-march-to-freedompublished-nd4",
+      "source": "devto",
+      "publishedAt": "2026-06-05T02:39:03Z",
+      "summary": "This is a submission for the June Solstice Game Jam Submission. @ben @jess What I Built: March to...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "devchallenge",
+        "gamechallenge",
+        "gamedev"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3829138",
+      "title": "AI Won't Replace Humans — It'll Just Make Us Pickier",
+      "url": "https://dev.to/markofrei919/ai-wont-replace-humans-itll-just-make-us-pickier-2iij",
+      "source": "devto",
+      "publishedAt": "2026-06-05T15:45:48Z",
+      "summary": "Every few weeks someone posts the same screenshot: an AI writing a whole app from a one-line prompt,...",
+      "tags": [
+        "Dev.to",
+        "productivity",
+        "ai",
+        "discuss",
+        "career"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3821770",
+      "title": "Abhorrent Employment Agreements.",
+      "url": "https://dev.to/janeori/abhorrent-employment-agreements-j88",
+      "source": "devto",
+      "publishedAt": "2026-06-04T22:53:57Z",
+      "summary": "I recently received (and later rejected) a six figure Staff Engineer position. They approached me,...",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "employeeexperience",
+        "help"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3726745",
+      "title": "Road To KiwiEngine #6: I Don’t Hate AI — I Think We’re Teaching It Recklessly",
+      "url": "https://dev.to/stinklewinks/road-to-kiwiengine-6i-dont-hate-ai-i-think-were-teaching-it-recklessly-5g6l",
+      "source": "devto",
+      "publishedAt": "2026-06-01T15:30:00Z",
+      "summary": "One thing I want to make clear upfront: I do not hate AI. Honestly, I think AI is one of the most...",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "webdev",
+        "ai",
+        "architecture"
+      ],
+      "score": 70
+    },
+    {
+      "id": "devto:3831308",
+      "title": "Two Doors Into the Same Room",
+      "url": "https://dev.to/gnomeman4201/two-doors-into-the-same-room-5fd2",
+      "source": "devto",
+      "publishedAt": "2026-06-06T01:07:50Z",
+      "summary": "The Destruction Side: Phrack Magazine Phrack is a self‑published hacker zine founded in...",
+      "tags": [
+        "Dev.to",
+        "opensource",
+        "webhistory",
+        "webdev",
+        "culture"
+      ],
+      "score": 70
+    },
+    {
+      "id": "hackernews:48423506",
+      "title": "France, Germany, and the Netherlands public admin co-developed public tools",
+      "url": "https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/how-france-germany-and-netherlands-co-developed-public-tools",
+      "source": "hackernews",
+      "publishedAt": "2026-06-06T10:34:31Z",
+      "summary": "France, Germany, and the Netherlands public admin co-developed public tools",
+      "tags": [
+        "Hacker News",
+        "developer tools"
+      ],
+      "score": 68
+    },
+    {
+      "id": "devto:3743899",
+      "title": "Lazy Loading Wasn't Enough: How I Cut Load Time from 15s to 1.1s",
+      "url": "https://dev.to/yoskutik/lazy-loading-wasnt-enough-how-i-cut-load-time-from-15s-to-11s-4e7g",
+      "source": "devto",
+      "publishedAt": "2026-05-31T06:00:00Z",
+      "summary": "I once worked on a frontend app where total loading time went from 15 seconds to 1.1 seconds. The...",
+      "tags": [
+        "Dev.to",
+        "javascript",
+        "webdev",
+        "frontend",
+        "react"
+      ],
+      "score": 64
     }
   ],
   "llmReport": {
-    "enabled": true,
-    "provider": "mock",
-    "model": "mock-report-generator",
-    "status": "fallback",
+    "enabled": false,
+    "provider": "none",
+    "model": "none",
+    "status": "rule-only",
     "title": "信息雷达日报｜2026-06-07",
-    "summary": "今日共抓取 64 条信息，去重后保留 41 条，最终推荐 10 条。AI Agent 和多 Agent 协作是今日最热门方向，AgentFlow 和 Chain-of-Agents 论文分别代表了工程实践和学术前沿的双重关注。RAG 方向持续活跃，语义缓存和评估管线成为工程落地的新焦点。",
-    "markdown": "# 信息雷达日报｜2026-06-07\n\n## 今日概览\n\n今日共抓取 64 条信息，去重后保留 41 条，经过规则打分和 LLM 评估，最终推荐 10 条。覆盖 GitHub、Hacker News、Dev.to 和 ArXiv 四个数据源。\n\n## 今日精选 Top 5\n\n1. **AgentFlow** — 多智能体编排框架，用 DAG 抽象 Agent 协作（GitHub, 92 分）\n2. **内部文档 RAG 迁移复盘** — 从 54% 到 91% 检索准确率的真实案例（Dev.to, 88 分）\n3. **HN 热议：2026 年用什么做 AI Code Review** — 203 条评论的开发者真实反馈（HN, 86 分）\n4. **RAGCache** — 语义缓存层实现 10 倍 RAG 吞吐量提升（GitHub, 84 分）\n5. **Chain-of-Agents 论文** — Stanford + Anthropic 联合研究多 Agent 长上下文协作（ArXiv, 82 分）\n\n## 另外 5 条值得关注\n\n6. **OpenDevin** — 开源 AI 软件工程师平台（GitHub, 79 分）\n7. **RAG 评估管线指南** — 从指标到 CI 集成的完整方案（Dev.to, 75 分）\n8. **Autonoma** — 可视化 Agent 构建器，生成可导出 Python 代码（HN, 73 分）\n9. **LLM Starter Kit** — 生产级 LLM 应用开发模板（GitHub, 70 分）\n10. **SWE-Bench 2.0** — AI 编码能力评估基准扩展（ArXiv, 68 分）\n\n## 今日趋势判断\n\nAI Agent 和多 Agent 协作是今日最热门方向，从工程框架（AgentFlow）到学术研究（Chain-of-Agents）再到可视化工具（Autonoma），都在朝更复杂的 Agent 协作模式演进。\n\nRAG 方向从早期的\"如何做\"转向\"如何做好\"——评估管线和缓存优化成为新的关注焦点。\n\nAI 编程工具已经从代码补全进化到完整的软件工程自动化，OpenDevin 和 SWE-Bench 2.0 分别代表了工程实现和评估标准的最新进展。\n\n## 后续关注方向\n\n- **多 Agent 协作的工程化落地**：AgentFlow 等框架能否在实际场景中证明其价值\n- **RAG 评估标准**：行业是否会出现类似 SWE-Bench 的 RAG 标准评估基准\n- **AI 编码工具的差异化竞争**：从代码补全到全自动软件工程的演进路径\n- **LLM 蒸馏和本地部署的可行性**：成本控制是 2026 年 LLM 应用的核心议题"
+    "summary": "规则评分日报。共评分 80 条，推荐 10 条。",
+    "markdown": null
   },
   "email": {
     "enabled": false,

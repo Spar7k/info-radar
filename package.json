@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "radar:fetch": "tsx src/radar/run.ts",
+    "radar:generate:preview": "tsx src/radar/processors/generateLatestPreview.ts",
+    "radar:generate:latest": "tsx src/radar/processors/generateLatest.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
